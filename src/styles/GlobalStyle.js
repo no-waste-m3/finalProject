@@ -7,6 +7,7 @@ export default createGlobalStyle`
         --secondary-color: #FFB886;
 
         --filter-color: #FFB162;
+        --hover-color: #FF6B09;
 
         --grey-0: #000000;
         --grey-1: #737373;
