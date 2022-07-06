@@ -9,6 +9,7 @@ import NavPages from "./components/NavPages";
 import { Button } from "./components/Button";
 import FormRegister from "./components/FormRegister";
 import SearchBar from "./components/SearchBar";
+import { AppRoutes } from './pages/routes';
 
 
 
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <>
+    <AppRoutes/>
       <GlobalStyle />
 
       <ToastNotify/>
