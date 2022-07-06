@@ -6,6 +6,7 @@ import { Modal } from './components/Modals';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NavPages from "./components/NavPages";
+import SearchBar from "./components/SearchBar";
 
 
 function App() {
@@ -28,8 +29,9 @@ function App() {
       <button onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</button>
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}
-      {/* <Header /> */}
+      <Header />
       {/* <Wade width='6rem' height='9.5rem'/> */}
+      {/* <SearchBar /> */}
 
       {/* Exemplo de utilização do modal */}
       <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={10} backColor='--grey-1'/>
