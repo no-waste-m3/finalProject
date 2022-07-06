@@ -5,6 +5,8 @@ export const ButtonStyled = styled.button`
   border-radius: 10px;
   border: 1px solid var(--primary-color);
   width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  font-family: "Montserrat", sans-serif;
 
   ${(props) => {
     switch (props.typebutton) {
