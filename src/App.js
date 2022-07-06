@@ -3,6 +3,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NavPages from "./components/NavPages";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
       <GlobalStyle />
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}
-      {/* <Header /> */}
+      <Header />
       {/* <Wade width='6rem' height='9.5rem'/> */}
+      {/* <SearchBar /> */}
     </>
   );
 }
