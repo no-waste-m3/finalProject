@@ -6,7 +6,10 @@ import { Modal } from './components/Modals';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NavPages from "./components/NavPages";
+import { Button } from "./components/Button";
+import FormRegister from "./components/FormRegister";
 import SearchBar from "./components/SearchBar";
+
 
 
 function App() {
@@ -26,7 +29,7 @@ function App() {
 
       <ToastNotify/>
       {/* Button para testes da notificação */}
-      <button onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</button>
+      <Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button>
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}
       <Header />
