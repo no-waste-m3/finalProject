@@ -13,6 +13,10 @@ export const Button = styled(ButtonStyled)`
         return css`
           background-color: var(--primary-color);
           color: var(--white);
+
+          &:hover {
+            background-color: var(--hover-color);
+          }
         `;
 
       case "secondary":
