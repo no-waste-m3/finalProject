@@ -5,6 +5,7 @@ export const Button = styled(ButtonStyled)`
   padding: 0.4rem 0.8rem;
   border-radius: 10px;
   border: 1px solid var(--primary-color);
+  width: ${(props) => props.width};
 
   ${(props) => {
     switch (props.typebutton) {
