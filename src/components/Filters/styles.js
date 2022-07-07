@@ -7,6 +7,8 @@ export const Container = styled.div`
   width: 300px;
   cursor:pointer;
 
+  margin: 1rem 0 1rem 0;
+
   @media (min-width: 700px) {
     width: 500px;
     height:auto;
@@ -22,7 +24,7 @@ justify-content: center;
 align-items: center;
 width: fit-content;
 height: fit-content;
-padding: 2px 4px 2px 4px ;
+padding: ${(props) => props.padding};
 background-color: ${(props) => props.color};
 
 
@@ -31,7 +33,7 @@ svg{
     filter:${(props) => props.iconColor};
 
     @media (min-width: 700px) {
-    height:35px;
+    height:30px;
     width: auto;}
     }
 `

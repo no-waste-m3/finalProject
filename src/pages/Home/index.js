@@ -5,7 +5,7 @@ import { Container } from './styles';
 export const Home =() =>  {
   return (
     <Container>
-
+HOME
     </Container>
   );
 }
