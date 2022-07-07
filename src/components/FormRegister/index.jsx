@@ -18,7 +18,7 @@ import {
 import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useEffect, useState } from "react";
 import { Button } from "../Button";
-import InputField from "../Input";
+import Input from "../Input";
 import ProgressBarStep from "../ProgressBarStep";
 import { FormRegisterStyled, StepButtons } from "./styled";
 import { useForm } from "react-hook-form";
@@ -62,7 +62,9 @@ export const FormRegister = ({ ...rest }) => {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({
-    resolver: yupResolver(schemas[step])
+    resolver: yupResolver(schemas[step]),
+    mode: "onChange",
+    reValidateMode: "onChange"
   });
 
   useEffect(() => {
@@ -102,7 +104,7 @@ export const FormRegister = ({ ...rest }) => {
       <ProgressBarStep step={step} stepsCounters={[0,1,2]} isValid={isValid}/>
     <FormStepper step={step} {...rest} onSubmit={handleSubmit(submitFunction)}>
       <div>
-        <InputField
+        <Input
         register={register}
         name="name"
         error={errors.name?.message}
@@ -110,7 +112,7 @@ export const FormRegister = ({ ...rest }) => {
           label="Nome"
           Icon={<User size={20} color="var(--primary-color)" weight="fill" />}
         />
-        <InputField
+        <Input
         register={register}
         name="account"
         error={errors.account?.message}
@@ -127,8 +129,8 @@ export const FormRegister = ({ ...rest }) => {
           <option value="">Comprador ou vendedor?</option>
           <option value="seller">Vendedor</option>
           <option value="buyer">Comprador</option>
-        </InputField>
-        <InputField
+        </Input>
+        <Input
         register={register}
         name="email"
         error={errors.email?.message}
@@ -138,7 +140,7 @@ export const FormRegister = ({ ...rest }) => {
             <Envelope size={20} color="var(--primary-color)" weight="fill" />
           }
         />
-        <InputField
+        <Input
         register={register}
         name="password"
         error={errors.password?.message}
@@ -159,7 +161,7 @@ export const FormRegister = ({ ...rest }) => {
       </div>
 
       <div>
-        <InputField
+        <Input
         register={register}
         name="type"
         error={errors.type?.message}
@@ -170,8 +172,8 @@ export const FormRegister = ({ ...rest }) => {
           <option value=""></option>
           <option value="PF">PF</option>
           <option value="PJ">PJ</option>
-        </InputField>
-        <InputField
+        </Input>
+        <Input
         register={register}
         name="identify"
         error={errors.identify?.message}
@@ -185,7 +187,7 @@ export const FormRegister = ({ ...rest }) => {
             />
           }
         />
-        <InputField
+        <Input
         register={register}
         name="contact"
         error={errors.contact?.message}
@@ -207,7 +209,7 @@ export const FormRegister = ({ ...rest }) => {
 
       <div>
         <div>
-        <InputField
+        <Input
         register={register}
         name="cep"
         error={errors.cep?.message}
@@ -216,7 +218,7 @@ export const FormRegister = ({ ...rest }) => {
           label="CEP"
           Icon={<Hash size={20} color="var(--primary-color)" weight="fill" />}
         />
-        <InputField
+        <Input
         register={register}
         name="number"
         error={errors.number?.message}
@@ -225,12 +227,13 @@ export const FormRegister = ({ ...rest }) => {
           Icon={<House size={20} color="var(--primary-color)" weight="fill" />}
         />
         </div>
-        <InputField
+        <Input
         register={register}
         name="street"
         error={errors.street?.message}
         value={street}
         //onInput={(e) => setStreet(e.target.value)}
+        onChange={(e) => setStreet(e.target.value)}
         Field = 'input'
           label="Rua"
           Icon={
@@ -241,11 +244,15 @@ export const FormRegister = ({ ...rest }) => {
             />
           }
         />
-        <InputField
+        <Input
         register={register}
         name="district"
         value={district}
         //onInput={(e) => setDistrict(e.target.value)}
+        onChange={(e) => {
+          console.log(e.target.value)
+          setDistrict(e.target.value)
+        }}
         error={errors.district?.message}
         Field = 'input'
           label="Bairro"

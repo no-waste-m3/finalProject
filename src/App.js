@@ -13,9 +13,9 @@ import Cart from "./components/Cart";
 import { AppRoutes } from './pages/routes';
 import { Dashboard } from "./pages/Dashboard";
 
+
 import Filters from "./components/Filters";
 import { Link } from "react-router-dom";
-
 
 function App() {
   // function 'notify' pode ser passada por props para os componentes que necessitem dela. Deve ser informada uma mensagem no parametro e o tempo em milissigundos para a animação permanecer na tela.
@@ -31,6 +31,7 @@ function App() {
     <>
       <AppRoutes />
       <GlobalStyle />
+
       <Dashboard/>
       {/* <Cart /> */}
       {/* <ToastNotify/> */}
@@ -49,10 +50,10 @@ function App() {
 
       {/* Exemplo de utilização do modal */}
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={10} backColor='--grey-1'/> */}
-      <Filters/>
+      {/* <Filters/> */}
+
 
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={30} backColor='--white-0'/> */}
-
     </>
   );
 }
