@@ -11,6 +11,8 @@ import { toast } from "react-toastify";
 import { Button } from "./components/Button";
 import Cart from "./components/Cart";
 import { AppRoutes } from './pages/routes';
+import { Dashboard } from "./pages/Dashboard";
+
 import Filters from "./components/Filters";
 import { Link } from "react-router-dom";
 
@@ -29,19 +31,12 @@ function App() {
     <>
       <AppRoutes />
       <GlobalStyle />
-      
-      <Cart />
-
-      
+      <Dashboard/>
+      {/* <Cart /> */}
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
 
-      <Button
-        typebutton="primary"
-        onClick={() => notify("Olá! Que bom te ver novamente.", 3000)}
-      >
-        Aqui
-      </Button>
+      {/* <Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button> */}
 
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}
