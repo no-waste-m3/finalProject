@@ -14,7 +14,7 @@ export const HeaderContainer = styled.header`
 
 export const HeaderCentralized = styled.div`
   height: 100%;
-  width: 325px;
+  width: 86.6%;
   display: flex;
   align-items: center;
   justify-content: flex-end;

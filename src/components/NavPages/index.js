@@ -41,7 +41,7 @@ const NavPages = () => {
   return (
     <NavContainer>
       {pages.map((page, index) => {
-        return page[index] === page[pages.length - 1] ? (
+        return index === pages.length - 1 ? (
           <PageContainer borderBottom="0" key={index}>
             {page}
           </PageContainer>
