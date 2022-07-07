@@ -11,6 +11,8 @@ import SearchBar from "./components/SearchBar";
 import { Button } from "./components/Button";
 import Cart from "./components/Cart";
 import { AppRoutes } from './pages/routes';
+import { BrowserRouter } from "react-router-dom";
+import { Dashboard } from "./pages/Dashboard";
 
 
 
@@ -28,12 +30,12 @@ function App() {
     <>
     <AppRoutes/>
       <GlobalStyle />
-
-      <Cart />
+      <Dashboard/>
+      {/* <Cart /> */}
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
 
-      <Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button>
+      {/* <Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button> */}
 
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}
