@@ -3,7 +3,12 @@ import Header from "../../components/Header";
 import HomeProduct from "../../components/HomeProduct";
 import CartButtonMobile from "../../components/CartButtonMobile";
 import Filters from "../../components/Filters";
-import { Container, ContentContainer, ContentUpperDiv } from "./styles";
+import {
+  Container,
+  ContentContainer,
+  ContentUpperDiv,
+  FiltersContainer,
+} from "./styles";
 
 export const Home = () => {
   return (
@@ -11,7 +16,9 @@ export const Home = () => {
       <Header />
       <ContentContainer>
         <ContentUpperDiv>
-          <Filters />
+          <FiltersContainer>
+            <Filters />
+          </FiltersContainer>
           <HomeProduct />
         </ContentUpperDiv>
         <CartButtonMobile />
