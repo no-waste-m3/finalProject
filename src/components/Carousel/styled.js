@@ -6,7 +6,7 @@ export const CarouselStyled = styled(motion.div)`
     overflow: hidden;
     width: 18rem;
 
-    @media (max-width: 545px) {
+    @media (max-width: 630px) {
         display: none;  
     }
 `

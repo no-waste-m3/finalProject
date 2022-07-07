@@ -1,12 +1,14 @@
-import { InputField, InputStyled } from "./styled"
+import { InputField } from "./styled"
 
-const Input = ({label, Icon, SecondIcon, ...rest}) => {
+const Input = ({Field,label, Icon, SecondIcon, children, error, register, name, ...rest}) => {
     
     return (
-        <InputField>
-            <label>{label}</label>
+        <InputField isError={!!error}>
+            <label>{label}{!!error && <span> - {error}</span>}</label>
             {Icon && Icon}
-            <InputStyled {...rest}/>
+            <Field {...register(name)} {...rest}>
+                {children}
+            </Field>
             {SecondIcon && SecondIcon}
         </InputField>
     )

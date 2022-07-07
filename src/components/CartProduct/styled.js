@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 export const ProdContainer = styled.li`
-  height: 295px;
+  height: 75px;
   width: 295px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  @media (min-width: 700px) {
+    width: 270px;
+  }
 `;
 
 export const ImgContainer = styled.div`
@@ -15,6 +18,9 @@ export const ImgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (min-width: 700px) {
+    width: 118px;
+  }
 `;
 
 export const Img = styled.img`
@@ -32,7 +38,7 @@ export const NameContainer = styled.div`
 `;
 
 export const RemoveBtnContainer = styled.div`
-  width: 37px;
+  width: 30px;
   height: 65px;
   display: flex;
   flex-direction: column;

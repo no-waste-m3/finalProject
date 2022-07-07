@@ -37,6 +37,7 @@ const Header = () => {
             />
           </div>
         </HeaderLeftDiv>
+        {asidePages && <NavPages />}
       </HeaderCentralized>
     </HeaderContainer>
   );
