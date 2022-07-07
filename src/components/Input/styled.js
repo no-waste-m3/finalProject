@@ -9,6 +9,13 @@ export const InputField = styled.div`
     width: 100%;
     flex-wrap: nowrap;
 
+    >label {
+        >span {
+            color: red;
+            font-size: small;
+        }
+    }
+
     >svg {
         position: absolute;
         bottom: 0;
@@ -27,7 +34,7 @@ export const InputField = styled.div`
 
         outline: none;
 border: none;
-border-bottom: 1px solid;
+border-bottom: 1px solid ${(props) => !!props.isError ? 'red' : 'var(--grey-0)'};
 width: 100%;
 padding-left: 1.5rem;
 padding-bottom: 0.1rem;

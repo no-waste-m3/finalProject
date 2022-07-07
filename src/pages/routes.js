@@ -15,17 +15,21 @@ export const AppRoutes = () => {
     return (
 
         <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="signUp" element={<SignUp/>}/>
+            <Route path="/" element={<Login />}/>
+
                 <Route path="home" element={<Home/>}>
-                        <Route path="dashboard" element={<Dashboard />}>
+                        <Route path="dashboard" element={<Dashboard/>}>
                                 <Route path="stats" element={<Statistics/>}/>
                         </Route>
                         <Route path="checkout" element={<Checkout/>}/>
                         <Route path="about" element={<AboutUs/>}/>
                 </Route>
-                <Route path="signUp" element={<SignUp/>}/>
+                
         </Routes>
 
     )
   }
+
+  {/*<Route path='*' render={() => <Navigate to="/" />} />*/}
   

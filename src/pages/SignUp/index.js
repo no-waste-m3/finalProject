@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { BaseTypograph } from '../../components/BaseTypograph';
 import Carousel from '../../components/Carousel';
 import { FormRegister } from '../../components/FormRegister';
@@ -16,7 +17,7 @@ export const SignUp =() =>  {
         <h2>Criar conta</h2>
         <FormRegister/>
         <BaseTypograph tag='small'>
-          Já tem uma conta? Login
+          Já tem uma conta? <Link to='/'>Login</Link>
         </BaseTypograph>
       </RegisterFormContainer>
       <Carousel dataImages={images}/>
