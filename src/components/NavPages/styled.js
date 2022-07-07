@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NavContainer = styled.div`
   width: 150px;
   height: fit-content;
-  background-color: #ffb886;
+  background-color: var(--secondary-color);
   border-top: 0.5px solid black;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;

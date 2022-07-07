@@ -5,7 +5,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffb886;
+  background-color: var(--seconday-color);
 
   @media (min-width: 740px) {
     height: 90px;
