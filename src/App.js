@@ -10,10 +10,9 @@ import { toast } from "react-toastify";
 //import SearchBar from "./components/SearchBar";
 import { Button } from "./components/Button";
 import Cart from "./components/Cart";
-import { AppRoutes } from './pages/routes';
+import { AppRoutes } from "./pages/routes";
 import Filters from "./components/Filters";
 import { Link } from "react-router-dom";
-
 
 function App() {
   // function 'notify' pode ser passada por props para os componentes que necessitem dela. Deve ser informada uma mensagem no parametro e o tempo em milissigundos para a animação permanecer na tela.
@@ -29,19 +28,18 @@ function App() {
     <>
       <AppRoutes />
       <GlobalStyle />
-      
-      <Cart />
 
-      
+      {/* <Cart /> */}
+
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
 
-      <Button
+      {/* <Button
         typebutton="primary"
         onClick={() => notify("Olá! Que bom te ver novamente.", 3000)}
       >
         Aqui
-      </Button>
+      </Button> */}
 
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}
@@ -54,10 +52,9 @@ function App() {
 
       {/* Exemplo de utilização do modal */}
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={10} backColor='--grey-1'/> */}
-      <Filters/>
+      {/* <Filters/> */}
 
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={30} backColor='--white-0'/> */}
-
     </>
   );
 }

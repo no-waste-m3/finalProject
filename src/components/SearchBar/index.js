@@ -13,13 +13,17 @@ const SearchBar = ({ isSearching, setIsSearching, viewerWidth }) => {
   const [input, setInput] = useState();
   return (
     <>
-      {viewerWidth < 740 ? (
+      {viewerWidth < 700 ? (
         <SearchbarContainer>
           <CenterDiv>
             <Input placeholder="Pesquise um produto" />
             <RightDiv>
               <Line></Line>
-              <BiSearch fontSize="25px" color="var(--grey-1)" />
+              <BiSearch
+                style={{ cursor: "pointer" }}
+                fontSize="25px"
+                color="var(--grey-1)"
+              />
             </RightDiv>
           </CenterDiv>
         </SearchbarContainer>
