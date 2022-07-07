@@ -6,6 +6,7 @@ export const Title = styled(BaseTypograph)`
   font-style: ${(props) => props.fontStyle};
   font-weight: ${(props) => props.weight};
   padding: ${(props) => props.padding};
+  font-family: "Montserrat", sans-serif;
 
   ${(props) => {
     switch (props.titleSize) {

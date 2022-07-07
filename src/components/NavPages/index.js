@@ -1,11 +1,29 @@
 import { NavContainer, PageContainer } from "./styled";
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const NavPages = () => {
-  const pages = ["Dashboard", "Balanço", "Sobre nós", "Logout"];
-  //se o path for Home, ou Dash etc, o array muda
+  const home = ["Dashboard", "Balanço", "Sobre nós", "Logout"];
+  const dash = ["Balanço", "Sobre nós", "Logout", "Home"];
+  const stats = ["Dashboard", "Sobre nós", "Logout", "Home"];
+  const about = ["Dashboard", "Balanço", "Logout", "Home"];
 
-  // const navigate = useNavigate();
+  const whichLocation = () => {
+    const href = window.location.href;
+    if (href === "http://localhost:3000/home") {
+      return home;
+    } else if (href === "http://localhost:3000/dashboard") {
+      return dash;
+    } else if (href === "http://localhost:3000/stats") {
+      return stats;
+    } else if (href === "http://localhost:3000/about") {
+      return about;
+    }
+  };
+
+  const pages = whichLocation();
+
+  const navigate = useNavigate();
+
   const handleRedirect = (page) => {
     if (page === "Dashboard") {
       //navigate("/dashboard")
