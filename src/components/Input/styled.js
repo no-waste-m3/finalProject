@@ -26,6 +26,7 @@ export const InputField = styled.div`
     flex-direction: column;
     position: relative;
     gap: 0.5rem;
+    width: 100%;
 
     >svg {
         position: absolute;
