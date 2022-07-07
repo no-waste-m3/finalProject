@@ -5,7 +5,7 @@ export const FooterContainer = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffb886;
+  background-color: var(--secondary-color);
 `;
 
 export const FooterCentralized = styled.div`
