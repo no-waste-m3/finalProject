@@ -1,8 +1,31 @@
 import styled from "styled-components";
 
-export const InputStyled = styled.input`
+export const InputField = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    gap: 0.5rem;
+    width: 100%;
+    flex-wrap: nowrap;
 
-outline: none;
+    >svg {
+        position: absolute;
+        bottom: 0;
+    } 
+
+    >svg:nth-child(4) {
+        right: 2px;
+        cursor: pointer;
+    }
+
+    >select {
+        cursor: pointer;
+    }
+
+    >input, >select {
+
+        outline: none;
 border: none;
 border-bottom: 1px solid;
 width: 100%;
@@ -19,22 +42,6 @@ background-color: transparent;
       box-shadow: 0 0 0 30px #fff inset !important;
     }
 
-`
-
-export const InputField = styled.div`
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    gap: 0.5rem;
-
-    >svg {
-        position: absolute;
-        bottom: 0;
-    } 
-
-    >svg:nth-child(4) {
-        right: 2px;
-        cursor: pointer;
     }
 
 `

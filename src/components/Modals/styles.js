@@ -12,4 +12,6 @@ export const StyledModal = styled.div`
     left: ${(props) => props.left}rem;
 
     background-color: var(${(props) => props.backColor});
+
+    box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.25);
 `
