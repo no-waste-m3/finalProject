@@ -4,7 +4,7 @@ import { useState } from "react";
 import animationWade from "../../animations/wadeTheNoWaster.json";
 import { WadeStyled } from "./styled";
 
-function Wade({ width, height }) {
+const Wade = ({ width, height }) => {
   const [animationState] = useState({
     isStopped: false,
     isPaused: false,
