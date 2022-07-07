@@ -10,9 +10,8 @@ import FormRegister from "./components/FormRegister";
 import SearchBar from "./components/SearchBar";
 import { Button } from "./components/Button";
 import Cart from "./components/Cart";
-import { AppRoutes } from './pages/routes';
-
-
+import { AppRoutes } from "./pages/routes";
+import { Link } from "react-router-dom";
 
 function App() {
   // function 'notify' pode ser passada por props para os componentes que necessitem dela. Deve ser informada uma mensagem no parametro e o tempo em milissigundos para a animação permanecer na tela.
@@ -26,14 +25,19 @@ function App() {
 
   return (
     <>
-    <AppRoutes/>
+      <AppRoutes />
       <GlobalStyle />
 
       <Cart />
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
 
-      <Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button>
+      <Button
+        typebutton="primary"
+        onClick={() => notify("Olá! Que bom te ver novamente.", 3000)}
+      >
+        Aqui
+      </Button>
 
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}
