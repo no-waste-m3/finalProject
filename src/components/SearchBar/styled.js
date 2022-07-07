@@ -8,7 +8,7 @@ const inputOpenAnimation = keyframes`
 export const SearchbarContainer = styled.div`
   height: 40px;
   width: 86%;
-  border: 1px solid #cbcbcb;
+  border: 1px solid var(--grey-1);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -28,7 +28,7 @@ export const CenterDiv = styled.div`
 export const Input = styled.input`
   background-color: transparent;
   font-size: 14px;
-  color: #cbcbcb;
+  color: var(--grey-1);
   width: 72%;
   border: 0;
   font-family: "Montserrat";
@@ -45,7 +45,7 @@ export const RightDiv = styled.div`
 export const Line = styled.div`
   width: 1px;
   height: 25px;
-  background-color: #cbcbcb;
+  background-color: var(--grey-1);
 `;
 
 export const InputDesktop = styled.input`

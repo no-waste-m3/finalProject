@@ -19,7 +19,7 @@ const SearchBar = ({ isSearching, setIsSearching, viewerWidth }) => {
             <Input placeholder="Pesquise um produto" />
             <RightDiv>
               <Line></Line>
-              <BiSearch fontSize="25px" color="cbcbcb" />
+              <BiSearch fontSize="25px" color="var(--grey-1)" />
             </RightDiv>
           </CenterDiv>
         </SearchbarContainer>
