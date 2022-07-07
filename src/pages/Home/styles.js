@@ -31,4 +31,11 @@ export const ContentUpperDiv = styled.div`
   }
 `;
 
+export const FiltersContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+`;
+
 export const ProductsContainer = styled.div``;
