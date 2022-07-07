@@ -1,16 +1,17 @@
 import Wade from "./components/Wade";
 import GlobalStyle from "./styles/GlobalStyle";
-import { ToastNotify } from "./components/Toasts";
+//import { ToastNotify } from "./components/Toasts";
 import { toast } from "react-toastify";
-import { Modal } from "./components/Modals";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import NavPages from "./components/NavPages";
-import FormRegister from "./components/FormRegister";
-import SearchBar from "./components/SearchBar";
+//import { Modal } from "./components/Modals";
+//import Header from "./components/Header";
+//import Footer from "./components/Footer";
+//import NavPages from "./components/NavPages";
+//import FormRegister from "./components/FormRegister";
+//import SearchBar from "./components/SearchBar";
 import { Button } from "./components/Button";
 import Cart from "./components/Cart";
 import { AppRoutes } from './pages/routes';
+import Filters from "./components/Filters";
 
 
 
@@ -28,8 +29,10 @@ function App() {
     <>
     <AppRoutes/>
       <GlobalStyle />
-
+      
       <Cart />
+
+      
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
 
@@ -47,6 +50,7 @@ function App() {
       {/* Exemplo de utilização do modal */}
 
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={10} backColor='--grey-1'/> */}
+      <Filters/>
     </>
   );
 }
