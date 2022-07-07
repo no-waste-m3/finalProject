@@ -28,6 +28,7 @@ function App() {
     <>
     <AppRoutes/>
       <GlobalStyle />
+
       <Cart />
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
@@ -44,6 +45,7 @@ function App() {
       {/* <SearchBar /> */}
 
       {/* Exemplo de utilização do modal */}
+
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={10} backColor='--grey-1'/> */}
     </>
   );
