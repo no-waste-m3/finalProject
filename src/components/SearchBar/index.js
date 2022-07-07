@@ -33,7 +33,7 @@ const SearchBar = ({ isSearching, setIsSearching, viewerWidth }) => {
             />
           )}
           <BiSearch
-            style={{ marginRight: "10px" }}
+            style={{ marginRight: "10px", cursor: "pointer" }}
             onClick={() => setIsSearching(isSearching ? false : true)}
             fontSize="25px"
           />

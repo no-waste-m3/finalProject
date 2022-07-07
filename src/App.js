@@ -1,19 +1,20 @@
 import Wade from "./components/Wade";
 import GlobalStyle from "./styles/GlobalStyle";
-import { ToastNotify } from "./components/Toasts";
+//import { ToastNotify } from "./components/Toasts";
 import { toast } from "react-toastify";
-import { Modal } from "./components/Modals";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import NavPages from "./components/NavPages";
-import FormRegister from "./components/FormRegister";
-import SearchBar from "./components/SearchBar";
+//import { Modal } from "./components/Modals";
+//import Header from "./components/Header";
+//import Footer from "./components/Footer";
+//import NavPages from "./components/NavPages";
+//import FormRegister from "./components/FormRegister";
+//import SearchBar from "./components/SearchBar";
 import { Button } from "./components/Button";
 import Cart from "./components/Cart";
 import { AppRoutes } from './pages/routes';
-import { BrowserRouter } from "react-router-dom";
 import { Dashboard } from "./pages/Dashboard";
 
+import Filters from "./components/Filters";
+import { Link } from "react-router-dom";
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <>
-    <AppRoutes/>
+      <AppRoutes />
       <GlobalStyle />
       <Dashboard/>
       {/* <Cart /> */}
@@ -47,8 +48,11 @@ function App() {
       {/* <SearchBar /> */}
 
       {/* Exemplo de utilização do modal */}
-
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={10} backColor='--grey-1'/> */}
+      <Filters/>
+
+      {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={30} backColor='--white-0'/> */}
+
     </>
   );
 }

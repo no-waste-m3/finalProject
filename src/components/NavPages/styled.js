@@ -10,6 +10,11 @@ export const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: fixed;
+  top: 82px;
+  @media (min-width: 700px) {
+    top: 90px;
+  }
 `;
 export const PageContainer = styled.div`
   width: 100%;
@@ -20,5 +25,6 @@ export const PageContainer = styled.div`
   display: flex;
   align-items: center;
   padding-left: 10px;
+  cursor: pointer;
   //0.5px solid black
 `;
