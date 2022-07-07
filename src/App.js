@@ -49,7 +49,6 @@ function App() {
 
       {/* Exemplo de utilização do modal */}
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={10} backColor='--grey-1'/> */}
-      <Filters/>
 
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={30} backColor='--white-0'/> */}
 
