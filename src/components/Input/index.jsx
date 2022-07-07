@@ -4,7 +4,7 @@ const Input = ({Field,label, Icon, SecondIcon, children, error, register, name, 
     
     return (
         <InputField>
-            <label>{label}-{!!error && <span> - {error}</span>}</label>
+            <label>{label}{!!error && <span> - {error}</span>}</label>
             {Icon && Icon}
             <Field {...register(name)} {...rest}>
                 {children}
