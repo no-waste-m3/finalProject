@@ -30,12 +30,10 @@ function App() {
 
   return (
     <>
-    {/*<AppRoutes/>
-      <GlobalStyle />
-      
-      <Cart />*/}
+    <AppRoutes/>
+    <GlobalStyle/>
 
-  <AboutUs></AboutUs>
+  {/*<AboutUs></AboutUs>*/}
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
 
