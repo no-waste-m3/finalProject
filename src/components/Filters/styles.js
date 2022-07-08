@@ -38,7 +38,6 @@ export const Circle = styled.div`
     width: auto;}
 
     }
-  }
 `;
 
 export const Wrapper = styled.div`

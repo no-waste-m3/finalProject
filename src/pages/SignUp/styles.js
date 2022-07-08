@@ -19,7 +19,7 @@ export const Container = styled(motion.div)`
     width: 1500px;
     height: 1500px;
     left: -130%;
-    top: -245%;
+    top: -1500px;
     //transform: translateX(-50%);
   }
   /*display: flex;
@@ -76,12 +76,11 @@ export const LinkStyled = styled(Link)`
   position: fixed;
   top: 1rem;
   left: 1rem;
+  z-index: 6;
 
 
   @media (max-width: 620px) {
-    top: 28%;
-    width: 90%;
-    text-align: end;
+    top: 170px;
   }
 
 `
