@@ -59,6 +59,7 @@ export const FormRegister = ({ ...rest }) => {
 
   const {
     register,
+    setValue,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({
@@ -92,11 +93,17 @@ export const FormRegister = ({ ...rest }) => {
     if(cep.length>=8) {
        axios.get(`https://viacep.com.br/ws/${cep}/json/`)
         .then(address => {
-          setDistrict(address.data.bairro)
-          setStreet(address.data.logradouro)
+          //setDistrict(address.data.bairro)
+          //setStreet(address.data.logradouro)
+          setValue('district', address.data.bairro , { shouldValidate: true })
+          setValue('street', address.data.logradouro , { shouldValidate: true })
+          
         })
     }
-    
+
+
+     
+   
   }
 
   return (
@@ -231,9 +238,10 @@ export const FormRegister = ({ ...rest }) => {
         register={register}
         name="street"
         error={errors.street?.message}
-        value={street}
+        //value={street}
         //onInput={(e) => setStreet(e.target.value)}
         onChange={(e) => setStreet(e.target.value)}
+
         Field = 'input'
           label="Rua"
           Icon={
@@ -247,12 +255,9 @@ export const FormRegister = ({ ...rest }) => {
         <Input
         register={register}
         name="district"
-        value={district}
+        //value={district}
         //onInput={(e) => setDistrict(e.target.value)}
-        onChange={(e) => {
-          console.log(e.target.value)
-          setDistrict(e.target.value)
-        }}
+        onChange={(e) => setDistrict(e.target.value)}
         error={errors.district?.message}
         Field = 'input'
           label="Bairro"

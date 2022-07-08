@@ -1,7 +1,7 @@
 import { NavContainer, PageContainer } from "./styled";
 import { useNavigate } from "react-router-dom";
 
-const NavPages = () => {
+const NavPages = ({ setAsidePages }) => {
   const home = ["Dashboard", "Balanço", "Sobre nós", "Logout"];
   const dash = ["Balanço", "Sobre nós", "Logout", "Home"];
   const stats = ["Dashboard", "Sobre nós", "Logout", "Home"];
@@ -27,21 +27,25 @@ const NavPages = () => {
   const handleRedirect = (page) => {
     if (page === "Dashboard") {
       //navigate("/dashboard")
+      //setAsidePages(false)
     } else if (page === "Balanço") {
       //navigate("/balance")
+      //setAsidePages(false)
     } else if (page === "Sobre nós") {
       //navigate("/aboutus")
+      //setAsidePages(false)
     } else if (page === "Logout") {
       //abre modal de realmente deseja sair
     } else if (page === "Home") {
       //navigate("/home")
+      //setAsidePages(false)
     }
   };
 
   return (
     <NavContainer>
       {pages.map((page, index) => {
-        return page[index] === page[pages.length - 1] ? (
+        return index === pages.length - 1 ? (
           <PageContainer borderBottom="0" key={index}>
             {page}
           </PageContainer>

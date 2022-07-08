@@ -19,7 +19,7 @@ export const CartProvider = ({ children }) => {
   const getCart = () => {
     api
       .get(`/users/${user.id}/cart`, config)
-      .then((response) => setCart(response))
+      .then((response) => setCart(response.data))
       .catch((error) => console.log(error));
   };
 
@@ -38,7 +38,6 @@ export const CartProvider = ({ children }) => {
       .delete(`/foods/${id_product}`, config)
       .then((response) => {
         console.log(response);
-        getCart();
       })
       .catch((error) => console.log(error));
   };

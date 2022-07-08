@@ -18,8 +18,8 @@ export const ProductsProvider = ({ children }) => {
 
   const getProducts = () => {
     api
-      .get("/foods")
-      .then((response) => setProducts(response))
+      .get("/foods", config)
+      .then((response) => setProducts(response.data))
       .catch((error) => console.log(error));
   };
 
@@ -47,13 +47,17 @@ export const ProductsProvider = ({ children }) => {
   const getProductsUser = () => {
     api
       .get(`users/${user.id}/foods`, config)
-      .then((response) => setProductsUser(response))
+      .then((response) => setProductsUser(response.data))
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
-    getProducts();
-  }, []);
+    if (userToken !== false && user.account === "seller") {
+      getProductsUser();
+    } else if (userToken !== false) {
+      getProducts();
+    }
+  }, [userToken, user]);
 
   return (
     <ProductsContext.Provider

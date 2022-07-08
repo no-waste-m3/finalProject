@@ -28,10 +28,8 @@ const schema1 =yup.object().shape({
 const schema2 =yup.object().shape({
     cep: yup.string().required("Informe seu CEP"),
     number: yup.string().required("Informe o número"),
-    street: yup.string(),
-    //.required("Informe a rua"),
-    district: yup.string()
-    //.required("Informe o bairro")
+    street: yup.string().required("Informe a rua"),
+    district: yup.string().required("Informe o bairro")
 });
 
 export const schemas = [schema0,schema1,schema2]

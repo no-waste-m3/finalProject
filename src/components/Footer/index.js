@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterCentralized>
-        <Title style={{ cursor: "pointer" }}>False conosco</Title>
+        <Title style={{ cursor: "pointer" }}>Fale conosco</Title>
         <FooterCenterDiv>
           <FaFacebook
             style={{ cursor: "pointer" }}

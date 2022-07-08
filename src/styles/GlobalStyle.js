@@ -11,6 +11,7 @@ export default createGlobalStyle`
 
         --grey-0: #000000;
         --grey-1: #737373;
+        --grey-yellow: #baae9c;
 
         --white-0: #ffffff;
     }
@@ -29,5 +30,9 @@ export default createGlobalStyle`
     button{
         cursor: pointer;
     }
-
+    a {
+        color: var(--primary-color);
+        font-weight: 900;
+        text-decoration: none;
+    }
 `;

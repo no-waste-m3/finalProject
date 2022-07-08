@@ -3,7 +3,7 @@ import { InputField } from "./styled"
 const Input = ({Field,label, Icon, SecondIcon, children, error, register, name, ...rest}) => {
     
     return (
-        <InputField>
+        <InputField isError={!!error}>
             <label>{label}{!!error && <span> - {error}</span>}</label>
             {Icon && Icon}
             <Field {...register(name)} {...rest}>
