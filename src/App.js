@@ -32,9 +32,10 @@ function App() {
 
   return (
     <>
+
       <AppRoutes/>
       <GlobalStyle />
-      <FinancialStatement/>
+      {/* <FinancialStatement/> */}
       {/* <Cart /> */}
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
