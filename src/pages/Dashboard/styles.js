@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
-
 export const StyledBalanceDiv = styled.div`
   position: fixed;
   top: 20rem;

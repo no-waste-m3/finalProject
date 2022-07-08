@@ -15,7 +15,6 @@ import { Dashboard } from "./pages/Dashboard";
 import { SignUp } from "./pages/SignUp";
 import Filters from "./components/Filters";
 import { Link } from "react-router-dom";
-import { FinancialStatement } from "./pages/Financial Statement";
 import { AboutUs } from "./pages/AboutUs";
 
 
@@ -34,7 +33,6 @@ function App() {
     <>
       <AppRoutes/>
       <GlobalStyle />
-      <FinancialStatement/>
       {/* <Cart /> */}
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
