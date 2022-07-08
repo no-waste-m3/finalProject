@@ -22,16 +22,25 @@ export const FormProvider = ({ children }) => {
     api
       .post("/login", user)
       .then((response) => {
-        setUserToken(response.acessToken);
-        setUser(response.user);
+        setUserToken(response.data.accessToken);
+        setUser(response.data.user);
 
         localStorage.setItem(
           "@userNoWasteToken",
-          JSON.stringify(response.acessToken)
+          JSON.stringify(response.data.accessToken)
         );
-        localStorage.setItem("@userNoWaste", JSON.stringify(response.user));
+        localStorage.setItem(
+          "@userNoWaste",
+          JSON.stringify(response.data.user)
+        );
       })
       .catch((error) => console.log(error));
+  };
+
+  const exitUser = () => {
+    localStorage.clear();
+    setUserToken(false);
+    setUser(false);
   };
 
   return (
@@ -43,6 +52,7 @@ export const FormProvider = ({ children }) => {
         loginUser,
         setUserToken,
         setUser,
+        exitUser,
       }}
     >
       {children}

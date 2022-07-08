@@ -10,7 +10,13 @@ import { toast } from "react-toastify";
 //import SearchBar from "./components/SearchBar";
 import { Button } from "./components/Button";
 import Cart from "./components/Cart";
+<<<<<<< HEAD
 import { AppRoutes } from './pages/routes';
+=======
+import { AppRoutes } from "./pages/routes";
+import { Dashboard } from "./pages/Dashboard";
+import { SignUp } from "./pages/SignUp";
+>>>>>>> bb66ef79b5ef7bf5527706bdc28db458901ea8bf
 import Filters from "./components/Filters";
 import { AboutUs } from "./pages/AboutUs";
 

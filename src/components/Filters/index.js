@@ -1,18 +1,16 @@
-import React from 'react';
-import {Circle, Container, Wrapper } from './styles';
-import {FaCoffee, FaPizzaSlice} from 'react-icons/fa';
-import {FaHamburger} from 'react-icons/fa';
-import {FaStore} from 'react-icons/fa';
-import {GiSlicedBread} from 'react-icons/gi';
-import {GiKnifeFork} from 'react-icons/gi'
-import {GiCupcake} from 'react-icons/gi';
-import { Title } from './styles';
-import { useState } from 'react';
+import React from "react";
+import { Circle, Container, Wrapper } from "./styles";
+import { FaCoffee, FaPizzaSlice } from "react-icons/fa";
+import { FaHamburger } from "react-icons/fa";
+import { FaStore } from "react-icons/fa";
+import { GiSlicedBread } from "react-icons/gi";
+import { GiKnifeFork } from "react-icons/gi";
+import { GiCupcake } from "react-icons/gi";
+import { Title } from "./styles";
+import { useState } from "react";
 
 export const Filters = () => {
-
-const [selected, setSelected] = useState('Todos')
-
+  const [selected, setSelected] = useState("Todos");
 
 
 const objects = [{name: 'Todos', icon:<GiKnifeFork size='27px' />},
@@ -43,6 +41,6 @@ console.log(selected)
         )}
     </Container>
   );
-}
+};
 
 export default Filters;
