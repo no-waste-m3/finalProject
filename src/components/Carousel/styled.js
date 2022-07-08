@@ -23,35 +23,76 @@ export const CarouselStyled = styled(motion.div)`
     }}
 
     @media (max-width: 620px) {
-        top: 0%;
+        top: -1.5rem;
         width: 100%;
 
     }
 `
 export const InnerCarousel = styled(motion.div)`
     display: flex;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    >.otherImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transform: translateX(-50%);
+        transition: all .5s ease;
+    }
+
+    > .currentImage {
+        opacity: 1;
+        transform: translateX(0);
+    }
 `
 
 export const ItemCarousel = styled(motion.div)`
     min-width: 18rem;
-    height: 25rem;
+    height: 28rem;
+    gap: 1rem;
     display: flex;
     flex-direction: column;
-
+    
     >img {
         width: 100%;
         height: 100%;
     }
 
+    >p {
+        font-weight: 600;
+        padding: 0.5rem;
+    }
+    
     @media (max-width: 620px) {
+        margin-top: -5%;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
         min-width: 100%;
-        height: 15rem;
+        height: 18rem;
+        gap: 0;
 
         >img {
         width: 40%;
+        margin-top: 10%;
+        height: auto;
+        }
+
+        >p {
+            font-size: 0.9rem;
+        }
     }
+
+    @media (max-width: 520px) {
+
+        >img {
+        height: 100%;
+        }
+        
     }
 `

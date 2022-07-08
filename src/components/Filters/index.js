@@ -32,6 +32,7 @@ export const Filters = () => {
     { name: "Cafeterias", icon: <FaCoffee size="27px" /> },
   ];
 
+
   // console.log(selected);
 
   return (

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -18,7 +19,7 @@ export const Container = styled(motion.div)`
     width: 1500px;
     height: 1500px;
     right: -130%;
-    top: -240%;
+    top: -1500px;
     //transform: translateX(-50%);
   }
   /*display: flex;
@@ -70,3 +71,15 @@ export const LoginPage = styled.div`
     //height: 100vh;
   }
 `;
+
+export const LinkStyled = styled(Link)`
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 6;
+
+  @media (max-width: 620px) {
+    top: 170px;
+  }
+
+`

@@ -35,7 +35,6 @@ export const Circle = styled.div`
       height: 30px;
       width: auto;
     }
-  }
 `;
 
 export const Wrapper = styled.div`

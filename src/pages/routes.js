@@ -9,7 +9,7 @@ import {
   import { Checkout } from "./Checkout";
   import { AboutUs } from "./AboutUs";
   import { SignUp } from "./SignUp";
-  import { FinancialStatement } from "./Financial Statement";
+  import { FinancialStatement } from "./FinancialStatement";
   
 export const AppRoutes = () => {
     return (
@@ -17,8 +17,8 @@ export const AppRoutes = () => {
         <Routes>
             <Route index element={<Login />} />
             <Route path="home" element={<Home/>}/>
-            <Route path="home/dashboard" component={<Dashboard />}/>
-            <Route path="dashboard/stats" element={<FinancialStatement/>}/>
+            <Route path="home/dashboard" element={<Dashboard />}/>
+            <Route path="home/dashboard/stats" element={<FinancialStatement/>}/>
             <Route path="home/checkout" element={<Checkout/>}/>
             <Route path="home/about" element={<AboutUs/>}/>
             <Route path="signUp" element={<SignUp/>}/>
