@@ -1,7 +1,7 @@
 import GlobalStyle from "./styles/GlobalStyle";
 import { ToastNotify } from "./components/Toasts";
 import { AppRoutes } from "./pages/routes";
-import { FinancialStatement } from "./pages/Financial Statement";
+import { FinancialStatement } from "./pages/FinancialStatement";
 import { Dashboard } from "./pages/Dashboard";
 import { SignUp } from "./pages/SignUp";
 import Filters from "./components/Filters";

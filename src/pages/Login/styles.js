@@ -19,7 +19,7 @@ export const Container = styled(motion.div)`
     width: 1500px;
     height: 1500px;
     right: -130%;
-    top: -240%;
+    top: -1500px;
     //transform: translateX(-50%);
   }
   /*display: flex;
@@ -75,10 +75,11 @@ export const LoginPage = styled.div`
 export const LinkStyled = styled(Link)`
   position: fixed;
   top: 1rem;
-  right: 1rem;
+  left: 1rem;
+  z-index: 6;
 
   @media (max-width: 620px) {
-    top:30%;
+    top: 170px;
   }
 
 `
