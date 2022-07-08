@@ -23,13 +23,32 @@ export const CarouselStyled = styled(motion.div)`
     }}
 
     @media (max-width: 620px) {
-        top: 0%;
+        top: -1.5rem;
         width: 100%;
 
     }
 `
 export const InnerCarousel = styled(motion.div)`
     display: flex;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    >.otherImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transform: translateX(-50%);
+        transition: all .5s ease;
+    }
+
+    > .currentImage {
+        opacity: 1;
+        transform: translateX(0);
+    }
 `
 
 export const ItemCarousel = styled(motion.div)`
@@ -47,6 +66,7 @@ export const ItemCarousel = styled(motion.div)`
     >p {
         font-weight: 600;
         padding: 0.5rem;
+
     }
     
     @media (max-width: 620px) {
@@ -55,16 +75,20 @@ export const ItemCarousel = styled(motion.div)`
         justify-content: space-around;
         align-items: center;
         min-width: 100%;
-        height: 15rem;
+        height: 18rem;
         gap: 0;
 
         >img {
         width: 40%;
-        height: 80%;
+        margin-top: 10%;
+        height: auto;
         }
 
         >p {
+            //color: rgb(107, 158, 11);
             font-size: 0.9rem;
+            border-radius: 1rem;
+            //background-color: rgba(107, 158, 11,0.5);
         }
     }
 

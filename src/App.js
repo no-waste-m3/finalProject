@@ -1,43 +1,20 @@
-import Wade from "./components/Wade";
 import GlobalStyle from "./styles/GlobalStyle";
-//import { ToastNotify } from "./components/Toasts";
-import { toast } from "react-toastify";
-//import { Modal } from "./components/Modals";
-//import Header from "./components/Header";
-//import Footer from "./components/Footer";
-//import NavPages from "./components/NavPages";
-//import FormRegister from "./components/FormRegister";
-//import SearchBar from "./components/SearchBar";
-import { Button } from "./components/Button";
-import Cart from "./components/Cart";
-import { AppRoutes } from './pages/routes';
-
+import { ToastNotify } from "./components/Toasts";
+import { AppRoutes } from "./pages/routes";
+import { FinancialStatement } from "./pages/FinancialStatement";
 import { Dashboard } from "./pages/Dashboard";
 import { SignUp } from "./pages/SignUp";
-
 import Filters from "./components/Filters";
 import { Link } from "react-router-dom";
-import { FinancialStatement } from "./pages/Financial Statement";
 import { AboutUs } from "./pages/AboutUs";
 
-
-
 function App() {
-  // function 'notify' pode ser passada por props para os componentes que necessitem dela. Deve ser informada uma mensagem no parametro e o tempo em milissigundos para a animação permanecer na tela.
-
-  const notify = (message, time) => {
-    toast(message, {
-      icon: <Wade width="5rem" height="6rem" />,
-      autoClose: time,
-    });
-  };
-
   return (
     <>
-
-      <AppRoutes/>
+      <AppRoutes />
       <GlobalStyle />
       {/* <FinancialStatement/> */}
+
       {/* <Cart /> */}
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}

@@ -15,7 +15,7 @@ export const SearchbarContainer = styled.div`
   justify-content: center;
   position: fixed;
   left: 25px;
-  bottom: 630px;
+  top: 13%;
 `;
 export const CenterDiv = styled.div`
   width: 95%;

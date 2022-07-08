@@ -8,9 +8,20 @@ import {
 } from "./styled";
 import AddCartSVG from "../AddCartSVG";
 import priceFormat from "../../util/priceFormat";
+import { useContext } from "react";
+import { CartContext } from "../../providers/Cart";
 
 export const HomeProduct = ({ product }) => {
-  const { nomeDoProduto, img, precoDeCusto, precoDeRevenda } = product;
+  const { postCart } = useContext(CartContext);
+  const {
+    nomeDoProduto,
+    descricao,
+    img,
+    precoDeCusto,
+    precoDeRevenda,
+    userId,
+    id,
+  } = product;
 
   return (
     <ProductContainer key={product.id}>
@@ -43,7 +54,10 @@ export const HomeProduct = ({ product }) => {
         </TitleContainer>
       </TitlesContainer>
       <AddBtnContainer>
-        <AddCartSVG />
+        <AddCartSVG
+          style={{ cursor: "pointer" }}
+          onClick={() => postCart(product)}
+        />
       </AddBtnContainer>
     </ProductContainer>
   );

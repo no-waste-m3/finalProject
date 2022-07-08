@@ -2,6 +2,7 @@ import Header from '../../components/Header';
 import { StyledFinancialBalanceDiv } from './styled';
 import { Title } from "../../styles/title";
 import { FaBalanceScale } from "react-icons/fa";
+import DoughnutChart from '../../components/DoughnutChart';
 
 export const FinancialStatement = () => {
     return(
@@ -93,6 +94,7 @@ export const FinancialStatement = () => {
               </Title>
             </div>
           </div>
+          <DoughnutChart/>
         </StyledFinancialBalanceDiv>
         </>
     )
