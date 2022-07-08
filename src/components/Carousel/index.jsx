@@ -2,18 +2,19 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { CarouselStyled, InnerCarousel, ItemCarousel } from "./styled"
 
-const Carousel = ({ dataImages }) => {
+const Carousel = ({ dataImages, side }) => {
 
     const [translate, setTranslate] = useState(0)
     const [animationImage, setAnimationImage] = useState()
 
     setInterval(() => {
 
-        if(translate>-36) {
-            setTranslate(translate - 18)
+        if(translate>-200) {
+            setTranslate(translate - 100)
         } else {
             setTranslate(0)
         }
+        
         
     }, 5000);
 
@@ -21,12 +22,13 @@ const Carousel = ({ dataImages }) => {
 
 
     return (
-        <CarouselStyled side='right'>
-        <InnerCarousel animate={{x: `${translate}rem`}}>
-            {dataImages.map((image, index) => {
+        <CarouselStyled side={side}>
+        <InnerCarousel animate={{x: `${translate}%`}}>
+            {dataImages.map((item, index) => {
                 return (
                     <ItemCarousel key={index}>
-                        <img src={image} alt="imageCarousel" />
+                        <p>{item.text}</p>
+                        <img src={item.image} alt="imageCarousel" />
                     </ItemCarousel>
                 )
             })}
