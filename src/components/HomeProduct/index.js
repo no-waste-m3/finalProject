@@ -16,16 +16,19 @@ export const HomeProduct = ({ product }) => {
   const {
     nomeDoProduto,
     descricao,
-    img,
+    src,
+    categoria,
+    pesoAprox,
+    precoOriginal,
     precoDeCusto,
     precoDeRevenda,
-    userId,
     id,
+    userId,
   } = product;
 
   return (
     <ProductContainer key={product.id}>
-      <Img alt="productImage" src={img} />
+      <Img alt="productImage" src={src} />
       <TitlesContainer>
         <TitleContainer>
           <Title color="black" fontSize="16px" decoLine="none">
@@ -41,7 +44,7 @@ export const HomeProduct = ({ product }) => {
             fontSize="16px"
             decoLine="line-through"
           >
-            {priceFormat(precoDeCusto)}
+            {priceFormat(precoOriginal)}
           </Title>
         </TitleContainer>
         <TitleContainer>

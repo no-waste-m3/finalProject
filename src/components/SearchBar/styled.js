@@ -16,6 +16,9 @@ export const SearchbarContainer = styled.div`
   position: fixed;
   left: 25px;
   top: 13%;
+  @media (min-width: 530px) {
+    left: 6vh;
+  }
 `;
 export const CenterDiv = styled.div`
   width: 95%;
