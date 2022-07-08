@@ -8,15 +8,11 @@ import Filters from "./components/Filters";
 import { Link } from "react-router-dom";
 import { AboutUs } from "./pages/AboutUs";
 
-
-
 function App() {
   return (
     <>
-      <AppRoutes/>
+      <AppRoutes />
       <GlobalStyle />
-      
-
       {/* <FinancialStatement/> */}
 
       {/* <Cart /> */}
@@ -40,7 +36,6 @@ function App() {
       {/* <Filters/> */}
 
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={30} backColor='--white-0'/> */}
-
 
     </>
   );

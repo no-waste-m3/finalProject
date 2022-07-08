@@ -7,26 +7,30 @@ import {
   Title,
 } from "./styled";
 import { BsTrashFill } from "react-icons/bs";
-import LogoNOWASTE from "../../assets/LogoNOWASTE.png";
+import priceFormat from "../../util/priceFormat";
+import { useContext } from "react";
+import { CartContext } from "../../providers/Cart";
 
 const CartProduct = ({ product }) => {
-  //   const { img, title, price1, price2 } = product;
+  const { deleteCart } = useContext(CartContext);
+  const { nomeDoProduto, descricao, preco, userId, id, img } = product;
 
   return (
-    <ProdContainer>
+    <ProdContainer key={product.id}>
       <ImgContainer>
-        <Img alt="productImage" src={LogoNOWASTE} />
+        <Img alt="productImage" src={product.img} />
       </ImgContainer>
       <NameContainer>
         <Title color="black" fontSize="11px">
-          Kit 5 pães + 200g de mortadela
+          {nomeDoProduto}
         </Title>
         <Title color="var(--primary-color)" fontSize="20px">
-          R$ 3,30
+          {priceFormat(preco)}
         </Title>
       </NameContainer>
       <RemoveBtnContainer>
         <BsTrashFill
+          onClick={() => deleteCart(id)}
           style={{ cursor: "pointer" }}
           color="var(--primary-color)"
           fontSize="20px"
