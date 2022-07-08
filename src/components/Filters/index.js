@@ -12,15 +12,15 @@ import { useState } from "react";
 export const Filters = () => {
   const [selected, setSelected] = useState("Todos");
 
-  const objects = [
-    { name: "Todos", icon: <GiKnifeFork size="25px" /> },
-    { name: "Pizzarias", icon: <FaPizzaSlice size="25px" /> },
-    { name: "Burgers", icon: <FaHamburger size="25px" /> },
-    { name: "Mercado", icon: <FaStore size="25px" /> },
-    { name: "Padaria", icon: <GiSlicedBread size="25px" /> },
-    { name: "Doces", icon: <GiCupcake size="25px" /> },
-    { name: "Cafeterias", icon: <FaCoffee size="25px" /> },
-  ];
+  // const objects = [
+  //   { name: "Todos", icon: <GiKnifeFork size="25px" /> },
+  //   { name: "Pizzarias", icon: <FaPizzaSlice size="25px" /> },
+  //   { name: "Burgers", icon: <FaHamburger size="25px" /> },
+  //   { name: "Mercado", icon: <FaStore size="25px" /> },
+  //   { name: "Padaria", icon: <GiSlicedBread size="25px" /> },
+  //   { name: "Doces", icon: <GiCupcake size="25px" /> },
+  //   { name: "Cafeterias", icon: <FaCoffee size="25px" /> },
+  // ];
 
 
 const objects = [{name: 'Todos', icon:<GiKnifeFork size='27px' />},
