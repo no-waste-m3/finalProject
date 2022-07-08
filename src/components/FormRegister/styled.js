@@ -4,8 +4,9 @@ export const FormRegisterStyled = styled.form`
 
     display: flex;
     flex-direction: column;
-    width: 100%;
-    min-width: 14rem;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
     gap: 0.7rem;
     >div {
         display: flex;
@@ -15,6 +16,7 @@ export const FormRegisterStyled = styled.form`
 
         >div {
             display: flex;
+            width: 100%;
             gap: 0.5rem;
         }
     }

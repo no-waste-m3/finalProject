@@ -4,11 +4,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   overflow-x: auto;
+
   width: 86.6%;
   cursor: pointer;
   @media (min-width: 420px) {
     justify-content: center;
   }
+  
   @media (min-width: 700px) {
     width: 500px;
     height: auto;
@@ -16,6 +18,7 @@ export const Container = styled.div`
 `;
 
 export const Circle = styled.div`
+
   display: flex;
   border-radius: 50px;
   border: 1px solid var(--primary-color);
@@ -26,12 +29,14 @@ export const Circle = styled.div`
   padding: 2px 4px 2px 4px;
   background-color: ${(props) => props.color};
 
+
   svg {
     filter: ${(props) => props.iconColor};
 
     @media (min-width: 700px) {
-      height: 35px;
-      width: auto;
+    height:30px;
+    width: auto;}
+
     }
   }
 `;

@@ -6,26 +6,22 @@ import {
   import {Login } from "./Login";
   import { Home } from "./Home";
   import { Dashboard } from "./Dashboard";
-  import { Statistics } from "./Statistics";
   import { Checkout } from "./Checkout";
   import { AboutUs } from "./AboutUs";
   import { SignUp } from "./SignUp";
+  import { FinancialStatement } from "./Financial Statement";
   
 export const AppRoutes = () => {
     return (
 
         <Routes>
+            <Route index element={<Login />} />
+            <Route path="home" element={<Home/>}/>
+            <Route path="home/dashboard" component={<Dashboard />}/>
+            <Route path="dashboard/stats" element={<FinancialStatement/>}/>
+            <Route path="home/checkout" element={<Checkout/>}/>
+            <Route path="home/about" element={<AboutUs/>}/>
             <Route path="signUp" element={<SignUp/>}/>
-            <Route path="/" element={<Login />}/>
-
-                <Route path="home" element={<Home/>}>
-                        <Route path="dashboard" element={<Dashboard/>}>
-                                <Route path="stats" element={<Statistics/>}/>
-                        </Route>
-                        <Route path="checkout" element={<Checkout/>}/>
-                        <Route path="about" element={<AboutUs/>}/>
-                </Route>
-                
         </Routes>
 
     )
