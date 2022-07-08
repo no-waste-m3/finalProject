@@ -21,7 +21,7 @@ export const SignUp = () => {
       <Container animate={animate}  ></Container>
       <RegisterFormContainer>
       <LinkStyled to='/home/about'>Saiba mais</LinkStyled>
-        <Logo lw="10rem" mw="8rem" sw="7rem" />
+      <Logo lw="50%" mw="50%" sw="55%"/>
         <h2>Criar conta</h2>
         <FormRegister />
         <BaseTypograph tag="small">

@@ -20,6 +20,7 @@ const NavPages = ({ setAsidePages }) => {
   const pageStats = [dash, stats, logout, home];
   const pageAbout = [dash, balance, logout, home];
 
+
   const whichLocation = () => {
     const href = window.location.href;
     if (href === "http://localhost:3000/home") {
@@ -30,7 +31,9 @@ const NavPages = ({ setAsidePages }) => {
       return pageStats;
     } else if (href === "http://localhost:3000/about") {
       return pageAbout;
-    }
+    }else if (href === "http://localhost:3000/home/about") {
+    return more;
+  }
   };
 
   const pages = whichLocation();
@@ -39,19 +42,22 @@ const NavPages = ({ setAsidePages }) => {
 
   const handleRedirect = (page) => {
     if (page === "Dashboard") {
-      //navigate("/dashboard")
-      //setAsidePages(false)
+      navigate("/dashboard")
+      setAsidePages(false)
     } else if (page === "Balanço") {
-      //navigate("/balance")
-      //setAsidePages(false)
+      navigate("/balance")
+      setAsidePages(false)
     } else if (page === "Sobre nós") {
-      //navigate("/aboutus")
-      //setAsidePages(false)
+      navigate("/aboutus")
+      setAsidePages(false)
     } else if (page === "Logout") {
       //abre modal de realmente deseja sair
     } else if (page === "Home") {
-      //navigate("/home")
-      //setAsidePages(false)
+      navigate("/home")
+      setAsidePages(false)
+    }else if (page === "Login") {
+      navigate("/")
+      setAsidePages(false)
     }
   };
 

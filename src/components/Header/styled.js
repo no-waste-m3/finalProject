@@ -25,10 +25,8 @@ export const HeaderCentralized = styled.div`
 
 export const Logo = styled.img`
   height: 26px;
-  width: 147.55px;
-  @media (min-width: 1000px) {
-    height: 47px;
-    width: 266.72px;
+  @media (min-width: 700px) {
+    height: 50%;
   }
 `;
 

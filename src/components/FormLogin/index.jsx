@@ -5,21 +5,26 @@ import {
   Lock,
 } from "phosphor-react";
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button } from "../Button";
 import Input from "../Input";
 import { FormLoginStyled } from "./styled";
 import { useForm } from "react-hook-form";
 import { schema } from "./validation";
-import axios from "axios";
+import { FormContext } from "../../providers/Form";
+import { useNavigate } from "react-router-dom";
 
 export const FormLogin = ({ ...rest }) => {
   const [typeInput, setTypeInput] = useState("password");
   const [iconInput, setIconInput] = useState();
+  const { loginUser, userToken } = useContext(FormContext)
+  const navigate = useNavigate()
 
-
-  const submitFunction = (data) => {
-      console.log(data)
+  const submitFunction = async (data) => {
+    await loginUser(data)
+    if(userToken !== '') {
+      navigate('/home')
+    }
 
   }
   
@@ -83,8 +88,10 @@ export const FormLogin = ({ ...rest }) => {
           SecondIcon={iconInput}
           type={typeInput}
         />
+
         
-        <Button type='submit'>Login</Button>
+        <Button typebutton='secondary'  type='submit' >Login</Button>
+        
     </FormLoginStyled>
   );
 };
