@@ -31,25 +31,42 @@ export const FormRegister = ({ ...rest }) => {
   const [step, setStep] = useState(0);
   const [street, setStreet] = useState('')
   const [district, setDistrict] = useState('')
+  const [typeIdentify, setTypeIdentify] = useState('CPF')
 
   const submitFunction = (data) => {
     if(step<2) {
       setStep(step + 1)
     } else {
-      const {type, account, email, password, name, cep, contact, district, number, street, identify} = data
+      const {type, account, email, password, name, cep, contact, district, number, street, CNPJ, CPF} = data
 
-      console.log({type, account, email, password, 
+      const dataUser = {type, account, email, password, 
         info: {
         name, 
         contact,
-        identify,
         address: {
           cep, district, number, street
         }
+      }}
 
-      }})
+      if(CPF) {
+        dataUser.info.CPF = CPF
+      } else {
+        dataUser.info.CNPJ = CNPJ
+      }
+
+      console.log(dataUser)
 
     }
+  }
+
+  const getTypeIdentity = (e) => {
+
+    if(e.target.value === 'PJ') {
+      setTypeIdentify('CNPJ')
+    } else if(e.target.value === 'PJ') {
+      setTypeIdentify('CPF')
+    }
+
   }
 
 
@@ -174,6 +191,7 @@ export const FormRegister = ({ ...rest }) => {
         register={register}
         name="type"
         error={errors.type?.message}
+        onInput={getTypeIdentity}
         Field = 'select'
           label="Conta"
           Icon={<Bank size={20} color="var(--primary-color)" weight="fill" />}
@@ -184,10 +202,10 @@ export const FormRegister = ({ ...rest }) => {
         </Input>
         <Input
         register={register}
-        name="identify"
-        error={errors.identify?.message}
+        name={typeIdentify}
+        error={errors[typeIdentify]?.message}
         Field = 'input'
-          label="CPF"
+          label={typeIdentify}
           Icon={
             <IdentificationCard
               size={20}
@@ -280,7 +298,7 @@ export const FormRegister = ({ ...rest }) => {
           </Button>
             
         </StepButtons>
-        <Button type='submit'>Cadastrar</Button>
+        <Button typebutton='secondary'  type='submit' >Cadastrar</Button>
       </div>
     </FormStepper>
     </>

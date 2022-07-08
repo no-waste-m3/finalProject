@@ -13,6 +13,7 @@ export const FormRegisterStyled = styled.form`
         flex-direction: column;
         justify-content: space-between;
         height: 16rem;
+        width: 90%;
 
         >div {
             display: flex;

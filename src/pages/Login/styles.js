@@ -75,11 +75,13 @@ export const LoginPage = styled.div`
 export const LinkStyled = styled(Link)`
   position: fixed;
   top: 1rem;
-  left: 1rem;
+  right: 1rem;
   z-index: 6;
 
   @media (max-width: 620px) {
     top: 170px;
+    width: 100%;
+    padding-left: 5%;
   }
 
 `
