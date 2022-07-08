@@ -21,7 +21,7 @@ const Carousel = ({ dataImages }) => {
 
 
     return (
-        <CarouselStyled>
+        <CarouselStyled side='right'>
         <InnerCarousel animate={{x: `${translate}rem`}}>
             {dataImages.map((image, index) => {
                 return (
