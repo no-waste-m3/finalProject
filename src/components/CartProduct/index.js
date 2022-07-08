@@ -11,21 +11,32 @@ import priceFormat from "../../util/priceFormat";
 import { useContext } from "react";
 import { CartContext } from "../../providers/Cart";
 
-const CartProduct = ({ product }) => {
+const CartProduct = ({ product, index }) => {
   const { deleteCart } = useContext(CartContext);
-  const { nomeDoProduto, descricao, preco, userId, id, img } = product;
+  const {
+    nomeDoProduto,
+    descricao,
+    src,
+    categoria,
+    pesoAprox,
+    precoOriginal,
+    precoDeCusto,
+    precoDeRevenda,
+    id,
+    userId,
+  } = product;
 
   return (
-    <ProdContainer key={product.id}>
+    <ProdContainer key={index}>
       <ImgContainer>
-        <Img alt="productImage" src={product.img} />
+        <Img alt="productImage" src={product.src} />
       </ImgContainer>
       <NameContainer>
         <Title color="black" fontSize="11px">
           {nomeDoProduto}
         </Title>
         <Title color="var(--primary-color)" fontSize="20px">
-          {priceFormat(preco)}
+          {priceFormat(precoDeRevenda)}
         </Title>
       </NameContainer>
       <RemoveBtnContainer>
