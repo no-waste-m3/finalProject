@@ -15,6 +15,15 @@ export const AppRoutes = () => {
     return (
 
         <Routes>
+<<<<<<< HEAD
+            <Route index element={<Login />} />
+            <Route path="home" element={<Home/>}/>
+            <Route path="dashboard" component={<Dashboard />}/>
+            <Route path="stats" element={<Statistics/>}/>
+            <Route path="checkout" element={<Checkout/>}/>
+            <Route path="about" element={<AboutUs/>}/>
+            <Route path="signUp" element={<SignUp/>}/>
+=======
             <Route path="signUp" element={<SignUp/>}/>
             <Route path="/" element={<Login />}/>
 
@@ -26,6 +35,7 @@ export const AppRoutes = () => {
                         <Route path="about" element={<AboutUs/>}/>
                 </Route>
                 
+>>>>>>> d4bfa89b75d68f5bec07b48f1469cd4736a9de04
         </Routes>
 
     )

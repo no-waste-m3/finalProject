@@ -28,15 +28,26 @@ function App() {
 
   return (
     <>
+<<<<<<< HEAD
+    <AppRoutes/>
+      {/*<GlobalStyle />*/}
+      
+      {/*<Cart />*/}
+=======
       <AppRoutes />
       <GlobalStyle />
+>>>>>>> d4bfa89b75d68f5bec07b48f1469cd4736a9de04
 
       {/* <Dashboard/> */}
       {/* <Cart /> */}
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
 
+<<<<<<< HEAD
+      {/*<Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button>*/}
+=======
       {/* <Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button> */}
+>>>>>>> d4bfa89b75d68f5bec07b48f1469cd4736a9de04
 
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}
@@ -49,9 +60,13 @@ function App() {
 
       {/* Exemplo de utilização do modal */}
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={10} backColor='--grey-1'/> */}
+<<<<<<< HEAD
+      {/*<Filters/>*/}
+=======
       {/* <Filters/> */}
 
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={30} backColor='--white-0'/> */}
+>>>>>>> d4bfa89b75d68f5bec07b48f1469cd4736a9de04
     </>
   );
 }
