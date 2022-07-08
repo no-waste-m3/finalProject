@@ -7,16 +7,18 @@ import {
   Title,
 } from "./styled";
 import AddCartSVG from "../AddCartSVG";
-import paes from "../../assets/paes.jpg";
+import priceFormat from "../../util/priceFormat";
 
-const HomeProduct = () => {
+export const HomeProduct = ({ product }) => {
+  const { nomeDoProduto, img, precoDeCusto, precoDeRevenda } = product;
+
   return (
-    <ProductContainer>
-      <Img alt="productImage" src={paes} />
+    <ProductContainer key={product.id}>
+      <Img alt="productImage" src={img} />
       <TitlesContainer>
         <TitleContainer>
           <Title color="black" fontSize="16px" decoLine="none">
-            Kit 5 pães + 200g de mortadela
+            {nomeDoProduto}
           </Title>
         </TitleContainer>
         <TitleContainer>
@@ -28,7 +30,7 @@ const HomeProduct = () => {
             fontSize="16px"
             decoLine="line-through"
           >
-            R$ 11,00
+            {priceFormat(precoDeCusto)}
           </Title>
         </TitleContainer>
         <TitleContainer>
@@ -36,7 +38,7 @@ const HomeProduct = () => {
             Por:
           </Title>
           <Title color="var(--primary-color)" fontSize="29px" decoLine="none">
-            R$ 3,30
+            {priceFormat(precoDeRevenda)}
           </Title>
         </TitleContainer>
       </TitlesContainer>
@@ -46,5 +48,3 @@ const HomeProduct = () => {
     </ProductContainer>
   );
 };
-
-export default HomeProduct;
