@@ -1,17 +1,44 @@
 import styled, { css } from "styled-components";
 
-export const StyledModal = styled.div` 
-    width: ${(props) => props.width}rem;
-    height: ${(props) => props.height}rem;
-    padding: ${(props) => props.padding}rem;
+export const StyledModal = styled.div`
+  ${(props) => {
+    switch (props.typeModal) {
+      case "primary":
+        return css`
+        position: absolute;
+        background-color: ${(props) => props.backgroundColor};
+        padding: ${(props) => props.padding};
 
-    border-radius: ${(props) => props.borderRadius}rem;
+        top:${(props) => props.top};
+        right: ${(props) => props.right};
+        left: ${(props) => props.left};
+        bottom: ${(props) => props.bottom};
+        
+        border:${(props) => props.border} ;
+        border-top: ${(props) => props.borderTop};
 
-    position: absolute;
-    top: ${(props) => props.top}rem;
-    left: ${(props) => props.left}rem;
+        z-index: 2;
 
-    background-color: var(${(props) => props.backColor});
+        border-radius: ${(props) => props.borderRadius};
 
-    box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.25);
-`
+        width: ${(props) => props.width}
+        background-color: var(--white-0);
+        
+        
+        `;
+
+      case "container":
+        return css`
+          width: 100%;
+          height: 100vh;
+          position: absolute;
+          top: 0;
+          background-color: rgba(0, 0, 0, 0.8);
+          z-index: 2;
+        `;
+
+      default:
+        return null;
+    }
+  }}
+`;
