@@ -10,22 +10,11 @@ import { toast } from "react-toastify";
 //import SearchBar from "./components/SearchBar";
 import { Button } from "./components/Button";
 import Cart from "./components/Cart";
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { AppRoutes } from './pages/routes';
-=======
 import { AppRoutes } from "./pages/routes";
 import { Dashboard } from "./pages/Dashboard";
 import { SignUp } from "./pages/SignUp";
->>>>>>> bb66ef79b5ef7bf5527706bdc28db458901ea8bf
-=======
-import { AppRoutes } from "./pages/routes";
-import { Dashboard } from "./pages/Dashboard";
-import { SignUp } from "./pages/SignUp";
->>>>>>> 5504d3e0ddb1889f9fbcffa97465f6a16149dafb
 import Filters from "./components/Filters";
 import { Link } from "react-router-dom";
-import { FinancialStatement } from "./pages/Financial Statement";
 import { AboutUs } from "./pages/AboutUs";
 
 
@@ -42,10 +31,10 @@ function App() {
 
   return (
     <>
-
       <AppRoutes/>
       <GlobalStyle />
       {/* <FinancialStatement/> */}
+
       {/* <Cart /> */}
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}

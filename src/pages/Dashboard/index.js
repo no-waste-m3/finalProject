@@ -3,7 +3,6 @@ import Header from "../../components/Header";
 
 import { Modal } from "../../components/Modals";
 import {
-  Container,
   StyledBalanceDiv,
   StyledStoreDiv,
   StyledProductsDiv,
@@ -21,7 +20,7 @@ export const Dashboard = () => {
   );
 
   return (
-    <Container>
+    <>
       <Header />
 
       <StyledStoreDiv>
@@ -188,6 +187,6 @@ export const Dashboard = () => {
           </Title>
         </div>
       </StyledProductsDiv>
-    </Container>
+    </>
   );
 };
