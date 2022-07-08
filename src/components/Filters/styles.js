@@ -25,7 +25,7 @@ export const Circle = styled.div`
   align-items: center;
   width: fit-content;
   height: fit-content;
-  padding: 2px 4px 2px 4px;
+  padding: ${(props) => props.padding};
   background-color: ${(props) => props.color};
 
   svg {
