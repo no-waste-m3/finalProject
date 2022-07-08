@@ -18,8 +18,6 @@ import { Link } from "react-router-dom";
 import { FinancialStatement } from "./pages/Financial Statement";
 import { AboutUs } from "./pages/AboutUs";
 
-
-
 function App() {
   // function 'notify' pode ser passada por props para os componentes que necessitem dela. Deve ser informada uma mensagem no parametro e o tempo em milissigundos para a animação permanecer na tela.
 
@@ -32,9 +30,9 @@ function App() {
 
   return (
     <>
-      <AppRoutes/>
+      <AppRoutes />
       <GlobalStyle />
-      <FinancialStatement/>
+      {/* <FinancialStatement/> */}
       {/* <Cart /> */}
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
@@ -56,7 +54,6 @@ function App() {
       {/* <Filters/> */}
 
       {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={30} backColor='--white-0'/> */}
-
     </>
   );
 }
