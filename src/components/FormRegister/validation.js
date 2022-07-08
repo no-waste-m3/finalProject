@@ -20,7 +20,20 @@ const schema0 =yup.object().shape({
 
 const schema1 =yup.object().shape({
     type: yup.string().required("Escolha uma opção"),
-    identify: yup.string().required("Campo obrigatório"),
+    CNPJ: yup.string().test(
+      'oneOfRequired',
+      "Campo obrigatório",
+      function(item) {
+        return (this.parent.CPF || this.parent.CNPJ )
+      }
+    ),
+    CPF: yup.string().test(
+      'oneOfRequired',
+      "Campo obrigatório",
+      function(item) {
+        return (this.parent.CPF || this.parent.CNPJ )
+      }
+    ),
     contact: yup.string().required("Informe seu contato").matches(phoneRegExp, "Inválido"),
     
 });
