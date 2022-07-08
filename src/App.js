@@ -14,7 +14,9 @@ import { AppRoutes } from "./pages/routes";
 import { Dashboard } from "./pages/Dashboard";
 import { SignUp } from "./pages/SignUp";
 import Filters from "./components/Filters";
-import { Link } from "react-router-dom";
+import { AboutUs } from "./pages/AboutUs";
+
+
 
 function App() {
   // function 'notify' pode ser passada por props para os componentes que necessitem dela. Deve ser informada uma mensagem no parametro e o tempo em milissigundos para a animação permanecer na tela.
@@ -28,26 +30,16 @@ function App() {
 
   return (
     <>
-<<<<<<< HEAD
-    <AppRoutes/>
-      {/*<GlobalStyle />*/}
-      
-      {/*<Cart />*/}
-=======
-      <AppRoutes />
+    {/*<AppRoutes/>
       <GlobalStyle />
->>>>>>> d4bfa89b75d68f5bec07b48f1469cd4736a9de04
+      
+      <Cart />*/}
 
-      {/* <Dashboard/> */}
-      {/* <Cart /> */}
+  <AboutUs></AboutUs>
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
 
-<<<<<<< HEAD
-      {/*<Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button>*/}
-=======
-      {/* <Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button> */}
->>>>>>> d4bfa89b75d68f5bec07b48f1469cd4736a9de04
+      {/*<Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button>
 
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}
@@ -59,14 +51,9 @@ function App() {
       {/* <SearchBar /> */}
 
       {/* Exemplo de utilização do modal */}
-      {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={10} backColor='--grey-1'/> */}
-<<<<<<< HEAD
-      {/*<Filters/>*/}
-=======
-      {/* <Filters/> */}
 
-      {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={30} backColor='--white-0'/> */}
->>>>>>> d4bfa89b75d68f5bec07b48f1469cd4736a9de04
+      {/* <Modal width={10} height={10} padding={.1} borderRadius={.5} top={1} left={10} backColor='--grey-1'/> */}
+      {/*<Filters/>*/}
     </>
   );
 }
