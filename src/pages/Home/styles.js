@@ -21,13 +21,15 @@ export const ContentContainer = styled.div`
 
 export const ContentUpperDiv = styled.div`
   width: 100%;
-  height: 70%;
+  height: 75%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
-  @media (min-width: 700px) {
+  @media (min-width: 865px) {
     height: fit-content;
     gap: 15px;
+    align-items: unset;
   }
 `;
 
@@ -38,4 +40,41 @@ export const FiltersContainer = styled.div`
   justify-content: center;
 `;
 
-export const ProductsContainer = styled.div``;
+export const ProductsContainer = styled.div`
+  width: 86.6%;
+  height: 355px;
+  overflow-x: auto;
+  @media (min-width: 700px) {
+    width: 80%;
+    /* margin-left: 11.7%; */
+  }
+  @media (min-width: 865px) {
+    width: 50%;
+    margin-left: 11.7%;
+  }
+  @media (min-width: 1260px) {
+    overflow-x: unset;
+  }
+`;
+
+export const TitleContainer = styled.div`
+  width: 86.6%;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  justify-content: flex-start;
+  @media (min-width: 700px) {
+    margin-left: 11.7%;
+  }
+`;
+
+export const Title = styled.p`
+  color: ${(props) => props.color};
+  font-weight: 500;
+  font-family: "Montserrat";
+  font-size: ${(props) => props.fontSize};
+  display: flex;
+  @media (min-width: 1000px) {
+    font-size: 18px;
+  }
+`;

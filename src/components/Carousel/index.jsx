@@ -7,7 +7,7 @@ const Carousel = ({ dataImages, side }) => {
     const [translate, setTranslate] = useState(0)
     const [animationImage, setAnimationImage] = useState()
 
-    setInterval(() => {
+    const intervalCarousel = setInterval(() => {
 
         if(translate>-200) {
             setTranslate(translate - 100)
@@ -17,6 +17,13 @@ const Carousel = ({ dataImages, side }) => {
         
         
     }, 5000);
+
+    useEffect(() => {
+
+        return () => {
+            clearInterval()
+        }
+    }, [translate])
 
    
 

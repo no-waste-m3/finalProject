@@ -5,10 +5,10 @@ import {
   Titles,
 } from "./styled";
 
-const CartButtonMobile = () => {
+const CartButtonMobile = ({ setDisplayCart, displayCart }) => {
   return (
     <>
-      <Button>
+      <Button onClick={() => setDisplayCart(true)}>
         <QttCartPriceContainer>
           <Titles fontSize="18px">3</Titles>
           <CartPriceContainer>

@@ -1,9 +1,9 @@
 import { BsArrowReturnLeft } from "react-icons/bs";
 import { Container } from "./styled";
 
-const CartReturnBtn = () => {
+const CartReturnBtn = ({ setDisplayCart }) => {
   return (
-    <Container>
+    <Container onClick={() => setDisplayCart(false)}>
       <BsArrowReturnLeft
         fontSize="24px"
         color="white"

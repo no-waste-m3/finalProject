@@ -14,14 +14,14 @@ import { BsArrowReturnLeft } from "react-icons/bs";
 import CartProduct from "../CartProduct";
 import CartReturnBtn from "../CartReturnButton";
 
-const Cart = () => {
+const Cart = ({ setDisplayCart, displayCart }) => {
   //map em cartProducts
 
   return (
     <CartContainer>
       <CartTitleRtrnContainer>
         <CartTitleCentered>
-          <CartReturnBtn />
+          <CartReturnBtn setDisplayCart={setDisplayCart} />
           <Title color="white" fontSize="23px">
             Carrinho
           </Title>
