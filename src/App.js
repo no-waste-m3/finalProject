@@ -12,7 +12,7 @@ import { Button } from "./components/Button";
 import Cart from "./components/Cart";
 import { AppRoutes } from "./pages/routes";
 import { Dashboard } from "./pages/Dashboard";
-
+import { SignUp } from "./pages/SignUp";
 import Filters from "./components/Filters";
 import { Link } from "react-router-dom";
 
