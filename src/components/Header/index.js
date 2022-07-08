@@ -10,14 +10,14 @@ import NavPages from "../NavPages";
 import LogoNOWASTE from "../../assets/LogoNOWASTE.png";
 import SearchBar from "../SearchBar";
 
-const Header = () => {
-  const [viewerWidth, setViewerWidth] = useState(window.screen.availWidth);
-  const [isSearching, setIsSearching] = useState(false);
-  const [asidePages, setAsidePages] = useState(false);
-  window.addEventListener("resize", () =>
-    setViewerWidth(window.screen.availWidth)
-  );
-
+const Header = ({
+  viewerWidth,
+  setViewerWidth,
+  isSearching,
+  setIsSearching,
+  asidePages,
+  setAsidePages,
+}) => {
   return (
     <HeaderContainer>
       <HeaderCentralized>

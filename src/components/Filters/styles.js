@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  overflow-x: scroll;
+  overflow-x: auto;
   width: 86.6%;
   cursor: pointer;
   @media (min-width: 420px) {
