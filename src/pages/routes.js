@@ -10,18 +10,19 @@ import {
   import { AboutUs } from "./AboutUs";
   import { SignUp } from "./SignUp";
   import { FinancialStatement } from "./FinancialStatement";
+  import { ProtectedRoute, NonProtectedRoute } from "./route"
   
 export const AppRoutes = () => {
     return (
 
         <Routes>
-            <Route index element={<Login />} />
-            <Route path="home" element={<Home/>}/>
-            <Route path="home/dashboard" element={<Dashboard />}/>
-            <Route path="home/dashboard/stats" element={<FinancialStatement/>}/>
-            <Route path="home/checkout" element={<Checkout/>}/>
+            <Route index element={<NonProtectedRoute element={<Login />}/>} />
+            <Route path="home" element={<ProtectedRoute element={<Home/>}/>}/>
+            <Route path="home/dashboard" element={<ProtectedRoute element={<Dashboard />}/>}/>
+            <Route path="home/dashboard/stats" element={<ProtectedRoute element={<FinancialStatement/>}/>}/>
+            <Route path="home/checkout" element={<ProtectedRoute element={<Checkout/>}/>}/>
             <Route path="home/about" element={<AboutUs/>}/>
-            <Route path="signUp" element={<SignUp/>}/>
+            <Route path="signUp" element={<NonProtectedRoute element={<SignUp/>}/>}/>
         </Routes>
 
     )
