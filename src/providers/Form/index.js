@@ -5,10 +5,10 @@ export const FormContext = createContext();
 
 export const FormProvider = ({ children }) => {
   const [userToken, setUserToken] = useState(
-    JSON.parse(localStorage.getItem("@userNoWasteToken")) || false
+    JSON.parse(localStorage.getItem("@userNoWasteToken")) || ""
   );
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("@userNoWaste")) || false
+    JSON.parse(localStorage.getItem("@userNoWaste")) || ""
   );
 
   const registerUser = (user) => {
@@ -22,6 +22,7 @@ export const FormProvider = ({ children }) => {
     api
       .post("/login", user)
       .then((response) => {
+
         setUserToken(response.data.accessToken);
         setUser(response.data.user);
 
@@ -34,13 +35,22 @@ export const FormProvider = ({ children }) => {
           JSON.stringify(response.data.user)
         );
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error)
+
+        setUserToken('');
+        setUser('');
+        localStorage.removeItem("@userNoWasteToken")
+        localStorage.removeItem("@userNoWaste")
+
+      });
   };
 
   const exitUser = () => {
-    localStorage.clear();
-    setUserToken(false);
-    setUser(false);
+    setUserToken('');
+    setUser('');
+    localStorage.removeItem("@userNoWasteToken")
+    localStorage.removeItem("@userNoWaste")
   };
 
   return (

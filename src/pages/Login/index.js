@@ -6,6 +6,8 @@ import images from "../../data/carouselData";
 import Carousel from "../../components/Carousel";
 import { ButtonStyled, Container, LinkStyled, LoginFormContainer, LoginPage } from "./styles";
 import { FormLogin } from "../../components/FormLogin";
+import { Button } from "../../components/Button";
+
 
 
 export const Login = () => {
@@ -17,9 +19,10 @@ export const Login = () => {
 
   return (
     <LoginPage>
+      
       <LoginFormContainer>
       <LinkStyled to='home/about'>Saiba mais</LinkStyled>
-        <Logo lw="10rem" mw="8rem" sw="7rem" />
+        <Logo lw="50%" mw="70%" sw="55%"/>
         <h2>Fazer login</h2>
         <FormLogin />
         <BaseTypograph tag="small">

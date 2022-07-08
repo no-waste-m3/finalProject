@@ -1,5 +1,5 @@
 import GlobalStyle from "./styles/GlobalStyle";
-import { ToastNotify } from "./components/Toasts";
+import { notify, ToastNotify } from "./components/Toasts";
 import { AppRoutes } from "./pages/routes";
 import { FinancialStatement } from "./pages/FinancialStatement";
 import { Dashboard } from "./pages/Dashboard";
@@ -7,19 +7,20 @@ import { SignUp } from "./pages/SignUp";
 import Filters from "./components/Filters";
 import { Link } from "react-router-dom";
 import { AboutUs } from "./pages/AboutUs";
+import { Button } from "./components/Button";
 
 function App() {
   return (
     <>
       <AppRoutes />
       <GlobalStyle />
+      <ToastNotify/> 
       {/* <FinancialStatement/> */}
 
       {/* <Cart /> */}
-      {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}
 
-      {/*<Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button>
+      {/*<Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button>*/}
 
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}
