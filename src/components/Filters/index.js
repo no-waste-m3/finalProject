@@ -13,13 +13,13 @@ export const Filters = () => {
   const [selected, setSelected] = useState("Todos");
 
 
-const objects = [{name: 'Todos', icon:<GiKnifeFork size='27px' />},
-                {name: 'Pizzarias', icon: <FaPizzaSlice size='27px'/>},
-                {name: 'Burgers', icon:<FaHamburger size='27px'/>},
-                {name: 'Mercado', icon:<FaStore size='27px'/>},
-                {name: 'Padaria', icon:<GiSlicedBread size='27px'/>},
-                {name: 'Doces', icon:<GiCupcake size='27px'/>},
-                {name: 'Cafeterias', icon:<FaCoffee size='27px'/>}]
+const objects = [{name: 'Todos', icon:<GiKnifeFork size='25px' />},
+                {name: 'Pizzarias', icon: <FaPizzaSlice size='25px'/>},
+                {name: 'Burgers', icon:<FaHamburger size='25px'/>},
+                {name: 'Mercado', icon:<FaStore size='25px'/>},
+                {name: 'Padaria', icon:<GiSlicedBread size='25px'/>},
+                {name: 'Doces', icon:<GiCupcake size='25px'/>},
+                {name: 'Cafeterias', icon:<FaCoffee size='25px'/>}]
 
 
   // console.log(selected);
