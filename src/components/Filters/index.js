@@ -22,8 +22,7 @@ export const Filters = () => {
   //   { name: "Cafeterias", icon: <FaCoffee size="25px" /> },
   // ];
 
-
-const objects = [{name: 'Todos', icon:<GiKnifeFork size='27px' />},
+const objects1 = [{name: 'Todos', icon:<GiKnifeFork size='27px' />},
                 {name: 'Pizzarias', icon: <FaPizzaSlice size='27px'/>},
                 {name: 'Burgers', icon:<FaHamburger size='27px'/>},
                 {name: 'Mercado', icon:<FaStore size='27px'/>},

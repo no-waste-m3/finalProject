@@ -27,6 +27,7 @@ export const StepButtons = styled.div`
 
     display: flex;
     width: 100%;
+    flex-direction: row-reverse;
     justify-content: space-between;
 
     >button:disabled {
