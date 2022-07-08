@@ -1,6 +1,6 @@
-import image1 from '../assets/image1.png'
-import image2 from '../assets/image2.png'
-import image3 from '../assets/image3.png'
+import image1 from '../assets/Pasta-pana.svg'
+import image2 from '../assets/Happy Earth-bro.svg'
+import image3 from '../assets/Order food-amico.svg'
 
-const images = [image1, image2, image3]
+const images = [{image: image1 , text: 'Lorem' },{image: image2, text: 'Lorem1'}, {image:  image3, text: 'Lorem2' }]
 export default images
