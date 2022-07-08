@@ -32,6 +32,10 @@ export const Input = styled.input`
   width: 72%;
   border: 0;
   font-family: "Montserrat";
+  :focus {
+    outline: 0;
+    box-shadow: 0 0 0 0;
+  }
 `;
 
 export const RightDiv = styled.div`
@@ -53,7 +57,10 @@ export const InputDesktop = styled.input`
   background-color: transparent;
   border: 0;
   border-bottom: 1px solid black;
-  /* width: ${(props) => (props.isSearching ? "250px" : "0px")}; */
   animation-name: ${inputOpenAnimation};
   animation-duration: 0.5s;
+  :focus {
+    outline: 0;
+    box-shadow: 0 0 0 0;
+  }
 `;

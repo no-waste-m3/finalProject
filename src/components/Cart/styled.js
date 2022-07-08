@@ -7,12 +7,20 @@ export const CartContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background-color: white;
+  position: fixed;
   border-radius: 15px;
   box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.25);
-  @media (min-width: 700px) {
+  @media (min-width: 865px) {
     width: 290px;
     height: 450px;
     box-shadow: none;
+    right: 1vw;
+    top: 21%;
+  }
+  @media (min-width: 1000px) {
+    right: 6.5vw;
+    top: 20%;
   }
 `;
 
@@ -31,7 +39,7 @@ export const CartTitleCentered = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  @media (min-width: 700px) {
+  @media (min-width: 865px) {
     width: 270px;
     justify-content: center;
   }
@@ -44,7 +52,7 @@ export const CartMiddleDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media (min-width: 700px) {
+  @media (min-width: 865px) {
     height: 272px;
   }
 `;
@@ -54,7 +62,7 @@ export const CartMiddleCentered = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 700px) {
+  @media (min-width: 865px) {
     width: 270px;
     height: 258px;
   }
@@ -66,7 +74,7 @@ export const CartFooterDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media (min-width: 700px) {
+  @media (min-width: 865px) {
     height: 128px;
   }
 `;
@@ -78,7 +86,7 @@ export const CartFooterCentered = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  @media (min-width: 700px) {
+  @media (min-width: 865px) {
     width: 270px;
     height: 108px;
   }
@@ -90,7 +98,7 @@ export const CartFooterPriceAndQtt = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (min-width: 700px) {
+  @media (min-width: 865px) {
     height: 25px;
   }
 `;
@@ -113,7 +121,7 @@ export const Button = styled.button`
   font-family: "Montserrat";
   font-weight: 500;
   font-size: 19px;
-  @media (min-width: 700px) {
+  @media (min-width: 865px) {
     height: 30px;
     width: 250px;
   }

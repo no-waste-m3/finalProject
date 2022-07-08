@@ -10,7 +10,7 @@ export const Button = styled.button`
   border: 0;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  @media (min-width: 700px) {
+  @media (min-width: 865px) {
     display: none;
   }
 `;
