@@ -33,6 +33,8 @@ function App() {
     <>
       <AppRoutes/>
       <GlobalStyle />
+      {/* <FinancialStatement/> */}
+
       {/* <Cart /> */}
       {/* <ToastNotify/> */}
       {/* Button para testes da notificação */}

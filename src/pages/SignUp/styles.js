@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -70,3 +71,17 @@ export const RegisterPage = styled.div`
     //height: 100vh;
   }
 `;
+
+export const LinkStyled = styled(Link)`
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+
+
+  @media (max-width: 620px) {
+    top: 28%;
+    width: 90%;
+    text-align: end;
+  }
+
+`

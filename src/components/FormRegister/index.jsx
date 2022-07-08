@@ -158,12 +158,14 @@ export const FormRegister = ({ ...rest }) => {
           type={typeInput}
         />
         <StepButtons>
+        <Button typebutton="primary" type='submit'>
+        <FastForward size={16} color="#fff" weight="fill" />
+          </Button>
           <Button typebutton="primary" disabled={step === 0}>
             <Rewind size={16} color="#fff" weight="fill" />
           </Button>
-          <Button typebutton="primary" type='submit'>
-          <FastForward size={16} color="#fff" weight="fill" />
-          </Button>
+         
+          
         </StepButtons>
       </div>
 
@@ -205,11 +207,12 @@ export const FormRegister = ({ ...rest }) => {
           }
         />
         <StepButtons>
+        <Button typebutton="primary" type='submit'>
+          
+          <FastForward size={16} color="#fff" weight="fill" />
+          </Button>
           <Button typebutton="primary" onClick={() => setStep(step - 1)}>
             <Rewind size={16} color="#fff" weight="fill" />
-          </Button>
-          <Button typebutton="primary" type='submit'>
-          <FastForward size={16} color="#fff" weight="fill" />
           </Button>
         </StepButtons>
       </div>
@@ -266,15 +269,16 @@ export const FormRegister = ({ ...rest }) => {
           }
         />
         <StepButtons>
-          <Button typebutton="primary" onClick={() => setStep(step - 1)}>
-            <Rewind size={16} color="#fff" weight="fill" />
-          </Button>
           <Button
             typebutton="primary"
             disabled={step === 2}
           >
             <FastForward size={16} color="#fff" weight="fill" />
           </Button>
+            <Button typebutton="primary" onClick={() => setStep(step - 1)}>
+            <Rewind size={16} color="#fff" weight="fill" />
+          </Button>
+            
         </StepButtons>
         <Button type='submit'>Cadastrar</Button>
       </div>

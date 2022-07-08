@@ -6,7 +6,7 @@ import Logo from "../../components/Logo";
 import images from "../../data/carouselData";
 import Carousel from "../../components/Carousel";
 
-import { Container, RegisterFormContainer, RegisterPage } from "./styles";
+import { Container, LinkStyled, RegisterFormContainer, RegisterPage } from "./styles";
 
 export const SignUp = () => {
   const [animate, setAnimate] = useState()
@@ -20,6 +20,7 @@ export const SignUp = () => {
     <RegisterPage>
       <Container animate={animate}  ></Container>
       <RegisterFormContainer>
+      <LinkStyled to='home/about'>Saiba mais</LinkStyled>
         <Logo lw="10rem" mw="8rem" sw="7rem" />
         <h2>Criar conta</h2>
         <FormRegister />
