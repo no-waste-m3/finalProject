@@ -66,6 +66,7 @@ export const ItemCarousel = styled(motion.div)`
     >p {
         font-weight: 600;
         padding: 0.5rem;
+
     }
     
     @media (max-width: 620px) {
@@ -84,7 +85,10 @@ export const ItemCarousel = styled(motion.div)`
         }
 
         >p {
+            //color: rgb(107, 158, 11);
             font-size: 0.9rem;
+            border-radius: 1rem;
+            //background-color: rgba(107, 158, 11,0.5);
         }
     }
 
