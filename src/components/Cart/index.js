@@ -16,6 +16,7 @@ import { CartContext } from "../../providers/Cart";
 import CartQuantity from "../CartQuantity";
 import CartPrice from "../CartPrice";
 import SadWade from "../SadWadeSVG";
+import SadWadeAnimated from "../SadWadeAnimated";
 
 const Cart = ({ setDisplayCart, displayCart }) => {
   const { cart } = useContext(CartContext);
@@ -64,7 +65,7 @@ const Cart = ({ setDisplayCart, displayCart }) => {
               </Title>
             </CartTitleCentered>
           </CartTitleRtrnContainer>
-          <SadWade />
+          <SadWadeAnimated/>
           <Title color="black" fontSize="17px">
             Seu carrinho está vazio
           </Title>

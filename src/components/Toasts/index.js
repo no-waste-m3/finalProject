@@ -5,6 +5,7 @@ import { Toast } from "./styles";
 import SadWade from "../SadWadeSVG";
 import { useContext } from "react";
 import { ThemeToastContext } from "../../providers/ThemeToast";
+import SadWadeAnimated from "../SadWadeAnimated";
 
 
 
@@ -21,7 +22,7 @@ export const ToastNotify = () => {
 export const notify = (message, time, type ) => {
 
   return toast(message, {
-    icon: type === 'error' ? <SadWade/> : <Wade /> ,
+    icon: type === 'error' ? <SadWadeAnimated/> : <Wade /> ,
     autoClose: time,
   });
 };
