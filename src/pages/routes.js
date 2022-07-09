@@ -11,8 +11,10 @@ import {
   import { SignUp } from "./SignUp";
   import { FinancialStatement } from "./FinancialStatement";
   import { ProtectedRoute, NonProtectedRoute } from "./route"
+
   
 export const AppRoutes = () => {
+
     return (
 
         <Routes>
