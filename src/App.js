@@ -8,19 +8,29 @@ import Filters from "./components/Filters";
 import { Link } from "react-router-dom";
 import { AboutUs } from "./pages/AboutUs";
 import { Button } from "./components/Button";
+import { useContext } from "react";
+import { ThemeToastContext } from "./providers/ThemeToast";
 
 function App() {
+
+  const { changeThemeToast } = useContext(ThemeToastContext)
+
   return (
     <>
       <AppRoutes />
       <GlobalStyle />
-      <ToastNotify/> 
+      <ToastNotify/>
+    
       {/* <FinancialStatement/> */}
 
       {/* <Cart /> */}
-      {/* Button para testes da notificação */}
 
-      {/*<Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button>*/}
+
+
+      {/* Button para testes da notificação */}
+      {/*<Button typebutton='primary' onClick={()=> {
+        changeThemeToast('error') 
+      notify("Olá! Que bom te ver novamente.", 3000, 'error')}}>Aqui</Button>*/}
 
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}
