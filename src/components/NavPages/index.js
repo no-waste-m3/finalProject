@@ -52,7 +52,7 @@ const NavPages = ({ setAsidePages }) => {
     } else if (page.name === "Logout") {
       //abre modal de realmente deseja sair
     } else if (page.name === "Home") {
-      navigate("/home");
+      navigate("/");
       setAsidePages(false);
     } else if (page.name === "Login") {
       navigate("/");
@@ -70,15 +70,10 @@ const NavPages = ({ setAsidePages }) => {
       borderTop="1px solid black"
     >
       {pages.map((page, index) => {
-        return index === pages.length - 1 ? (
-          <PageContainer borderBottom="0" key={index}>
-            {page.icon}
-            {page.name}
-          </PageContainer>
-        ) : (
+        return (
           <PageContainer
             onClick={() => handleRedirect(page)}
-            borderBottom="0.5px solid black"
+            borderBottom={index === pages.length - 1 ? '0' : "0.5px solid black"}
             key={index}
           >
             {page.icon}

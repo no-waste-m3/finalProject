@@ -16,7 +16,7 @@ import {
   UserSwitch,
 } from "phosphor-react";
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button } from "../Button";
 import Input from "../Input";
 import ProgressBarStep from "../ProgressBarStep";
@@ -24,6 +24,7 @@ import { FormRegisterStyled, StepButtons } from "./styled";
 import { useForm } from "react-hook-form";
 import { schemas } from "./validation";
 import axios from "axios";
+import { FormContext } from "../../providers/Form";
 
 export const FormRegister = ({ ...rest }) => {
   const [typeInput, setTypeInput] = useState("password");
@@ -32,6 +33,8 @@ export const FormRegister = ({ ...rest }) => {
   const [street, setStreet] = useState('')
   const [district, setDistrict] = useState('')
   const [typeIdentify, setTypeIdentify] = useState('CPF')
+
+  const { registerUser } = useContext(FormContext)
 
   const submitFunction = (data) => {
     if(step<2) {
@@ -54,7 +57,7 @@ export const FormRegister = ({ ...rest }) => {
         dataUser.info.CNPJ = CNPJ
       }
 
-      console.log(dataUser)
+      registerUser(dataUser)
 
     }
   }
@@ -63,7 +66,7 @@ export const FormRegister = ({ ...rest }) => {
 
     if(e.target.value === 'PJ') {
       setTypeIdentify('CNPJ')
-    } else if(e.target.value === 'PJ') {
+    } else if(e.target.value === 'PF') {
       setTypeIdentify('CPF')
     }
 
