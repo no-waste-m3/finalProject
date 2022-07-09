@@ -21,7 +21,7 @@ export const ContentContainer = styled.div`
 
 export const ContentUpperDiv = styled.div`
   width: 100%;
-  height: 75%;
+  height: 77%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +48,7 @@ export const ProductsContainer = styled.div`
   width: 86.6%;
   height: 355px;
   overflow-x: auto;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   @media (min-width: 700px) {
     width: 80%;
     /* margin-left: 11.7%; */

@@ -20,20 +20,19 @@ const NavPages = ({ setAsidePages }) => {
   const pageStats = [dash, stats, logout, home];
   const pageAbout = [dash, balance, logout, home];
 
-
   const whichLocation = () => {
     const href = window.location.href;
     if (href === "http://localhost:3000/home") {
       return pageHome;
-    } else if (href === "http://localhost:3000/dashboard") {
+    } else if (href === "http://localhost:3000/home/dashboard") {
       return pageDash;
-    } else if (href === "http://localhost:3000/stats") {
+    } else if (href === "http://localhost:3000/home/dashboard/stats") {
       return pageStats;
-    } else if (href === "http://localhost:3000/about") {
+    } else if (href === "http://localhost:3000/home/about") {
       return pageAbout;
-    }else if (href === "http://localhost:3000/home/about") {
-    //return more;
-  }
+    }
+
+    
   };
 
   const pages = whichLocation();
@@ -41,23 +40,23 @@ const NavPages = ({ setAsidePages }) => {
   const navigate = useNavigate();
 
   const handleRedirect = (page) => {
-    if (page === "Dashboard") {
-      navigate("/dashboard")
-      setAsidePages(false)
-    } else if (page === "Balanço") {
-      navigate("/balance")
-      setAsidePages(false)
-    } else if (page === "Sobre nós") {
-      navigate("/aboutus")
-      setAsidePages(false)
-    } else if (page === "Logout") {
+    if (page.name === "Dashboard") {
+      navigate("/home/dashboard");
+      setAsidePages(false);
+    } else if (page.name === "Balanço") {
+      navigate("/home/dashboard/stats");
+      setAsidePages(false);
+    } else if (page.name === "Sobre nós") {
+      navigate("/home/about");
+      setAsidePages(false);
+    } else if (page.name === "Logout") {
       //abre modal de realmente deseja sair
-    } else if (page === "Home") {
-      navigate("/home")
-      setAsidePages(false)
-    }else if (page === "Login") {
-      navigate("/")
-      setAsidePages(false)
+    } else if (page.name === "Home") {
+      navigate("/home");
+      setAsidePages(false);
+    } else if (page.name === "Login") {
+      navigate("/");
+      setAsidePages(false);
     }
   };
 

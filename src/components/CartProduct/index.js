@@ -11,7 +11,7 @@ import priceFormat from "../../util/priceFormat";
 import { useContext } from "react";
 import { CartContext } from "../../providers/Cart";
 
-const CartProduct = ({ product, index }) => {
+const CartProduct = ({ product }) => {
   const { deleteCart } = useContext(CartContext);
   const {
     nomeDoProduto,
@@ -27,7 +27,7 @@ const CartProduct = ({ product, index }) => {
   } = product;
 
   return (
-    <ProdContainer key={index}>
+    <ProdContainer key={product.id}>
       <ImgContainer>
         <Img alt="productImage" src={product.src} />
       </ImgContainer>
