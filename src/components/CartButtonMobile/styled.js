@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   height: 60px;
-  width: 90%;
+  width: 95%;
   margin-bottom: 5px;
   display: flex;
   justify-content: center;
@@ -16,16 +16,15 @@ export const Button = styled.button`
 `;
 
 export const QttCartPriceContainer = styled.div`
-  width: 86.6%;
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 export const CartPriceContainer = styled.div`
   width: 66%;
-
   height: 100%;
   display: flex;
   align-items: center;
