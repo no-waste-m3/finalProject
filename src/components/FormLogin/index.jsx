@@ -17,15 +17,10 @@ import { useNavigate } from "react-router-dom";
 export const FormLogin = ({ ...rest }) => {
   const [typeInput, setTypeInput] = useState("password");
   const [iconInput, setIconInput] = useState();
-  const { loginUser, userToken } = useContext(FormContext)
-  const navigate = useNavigate()
+  const { loginUser, user } = useContext(FormContext)
 
   const submitFunction = async (data) => {
     await loginUser(data)
-    if(userToken !== '') {
-      navigate('/home')
-    }
-
   }
   
 
@@ -35,7 +30,6 @@ export const FormLogin = ({ ...rest }) => {
 
   const {
     register,
-    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm({

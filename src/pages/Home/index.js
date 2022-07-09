@@ -17,9 +17,9 @@ import Cart from "../../components/Cart";
 export const Home = () => {
   const [viewerWidth, setViewerWidth] = useState(window.screen.availWidth);
   const [displayCart, setDisplayCart] = useState(false);
-  window.addEventListener("resize", () =>
+  window.addEventListener("resize", () => {
     setViewerWidth(window.screen.availWidth)
-  );
+  })
 
   return (
     <Container>

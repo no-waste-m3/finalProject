@@ -31,6 +31,8 @@ const NavPages = ({ setAsidePages }) => {
     } else if (href === "http://localhost:3000/home/about") {
       return pageAbout;
     }
+
+    
   };
 
   const pages = whichLocation();
