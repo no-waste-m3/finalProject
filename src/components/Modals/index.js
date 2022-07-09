@@ -13,9 +13,10 @@ export const Modal = ({
   border,
   borderTop,
   children,
+  ...rest
 }) => {
   return (
-    <StyledModal
+    <StyledModal {...rest}
       typeModal={typeModal}
       top={top}
       right={right}
