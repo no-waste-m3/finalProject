@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const CartContainer = styled.div`
+export const CartContainer = styled(motion.div)`
   width: 325px;
   height: 535px;
   display: flex;
@@ -10,6 +11,7 @@ export const CartContainer = styled.div`
   background-color: white;
   position: fixed;
   border-radius: 15px;
+  border: 1px solid var(--primary-color);
   box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.25);
   @media (min-width: 865px) {
     width: 290px;
