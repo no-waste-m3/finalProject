@@ -32,7 +32,7 @@ const NavPages = ({ setAsidePages }) => {
     } else if (href === "http://localhost:3000/about") {
       return pageAbout;
     }else if (href === "http://localhost:3000/home/about") {
-    return more;
+    //return more;
   }
   };
 

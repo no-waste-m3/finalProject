@@ -19,9 +19,9 @@ export const Home = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [asidePages, setAsidePages] = useState(false);
   const [displayCart, setDisplayCart] = useState(false);
-  window.addEventListener("resize", () =>
+  window.addEventListener("resize", () => {
     setViewerWidth(window.screen.availWidth)
-  );
+  })
 
   return (
     <Container>
