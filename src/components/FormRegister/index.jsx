@@ -2,6 +2,7 @@ import {
   AddressBook,
   At,
   Bank,
+  Buildings,
   Envelope,
   Eye,
   EyeSlash,
@@ -133,14 +134,6 @@ export const FormRegister = ({ ...rest }) => {
       <div>
         <Input
         register={register}
-        name="name"
-        error={errors.name?.message}
-        Field = 'input'
-          label="Nome"
-          Icon={<User size={20} color="var(--primary-color)" weight="fill" />}
-        />
-        <Input
-        register={register}
         name="account"
         error={errors.account?.message}
           Field = 'select'
@@ -177,6 +170,15 @@ export const FormRegister = ({ ...rest }) => {
           SecondIcon={iconInput}
           type={typeInput}
         />
+
+<Input
+        register={register}
+        name="contato"
+        error={errors.contato?.message}
+        Field = 'input'
+          label="Contato"
+          Icon={<AddressBook size={20} color="var(--primary-color)" weight="fill" />}
+        />
         <StepButtons>
         <Button typebutton="primary" type='submit'>
         <FastForward size={16} color="#fff" weight="fill" />
@@ -205,6 +207,28 @@ export const FormRegister = ({ ...rest }) => {
         </Input>
         <Input
         register={register}
+        name={typeIdentify === 'CNPJ' ? "responsavel" : "name"}
+        error={errors[typeIdentify === 'CNPJ' ? "responsavel" : "name"]?.message}
+        Field = 'input'
+          label={typeIdentify === 'CNPJ' ? "Responsável" : "Nome completo"}
+          Icon={<User size={20} color="var(--primary-color)" weight="fill" />}
+        />
+        {typeIdentify === 'CNPJ' && <Input
+        register={register}
+        name="razaoSocial"
+        error={errors.razaoSocial?.message}
+        Field = 'input'
+          label="Razão Social"
+          Icon={
+            <Buildings
+              size={20}
+              color="var(--primary-color)"
+              weight="fill"
+            />
+          }
+        /> }
+        <Input
+        register={register}
         name={typeIdentify}
         error={errors[typeIdentify]?.message}
         Field = 'input'
@@ -215,16 +239,6 @@ export const FormRegister = ({ ...rest }) => {
               color="var(--primary-color)"
               weight="fill"
             />
-          }
-        />
-        <Input
-        register={register}
-        name="contact"
-        error={errors.contact?.message}
-        Field = 'input'
-          label="Contato"
-          Icon={
-            <AddressBook size={20} color="var(--primary-color)" weight="fill" />
           }
         />
         <StepButtons>
