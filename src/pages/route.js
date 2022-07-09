@@ -18,10 +18,15 @@ export const ProtectedRoute = ({ element: Element}) => {
 }
 
 export const NonProtectedRoute = ({ element: Element}) => {
-    const { userToken } = useContext(FormContext)
+    const { userToken, user } = useContext(FormContext)
 
     if(userToken) {
+        if(user.account === 'seller') {
+        return <Navigate to='/home/dashboard'/>
+
+      } else {
         return <Navigate to='/home'/>
+      }
     }
 
     return (
