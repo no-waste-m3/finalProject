@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   height: 10.64%;
+  position: fixed;
+  width: 100vw;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;

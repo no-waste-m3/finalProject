@@ -52,7 +52,7 @@ const NavPages = ({ setAsidePages }) => {
     } else if (page.name === "Logout") {
       //abre modal de realmente deseja sair
     } else if (page.name === "Home") {
-      navigate("/");
+      navigate("/home");
       setAsidePages(false);
     } else if (page.name === "Login") {
       navigate("/");
@@ -63,7 +63,7 @@ const NavPages = ({ setAsidePages }) => {
   return (
     <Modal
       typeModal="primary"
-      top="8.7%"
+      top="100%"
       padding="0.8rem"
       backgroundColor="var(--secondary-color)"
       borderRadius="0 0 15px 15px"

@@ -11,7 +11,7 @@ import {
   Button,
 } from "./styled";
 import CartReturnBtn from "../CartReturnButton";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../providers/Cart";
 import CartQuantity from "../CartQuantity";
 import CartPrice from "../CartPrice";
@@ -20,7 +20,6 @@ import SadWadeAnimated from "../SadWadeAnimated";
 
 const Cart = ({ setDisplayCart, displayCart }) => {
   const { cart } = useContext(CartContext);
-  //map em cartProducts
 
   return (
     <>
@@ -56,7 +55,7 @@ const Cart = ({ setDisplayCart, displayCart }) => {
           </CartFooterDiv>
         </CartContainer>
       ) : (
-        <CartContainer style={{ height: "300px" }}>
+        <CartContainer animate={{scale: displayCart ? [0,1] : [1,0]}} transition={{ duration: 0.4 }} style={{ height: "300px" }}>
           <CartTitleRtrnContainer>
             <CartTitleCentered>
               <CartReturnBtn setDisplayCart={setDisplayCart} />
