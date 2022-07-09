@@ -20,7 +20,6 @@ export const FormProvider = ({ children }) => {
       .post("/register", user)
       .then((response) => {
         const { email, password } = user
-        console.log(response)
         loginUser({email, password})
       })
       .catch((error) => console.log(error));
@@ -49,8 +48,6 @@ export const FormProvider = ({ children }) => {
         }, 1000);
       })
       .catch((error) => {
-
-        console.log(error)
 
         changeThemeToast('error') 
         notify("Ops, ocorreu algum erro. Verifique seu email e senha", 3000, 'error')

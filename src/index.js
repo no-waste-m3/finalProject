@@ -6,9 +6,9 @@ import { Providers } from "./providers";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <Providers>
+  <Providers>
+      <BrowserRouter>
       <App />
-    </Providers>
   </BrowserRouter>
+  </Providers>
 );
