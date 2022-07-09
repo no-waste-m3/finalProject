@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import CartButtonMobile from "../../components/CartButtonMobile";
 import Filters from "../../components/Filters";
@@ -16,10 +16,16 @@ import Cart from "../../components/Cart";
 
 export const Home = () => {
   const [viewerWidth, setViewerWidth] = useState(window.screen.availWidth);
-  const [displayCart, setDisplayCart] = useState(false);
+  const [displayCart, setDisplayCart] = useState(true);
   window.addEventListener("resize", () => {
-    setViewerWidth(window.screen.availWidth)
+    setViewerWidth(window.innerWidth)
+    window.innerWidth < 864 ? setDisplayCart(false) : setDisplayCart(true)
   })
+
+  useEffect(() => {
+    setViewerWidth(window.innerWidth)
+    window.innerWidth < 864 ? setDisplayCart(false) : setDisplayCart(true)
+  }, [])
 
   return (
     <Container>
@@ -38,15 +44,9 @@ export const Home = () => {
           <ProductsContainer>
             <HomeProducts />
           </ProductsContainer>
-          {viewerWidth > 864 ? (
-            <Cart setDisplayCart={setDisplayCart} displayCart={displayCart} />
-          ) : (
-            displayCart && (
-              <Cart setDisplayCart={setDisplayCart} displayCart={displayCart} />
-            )
-          )}
+          {displayCart && <Cart setDisplayCart={setDisplayCart} displayCart={displayCart} />}
         </ContentUpperDiv>
-        <CartButtonMobile setDisplayCart={setDisplayCart} />
+        <CartButtonMobile setDisplayCart={setDisplayCart} displayCart={displayCart} />
       </ContentContainer>
     </Container>
   );

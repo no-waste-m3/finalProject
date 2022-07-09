@@ -14,7 +14,11 @@ export const FormProvider = ({ children }) => {
   const registerUser = (user) => {
     api
       .post("/register", user)
-      .then((response) => console.log(response))
+      .then((response) => {
+        const { email, password } = user
+        console.log(response)
+        loginUser({email, password})
+      })
       .catch((error) => console.log(error));
   };
 

@@ -17,8 +17,8 @@ export const AppRoutes = () => {
 
         <Routes>
             <Route index element={<NonProtectedRoute element={<Login />}/>} />
-            <Route path="home" element={<ProtectedRoute element={<Home/>}/>}/>
-            <Route path="home/dashboard" element={<ProtectedRoute element={<Dashboard />}/>}/>
+            <Route path="home" element={<ProtectedRoute /*onlyFor={{access: 'buyer', path:'/home/dashboard'}}*/ element={<Home/>}/>}/>
+            <Route path="home/dashboard" element={<ProtectedRoute onlyFor={{access: 'seller', path:'/home'}} element={<Dashboard />}/>}/>
             <Route path="home/dashboard/stats" element={<ProtectedRoute element={<FinancialStatement/>}/>}/>
             <Route path="home/checkout" element={<ProtectedRoute element={<Checkout/>}/>}/>
             <Route path="home/about" element={<AboutUs/>}/>

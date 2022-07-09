@@ -3,7 +3,7 @@ import { Container } from "./styled";
 
 const CartReturnBtn = ({ setDisplayCart }) => {
   return (
-    <Container onClick={() => setDisplayCart(false)}>
+    <Container onClick={() => {setDisplayCart(false)}}>
       <BsArrowReturnLeft
         fontSize="24px"
         color="white"
