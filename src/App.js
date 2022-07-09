@@ -10,6 +10,7 @@ import { AboutUs } from "./pages/AboutUs";
 import { Button } from "./components/Button";
 import { useContext } from "react";
 import { ThemeToastContext } from "./providers/ThemeToast";
+import SadWadeAnimated from "./components/SadWadeAnimated";
 
 function App() {
 
