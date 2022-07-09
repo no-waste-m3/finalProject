@@ -5,26 +5,32 @@ export const StyledModal = styled.div`
     switch (props.typeModal) {
       case "primary":
         return css`
-        position: absolute;
-        background-color: ${(props) => props.backgroundColor};
-        padding: ${(props) => props.padding};
+          position: absolute;
+          background-color: ${(props) => props.backgroundColor};
+          padding: ${(props) => props.padding};
 
-        top:${(props) => props.top};
-        right: ${(props) => props.right};
-        left: ${(props) => props.left};
-        bottom: ${(props) => props.bottom};
-        
-        border:${(props) => props.border} ;
-        border-top: ${(props) => props.borderTop};
+          top: ${(props) => props.top || "25vh"};
+          right: ${(props) => props.right};
+          left: ${(props) => props.left || "20vw"};
+          bottom: ${(props) => props.bottom};
 
-        z-index: 2;
+          border: ${(props) => props.border};
+          border-top: ${(props) => props.borderTop};
 
-        border-radius: ${(props) => props.borderRadius};
+          z-index: 2;
 
-        width: ${(props) => props.width}
-        background-color: var(--white-0);
-        
-        
+          border-radius: ${(props) => props.borderRadius};
+
+          width: ${(props) => props.width};
+          background-color: var(--white-0);
+
+          @media (min-width: 760px) {
+            left: 33vw;
+          }
+
+          @media (min-width: 1400px) {
+            left: 38vw;
+          }
         `;
 
       case "container":
