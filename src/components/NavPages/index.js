@@ -7,6 +7,9 @@ import { FaBalanceScale } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
 import { GoDashboard } from "react-icons/go";
 import { FaCarrot } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { ModalConfirm } from "../Modals/ModalConfirm";
+import { FormContext } from "../../providers/Form";
 
 const NavPages = ({ setAsidePages }) => {
   const home = { name: "Home", icon: <AiFillHome size="20px" /> };
@@ -19,6 +22,10 @@ const NavPages = ({ setAsidePages }) => {
   const pageDash = [balance, stats, logout, home];
   const pageStats = [dash, stats, logout, home];
   const pageAbout = [dash, balance, logout, home];
+
+  const [showConfirm, setShowConfirm] = useState(false)
+
+  const { exitUser } = useContext(FormContext)
 
   const whichLocation = () => {
     const href = window.location.href;
@@ -37,6 +44,12 @@ const NavPages = ({ setAsidePages }) => {
 
   const pages = whichLocation();
 
+  const onConfirmLogout = () => {
+
+    exitUser()
+
+  }
+
   const navigate = useNavigate();
 
   const handleRedirect = (page) => {
@@ -50,7 +63,7 @@ const NavPages = ({ setAsidePages }) => {
       navigate("/home/about");
       setAsidePages(false);
     } else if (page.name === "Logout") {
-      //abre modal de realmente deseja sair
+      setShowConfirm(true)
     } else if (page.name === "Home") {
       navigate("/home");
       setAsidePages(false);
@@ -81,6 +94,7 @@ const NavPages = ({ setAsidePages }) => {
           </PageContainer>
         );
       })}
+      <ModalConfirm text='Deseja mesmo fazer logout?' onConfirmFunction={onConfirmLogout} setVisible={setShowConfirm} visible={showConfirm}/>
     </Modal>
   );
 };
