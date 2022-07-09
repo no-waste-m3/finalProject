@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   overflow-x: auto;
-
   width: 86.6%;
   cursor: pointer;
   @media (min-width: 420px) {
@@ -35,6 +34,7 @@ export const Circle = styled.div`
       height: 30px;
       width: auto;
     }
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 50px;
-  height: 50px;
+  height: 55px;
   margin: 0 5px 0 5px;
   @media (min-width: 700px) {
     height: 75px;

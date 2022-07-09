@@ -16,8 +16,6 @@ import Cart from "../../components/Cart";
 
 export const Home = () => {
   const [viewerWidth, setViewerWidth] = useState(window.screen.availWidth);
-  const [isSearching, setIsSearching] = useState(false);
-  const [asidePages, setAsidePages] = useState(false);
   const [displayCart, setDisplayCart] = useState(false);
   window.addEventListener("resize", () =>
     setViewerWidth(window.screen.availWidth)
@@ -25,14 +23,7 @@ export const Home = () => {
 
   return (
     <Container>
-      <Header
-        viewerWidth={viewerWidth}
-        setViewerWidth={setViewerWidth}
-        isSearching={isSearching}
-        setIsSearching={setIsSearching}
-        asidePages={asidePages}
-        setAsidePages={setAsidePages}
-      />
+      <Header viewerWidth={viewerWidth} setViewerWidth={setViewerWidth} />
       <ContentContainer>
         <ContentUpperDiv>
           <FiltersContainer>
