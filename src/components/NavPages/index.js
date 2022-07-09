@@ -23,9 +23,9 @@ const NavPages = ({ setAsidePages }) => {
   const pageStats = [dash, stats, logout, home];
   const pageAbout = [dash, balance, logout, home];
 
-  const [showConfirm, setShowConfirm] = useState(false)
+  const [showConfirm, setShowConfirm] = useState(false);
 
-  const { exitUser } = useContext(FormContext)
+  const { exitUser } = useContext(FormContext);
 
   const whichLocation = () => {
     const href = window.location.href;
@@ -38,17 +38,13 @@ const NavPages = ({ setAsidePages }) => {
     } else if (href === "http://localhost:3000/home/about") {
       return pageAbout;
     }
-
-    
   };
 
   const pages = whichLocation();
 
   const onConfirmLogout = () => {
-
-    exitUser()
-
-  }
+    exitUser();
+  };
 
   const navigate = useNavigate();
 
@@ -63,7 +59,7 @@ const NavPages = ({ setAsidePages }) => {
       navigate("/home/about");
       setAsidePages(false);
     } else if (page.name === "Logout") {
-      setShowConfirm(true)
+      setShowConfirm(true);
     } else if (page.name === "Home") {
       navigate("/home");
       setAsidePages(false);
@@ -75,7 +71,7 @@ const NavPages = ({ setAsidePages }) => {
 
   return (
     <Modal
-      typeModal="primary"
+      typeModal="NavPages"
       top="100%"
       padding="0.8rem"
       backgroundColor="var(--secondary-color)"
@@ -86,7 +82,9 @@ const NavPages = ({ setAsidePages }) => {
         return (
           <PageContainer
             onClick={() => handleRedirect(page)}
-            borderBottom={index === pages.length - 1 ? '0' : "0.5px solid black"}
+            borderBottom={
+              index === pages.length - 1 ? "0" : "0.5px solid black"
+            }
             key={index}
           >
             {page.icon}
@@ -94,7 +92,12 @@ const NavPages = ({ setAsidePages }) => {
           </PageContainer>
         );
       })}
-      <ModalConfirm text='Deseja mesmo fazer logout?' onConfirmFunction={onConfirmLogout} setVisible={setShowConfirm} visible={showConfirm}/>
+      <ModalConfirm
+        text="Deseja mesmo fazer logout?"
+        onConfirmFunction={onConfirmLogout}
+        setVisible={setShowConfirm}
+        visible={showConfirm}
+      />
     </Modal>
   );
 };
