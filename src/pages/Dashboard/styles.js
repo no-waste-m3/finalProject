@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+`;
+
 export const StyledBalanceDiv = styled.div`
   position: fixed;
   top: 20rem;
@@ -7,12 +12,15 @@ export const StyledBalanceDiv = styled.div`
 
   margin: 0 1rem 0 1rem;
 
+  grid-area: StyledBalanceDiv;
+
+  width: 25%;
+
   div {
-    width: 20rem;
+    width: 100%;
 
     display: flex;
     align-items: center;
-    justify-content: flex-start;
 
     gap: 0.5rem;
 
@@ -34,7 +42,7 @@ export const StyledBalanceDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     div {
       display: flex;
@@ -44,7 +52,6 @@ export const StyledBalanceDiv = styled.div`
       margin-left: 0;
       margin-bottom: 1rem;
       padding-right: 5rem;
-
     }
   }
 `;
@@ -52,9 +59,13 @@ export const StyledBalanceDiv = styled.div`
 export const StyledStoreDiv = styled.div`
   @media (max-width: 740px) {
     position: fixed;
-    top: 15rem;
+    top: 7rem;
 
     margin: 0 1rem 0 1rem;
+
+    grid-area: StyledStoreDiv;
+
+    width: 100%;
 
     div {
       width: 20rem;
@@ -73,7 +84,7 @@ export const StyledStoreDiv = styled.div`
 
       figure:nth-child(1) {
         color: var(--primary-color);
-        font-size: 1.5rem;
+        font-size: 1.7rem;
       }
     }
 
@@ -83,7 +94,7 @@ export const StyledStoreDiv = styled.div`
       justify-content: center;
 
       color: var(--primary-color);
-      font-size: 2rem;
+      font-size: 1.4rem;
     }
 
     .name-edit-div {
@@ -97,8 +108,8 @@ export const StyledStoreDiv = styled.div`
 
       figure {
         position: fixed;
-        right: 1rem;
-        top: 15rem;
+        right: 2.2rem;
+        top: 7rem;
       }
     }
   }
@@ -110,8 +121,10 @@ export const StyledStoreDiv = styled.div`
 
     margin: 0 1rem 0 1rem;
 
+    width: 25%;
+
     div {
-      width: 20rem;
+      width: 100%;
 
       display: flex;
       align-items: center;
@@ -151,6 +164,8 @@ export const StyledStoreDiv = styled.div`
 
       border: none;
 
+      width: 100%;
+
       figure {
         position: fixed;
         right: 7.5rem;
@@ -163,7 +178,11 @@ export const StyledStoreDiv = styled.div`
 export const StyledProductsDiv = styled.div`
   @media (max-width: 740px) {
     position: fixed;
-    top: 21rem;
+    top: 15rem;
+
+    grid-area: StyledProductsDiv;
+
+    width: 100%;
 
     div {
       display: flex;
@@ -186,18 +205,20 @@ export const StyledProductsDiv = styled.div`
     position: fixed;
     top: 10rem;
 
-    width: 51rem;
+    width: 60%;
 
     left: 5rem;
 
     div {
       display: flex;
       align-items: center;
-      gap: 10rem;
+      justify-content: space-between;
 
       font-size: 2rem;
 
       margin: 0 1rem 0 1rem;
+
+      width: 100%;
     }
 
     .products-div {

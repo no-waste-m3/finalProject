@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Header from "../../components/Header";
 
 import { Modal } from "../../components/Modals";
@@ -6,12 +6,14 @@ import {
   StyledBalanceDiv,
   StyledStoreDiv,
   StyledProductsDiv,
+  Container,
 } from "./styles";
 import { Title } from "../../styles/title";
 import { MdStore } from "react-icons/md";
 import { FaBalanceScale, FaEdit } from "react-icons/fa";
 import { BiTrash } from "react-icons/bi";
 import { Button } from "../../components/Button";
+import { ProductsContext } from "../../providers/Products";
 
 export const Dashboard = () => {
   const [windowWidth, setWindowWidth] = useState(window.screen.availWidth);
@@ -19,48 +21,17 @@ export const Dashboard = () => {
     setWindowWidth(window.screen.availWidth)
   );
 
+  const data = useContext(ProductsContext);
+  console.log(data);
+
   return (
-    <>
+    <Container>
       <Header />
 
-      <StyledStoreDiv>
-        <div>
-          <figure>
-            <MdStore />
-          </figure>
-          <Title
-            tag={"h3"}
-            titleSize={"h3"}
-            color={"var(--primary-color)"}
-            fontStyle={"inherit"}
-            weight={"400"}
-            padding={"0"}
-          >
-            Minha Loja
-          </Title>
-        </div>
-        <div className="name-edit-div">
-          <Title
-            tag={"h4"}
-            titleSize={"h4"}
-            color={"var(--grey-4)"}
-            fontStyle={"inherit"}
-            weight={"400"}
-            padding={"0"}
-          >
-            Padaria Santa Rosa
-          </Title>
-          <figure>
-            <FaEdit />
-          </figure>
-        </div>
-      </StyledStoreDiv>
-
-      {windowWidth > 740 ? (
-        <StyledBalanceDiv>
+        <StyledStoreDiv>
           <div>
             <figure>
-              <FaBalanceScale />
+              <MdStore />
             </figure>
             <Title
               tag={"h3"}
@@ -70,83 +41,117 @@ export const Dashboard = () => {
               weight={"400"}
               padding={"0"}
             >
-              Balanço
+              Minha Loja
             </Title>
           </div>
-          <div className="text-div">
-            <div>
-              <Title
-                tag={"h3"}
-                titleSize={"h3"}
-                color={"var(--grey-4)"}
-                fontStyle={"inherit"}
-                weight={"400"}
-                padding={"0"}
-              >
-                Produtos
-              </Title>
-              <Title
-                tag={"h3"}
-                titleSize={"h3"}
-                color={"var(--primary-color)"}
-                fontStyle={"inherit"}
-                weight={"400"}
-                padding={"0"}
-              >
-                0
-              </Title>
-            </div>
-
-            <div>
-              <Title
-                tag={"h3"}
-                titleSize={"h3"}
-                color={"var(--grey-4)"}
-                fontStyle={"inherit"}
-                weight={"400"}
-                padding={"0"}
-              >
-                Vendas
-              </Title>
-              <Title
-                tag={"h3"}
-                titleSize={"h3"}
-                color={"var(--primary-color)"}
-                fontStyle={"inherit"}
-                weight={"400"}
-                padding={"0"}
-              >
-                0
-              </Title>
-            </div>
-
-            <div>
-              <Title
-                tag={"h3"}
-                titleSize={"h3"}
-                color={"var(--grey-4)"}
-                fontStyle={"inherit"}
-                weight={"400"}
-                padding={"0"}
-              >
-                Perdas Evitadas
-              </Title>
-              <Title
-                tag={"h3"}
-                titleSize={"h3"}
-                color={"var(--primary-color)"}
-                fontStyle={"inherit"}
-                weight={"400"}
-                padding={"0"}
-              >
-                0
-              </Title>
-            </div>
+          <div className="name-edit-div">
+            <Title
+              tag={"h4"}
+              titleSize={"h4"}
+              color={"var(--grey-4)"}
+              fontStyle={"inherit"}
+              weight={"400"}
+              padding={"0"}
+            >
+              Padaria Santa Rosa
+            </Title>
+            <figure>
+              <FaEdit />
+            </figure>
           </div>
-        </StyledBalanceDiv>
-      ) : (
-        <></>
-      )}
+        </StyledStoreDiv>
+
+        {windowWidth > 740 ? (
+          <StyledBalanceDiv>
+            <div>
+              <figure>
+                <FaBalanceScale />
+              </figure>
+              <Title
+                tag={"h3"}
+                titleSize={"h3"}
+                color={"var(--primary-color)"}
+                fontStyle={"inherit"}
+                weight={"400"}
+                padding={"0"}
+              >
+                Balanço
+              </Title>
+            </div>
+            <div className="text-div">
+              <div>
+                <Title
+                  tag={"h3"}
+                  titleSize={"h3"}
+                  color={"var(--grey-4)"}
+                  fontStyle={"inherit"}
+                  weight={"400"}
+                  padding={"0"}
+                >
+                  Produtos
+                </Title>
+                <Title
+                  tag={"h3"}
+                  titleSize={"h3"}
+                  color={"var(--primary-color)"}
+                  fontStyle={"inherit"}
+                  weight={"400"}
+                  padding={"0"}
+                >
+                  0
+                </Title>
+              </div>
+
+              <div>
+                <Title
+                  tag={"h3"}
+                  titleSize={"h3"}
+                  color={"var(--grey-4)"}
+                  fontStyle={"inherit"}
+                  weight={"400"}
+                  padding={"0"}
+                >
+                  Vendas
+                </Title>
+                <Title
+                  tag={"h3"}
+                  titleSize={"h3"}
+                  color={"var(--primary-color)"}
+                  fontStyle={"inherit"}
+                  weight={"400"}
+                  padding={"0"}
+                >
+                  0
+                </Title>
+              </div>
+
+              <div>
+                <Title
+                  tag={"h3"}
+                  titleSize={"h3"}
+                  color={"var(--grey-4)"}
+                  fontStyle={"inherit"}
+                  weight={"400"}
+                  padding={"0"}
+                >
+                  Perdas Evitadas
+                </Title>
+                <Title
+                  tag={"h3"}
+                  titleSize={"h3"}
+                  color={"var(--primary-color)"}
+                  fontStyle={"inherit"}
+                  weight={"400"}
+                  padding={"0"}
+                >
+                  0
+                </Title>
+              </div>
+            </div>
+          </StyledBalanceDiv>
+        ) : (
+          <></>
+        )}
 
       <StyledProductsDiv>
         <div>
@@ -187,6 +192,6 @@ export const Dashboard = () => {
           </Title>
         </div>
       </StyledProductsDiv>
-    </>
+    </Container>
   );
 };
