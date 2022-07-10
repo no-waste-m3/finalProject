@@ -52,7 +52,7 @@ export const StyledModal = styled.div`
           border-radius: ${(props) => props.borderRadius};
 
           width: ${(props) => props.width};
-          background-color: var(--white-0);
+          background-color: ${(props) => props.backgroundColor || 'var(--white-0)'} ;
         `;
 
       case "container":
