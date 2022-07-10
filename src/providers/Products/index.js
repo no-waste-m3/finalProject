@@ -17,7 +17,11 @@ export const ProductsProvider = ({ children }) => {
   };
 
   const analizeError = (error) => {
-    console.log(error)
+    if(error.response.data.includes('expired')) {
+      exitUser()
+    } else {
+      console.log(error)
+    }
   }
 
   const getProducts = () => {

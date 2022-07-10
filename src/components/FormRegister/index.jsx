@@ -26,6 +26,7 @@ import { useForm } from "react-hook-form";
 import { schemas } from "./validation";
 import axios from "axios";
 import { FormContext } from "../../providers/Form";
+import { doUpload } from "../../services/apiImgur";
 
 export const FormRegister = ({ ...rest }) => {
   const [typeInput, setTypeInput] = useState("password");
@@ -127,10 +128,27 @@ export const FormRegister = ({ ...rest }) => {
    
   }
 
+  const submitTestImage = (e) => {
+    e.preventDefault()
+    
+    const image = document.getElementById('image')
+
+    const data = new FormData()
+    console.log(image.files[0])
+    data.append('image', image.files[0])
+    doUpload(data)
+    
+
+  }
+
   return (
       <>
       <ProgressBarStep step={step} stepsCounters={[0,1,2]} isValid={isValid}/>
-    <FormStepper step={step} {...rest} onSubmit={handleSubmit(submitFunction)}>
+    <FormStepper step={step} {...rest} /*onSubmit={submitTestImage}*/ onSubmit={handleSubmit(submitFunction)}>
+      {/*<div>
+        <input type="file" id="image" />
+        <Button/>
+  </div>*/}
       <div>
         <Input
         register={register}
