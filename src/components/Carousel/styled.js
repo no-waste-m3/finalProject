@@ -73,12 +73,12 @@ export const ItemCarousel = styled(motion.div)`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    min-width: 100%;
-    height: 18rem;
+    min-width: 80%;
+    height: 15rem;
     gap: 0;
 
     > img {
-      width: 40%;
+      width: 35%;
       margin-top: 10%;
       height: auto;
     }
@@ -92,6 +92,8 @@ export const ItemCarousel = styled(motion.div)`
   }
 
   @media (max-width: 520px) {
+
+    height: 42vh;
     > img {
       height: 100%;
     }

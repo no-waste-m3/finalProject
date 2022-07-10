@@ -59,4 +59,8 @@ const schema2 =yup.object().shape({
     district: yup.string().required("Informe o bairro")
 });
 
-export const schemas = [schema0,schema1,schema2]
+const schema3 = yup.object().shape({
+  logo: yup.mixed()
+})
+
+export const schemas = [schema0,schema1,schema2, schema3]
