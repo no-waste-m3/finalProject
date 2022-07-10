@@ -1,7 +1,7 @@
 import React from "react";
 import Lottie from "react-lottie";
 import { useState } from "react";
-import animationWade from "../../animations/wadeTheNoWaster.json";
+import animationWade from "../../animations/WadeNewTheme.json";
 import { WadeStyled } from "./styled";
 
 const Wade = ({ width, height }) => {

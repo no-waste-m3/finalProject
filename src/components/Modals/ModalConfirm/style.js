@@ -5,6 +5,9 @@ export const StyledDiv = styled.div`
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
 
   .modal__title {
     text-align: center;

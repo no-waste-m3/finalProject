@@ -7,6 +7,9 @@ import { FaBalanceScale } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
 import { GoDashboard } from "react-icons/go";
 import { FaCarrot } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { ModalConfirm } from "../Modals/ModalConfirm";
+import { FormContext } from "../../providers/Form";
 
 const NavPages = ({ setAsidePages }) => {
   const home = { name: "Home", icon: <AiFillHome size="20px" /> };
@@ -20,6 +23,10 @@ const NavPages = ({ setAsidePages }) => {
   const pageStats = [dash, stats, logout, home];
   const pageAbout = [dash, balance, logout, home];
 
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  const { exitUser } = useContext(FormContext);
+
   const whichLocation = () => {
     const href = window.location.href;
     if (href === "http://localhost:3000/home") {
@@ -31,11 +38,13 @@ const NavPages = ({ setAsidePages }) => {
     } else if (href === "http://localhost:3000/home/about") {
       return pageAbout;
     }
-
-    
   };
 
   const pages = whichLocation();
+
+  const onConfirmLogout = () => {
+    exitUser();
+  };
 
   const navigate = useNavigate();
 
@@ -50,9 +59,9 @@ const NavPages = ({ setAsidePages }) => {
       navigate("/home/about");
       setAsidePages(false);
     } else if (page.name === "Logout") {
-      //abre modal de realmente deseja sair
+      setShowConfirm(true);
     } else if (page.name === "Home") {
-      navigate("/");
+      navigate("/home");
       setAsidePages(false);
     } else if (page.name === "Login") {
       navigate("/");
@@ -62,8 +71,8 @@ const NavPages = ({ setAsidePages }) => {
 
   return (
     <Modal
-      typeModal="primary"
-      top="8.7%"
+      typeModal="NavPages"
+      top="100%"
       padding="0.8rem"
       backgroundColor="var(--secondary-color)"
       borderRadius="0 0 15px 15px"
@@ -73,7 +82,9 @@ const NavPages = ({ setAsidePages }) => {
         return (
           <PageContainer
             onClick={() => handleRedirect(page)}
-            borderBottom={index === pages.length - 1 ? '0' : "0.5px solid black"}
+            borderBottom={
+              index === pages.length - 1 ? "0" : "0.5px solid black"
+            }
             key={index}
           >
             {page.icon}
@@ -81,6 +92,12 @@ const NavPages = ({ setAsidePages }) => {
           </PageContainer>
         );
       })}
+      <ModalConfirm
+        text="Deseja mesmo fazer logout?"
+        onConfirmFunction={onConfirmLogout}
+        setVisible={setShowConfirm}
+        visible={showConfirm}
+      />
     </Modal>
   );
 };

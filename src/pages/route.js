@@ -10,7 +10,7 @@ export const ProtectedRoute = ({ element: Element, onlyFor}) => {
         return <Navigate to='/'/>
     } else if(onlyFor && user.account !== onlyFor.access ) {
         return <Navigate to={onlyFor.path}/>
-    }
+    } 
 
     return (
         <>

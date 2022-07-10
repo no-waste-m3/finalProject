@@ -1,5 +1,7 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import { notify } from "../../components/Toasts";
 import { api } from "../../services/api";
+import { ThemeToastContext } from "../ThemeToast";
 
 export const FormContext = createContext();
 
@@ -11,12 +13,13 @@ export const FormProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("@userNoWaste")) || ""
   );
 
+  const { changeThemeToast } = useContext(ThemeToastContext)
+
   const registerUser = (user) => {
     api
       .post("/register", user)
       .then((response) => {
         const { email, password } = user
-        console.log(response)
         loginUser({email, password})
       })
       .catch((error) => console.log(error));
@@ -26,7 +29,11 @@ export const FormProvider = ({ children }) => {
     api
       .post("/login", user)
       .then((response) => {
+        
+        changeThemeToast('success') 
+        notify("Que bom te ver novamente!", 2000, 'success')
 
+        setTimeout(() => {
         setUserToken(response.data.accessToken);
         setUser(response.data.user);
 
@@ -38,9 +45,12 @@ export const FormProvider = ({ children }) => {
           "@userNoWaste",
           JSON.stringify(response.data.user)
         );
+        }, 1000);
       })
       .catch((error) => {
-        console.log(error)
+
+        changeThemeToast('error') 
+        notify("Ops, ocorreu algum erro. Verifique seu email e senha", 3000, 'error')
 
         setUserToken('');
         setUser('');
