@@ -10,7 +10,7 @@ import { Container, LinkStyled, RegisterFormContainer, RegisterPage } from "./st
 
 export const SignUp = () => {
   const [animate, setAnimate] = useState()
-  //const [isMobile, setIsMobile] = useState(false);
+  
   useEffect(() => {
     const animation = window.innerWidth < 620 ? { y: ["100%", "10%"], x: {} } : { x: ["-100%", "-5%"], y: {} }
     setAnimate(animation)

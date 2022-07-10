@@ -80,7 +80,9 @@ export const LinkStyled = styled(Link)`
 
 
   @media (max-width: 620px) {
-    top: 170px;
+    color: white;
+    top: 0.5rem;
+    left: 0.5rem;
   }
 
 `
