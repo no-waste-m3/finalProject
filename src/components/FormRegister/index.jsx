@@ -128,17 +128,17 @@ export const FormRegister = ({ ...rest }) => {
    
   }
 
-  const submitTestImage = (e) => {
+  const submitTestImage = async (e) => {
     e.preventDefault()
+
     
     const image = document.getElementById('image')
-
+    
     const data = new FormData()
     console.log(image.files[0])
-    data.append('image', image.files[0])
+    data.append('file', image.files[0])
     doUpload(data)
     
-
   }
 
   return (
