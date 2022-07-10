@@ -33,6 +33,28 @@ export const StyledModal = styled.div`
           }
         `;
 
+      case "NavPages":
+        return css`
+          position: absolute;
+          background-color: ${(props) => props.backgroundColor};
+          padding: ${(props) => props.padding};
+
+          top: ${(props) => props.top};
+          right: ${(props) => props.right};
+          left: ${(props) => props.left};
+          bottom: ${(props) => props.bottom};
+
+          border: ${(props) => props.border};
+          border-top: ${(props) => props.borderTop};
+
+          z-index: 2;
+
+          border-radius: ${(props) => props.borderRadius};
+
+          width: ${(props) => props.width};
+          background-color: var(--white-0);
+        `;
+
       case "container":
         return css`
           width: 100%;
