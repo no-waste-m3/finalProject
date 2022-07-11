@@ -11,21 +11,21 @@ import { UploadProvider } from "./Upload";
 export const Providers = ({ children }) => {
   return (
     <IsLoadingProvider>
-    <ThemeToastProvider>
-      <FormProvider>
-        <ProductsProvider>
-          <ThemeProvider>
-            <UploadProvider>
-              <CartProvider>
-                <SalesProvider>
-                  {children}
-                </SalesProvider>
-              </CartProvider>
-              </UploadProvider>
-          </ThemeProvider>
-        </ProductsProvider>
-      </FormProvider>
-    </ThemeToastProvider>
+      <ThemeToastProvider>
+        <FormProvider>
+          <ProductsProvider>
+            <ProductsFiltersProvider>
+              <ThemeProvider>
+                <UploadProvider>
+                  <CartProvider>
+                    <SalesProvider>{children}</SalesProvider>
+                  </CartProvider>
+                </UploadProvider>
+              </ThemeProvider>
+            </ProductsFiltersProvider>
+          </ProductsProvider>
+        </FormProvider>
+      </ThemeToastProvider>
     </IsLoadingProvider>
   );
 };
