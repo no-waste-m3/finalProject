@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Circle, Container, Wrapper } from "./styles";
 import { FaCoffee, FaPizzaSlice } from "react-icons/fa";
 import { FaHamburger } from "react-icons/fa";
@@ -8,26 +8,60 @@ import { GiKnifeFork } from "react-icons/gi";
 import { GiCupcake } from "react-icons/gi";
 import { Title } from "./styles";
 import { useState } from "react";
+import { ProductsFiltersContext } from "../../providers/ProductsFilters";
 
 export const Filters = () => {
   const [selected, setSelected] = useState("Todos");
 
+  const { categoryFilters } = useContext(ProductsFiltersContext);
 
-const objects = [{name: 'Todos', icon:<GiKnifeFork size='25px' />},
-                {name: 'Pizzarias', icon: <FaPizzaSlice size='25px'/>},
-                {name: 'Burgers', icon:<FaHamburger size='25px'/>},
-                {name: 'Mercado', icon:<FaStore size='25px'/>},
-                {name: 'Padaria', icon:<GiSlicedBread size='25px'/>},
-                {name: 'Doces', icon:<GiCupcake size='25px'/>},
-                {name: 'Cafeterias', icon:<FaCoffee size='25px'/>}]
+  const handleFilter = (name) => {
+    switch (name) {
+      case "Pizzarias":
+        return categoryFilters("pizzaria");
 
+      case "Burgers":
+        return categoryFilters("burger");
+
+      case "Mercado":
+        return categoryFilters("mercado");
+
+      case "Padaria":
+        return categoryFilters("padaria");
+
+      case "Doces":
+        return categoryFilters("doces");
+
+      case "Cafeterias":
+        return categoryFilters("cafeteria");
+
+      default:
+        return categoryFilters("todos");
+    }
+  };
+
+  const objects = [
+    { name: "Todos", icon: <GiKnifeFork size="25px" /> },
+    { name: "Pizzarias", icon: <FaPizzaSlice size="25px" /> },
+    { name: "Burgers", icon: <FaHamburger size="25px" /> },
+    { name: "Mercado", icon: <FaStore size="25px" /> },
+    { name: "Padaria", icon: <GiSlicedBread size="25px" /> },
+    { name: "Doces", icon: <GiCupcake size="25px" /> },
+    { name: "Cafeterias", icon: <FaCoffee size="25px" /> },
+  ];
 
   // console.log(selected);
 
   return (
     <Container>
       {objects.map((object) => (
-        <Wrapper key={object.name} onClick={() => setSelected(object.name)}>
+        <Wrapper
+          key={object.name}
+          onClick={() => {
+            handleFilter(object.name);
+            setSelected(object.name);
+          }}
+        >
           <Circle
             iconColor={
               selected === object.name

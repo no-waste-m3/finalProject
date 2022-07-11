@@ -7,16 +7,29 @@ import {
   InputDesktop,
 } from "./styled";
 import { BiSearch } from "react-icons/bi";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ProductsFiltersContext } from "../../providers/ProductsFilters";
 
 const SearchBar = ({ isSearching, setIsSearching, viewerWidth }) => {
-  const [input, setInput] = useState();
+  const { filterProducts } = useContext(ProductsFiltersContext);
+  const [input, setInput] = useState("");
+
+  useEffect(() => {
+    console.log(input);
+    filterProducts(input);
+  }, [input]);
+
   return (
     <>
       {viewerWidth < 865 ? (
         <SearchbarContainer>
           <CenterDiv>
-            <Input placeholder="Pesquise um produto" />
+            <Input
+              placeholder="Pesquise um produto"
+              value={input}
+              type="text"
+              onChange={(e) => setInput(e.target.value)}
+            />
             <RightDiv>
               <Line></Line>
               <BiSearch
@@ -31,6 +44,7 @@ const SearchBar = ({ isSearching, setIsSearching, viewerWidth }) => {
         <>
           {isSearching && (
             <InputDesktop
+              type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               isSearching={isSearching}

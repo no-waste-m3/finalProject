@@ -13,6 +13,7 @@ import { ThemeToastContext } from "./providers/ThemeToast";
 import SadWadeAnimated from "./components/SadWadeAnimated";
 import { ThemeContext } from "./providers/Theme";
 import { motion  } from "framer-motion";
+import { ToogleTheme } from './components/ToogleTheme';
 import { IsLoadingContext } from "./providers/IsLoading";
 import Loading from "./components/Loading";
 
@@ -27,6 +28,7 @@ function App() {
       <GlobalStyle theme={theme} />
       <AppRoutes />
       <ToastNotify/>
+      <ToogleTheme/>
       {isLoading && <Loading/>}
     
       {/* <FinancialStatement/> */}

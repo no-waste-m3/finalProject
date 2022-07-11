@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState, useContext } from "react";
+import { notify } from "../../components/Toasts";
 import { api } from "../../services/api";
 import { FormContext } from "../Form";
 import { IsLoadingContext } from "../IsLoading";
@@ -33,16 +34,17 @@ export const ProductsProvider = ({ children }) => {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${userToken}`,
+      ...getProgress
     },
   };
 
-  const analizeError = (error) => {
-    if(error.response.data.includes('expired')) {
-      exitUser()
-    } else {
-      console.log(error)
-    }
-  }
+  // const analizeError = (error) => {
+  //   if(error.response.data.includes('expired')) {
+  //     exitUser()
+  //   } else {
+  //     console.log(error)
+  //   }
+  // }
 
   const getProducts = () => {
     api
@@ -55,6 +57,10 @@ export const ProductsProvider = ({ children }) => {
     api
       .post(`/users/${user.id}/foods`, product, config)
       .then((response) => console.log(response))
+      .then((response) => {
+        getProductsUser();
+        notify("Produto Adicionado", 2000, "success");
+      })
       .catch((error) => console.log(error));
   };
 
@@ -62,6 +68,10 @@ export const ProductsProvider = ({ children }) => {
     api
       .delete(`/foods/${id_product}`, config)
       .then((response) => console.log(response))
+      .then((response) => {
+        getProductsUser();
+        notify("Produto Excluido", 2000, "default");
+      })
       .catch((error) => console.log(error));
   };
 
@@ -76,7 +86,8 @@ export const ProductsProvider = ({ children }) => {
     api
       .get(`users/${user.id}/foods`, config)
       .then((response) => setProductsUser(response.data))
-      .catch((error) => analizeError(error));
+      // .catch((error) => analizeError(error));
+      .catch((error) => console.log(error, user));
   };
 
   //Qual o objetivo desse useEffect abaixo?
