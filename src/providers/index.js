@@ -1,5 +1,6 @@
 import { CartProvider } from "./Cart";
 import { FormProvider } from "./Form";
+import { IsLoadingProvider } from "./IsLoading";
 import { ProductsProvider } from "./Products";
 import { ThemeProvider } from "./Theme";
 import { ThemeToastProvider } from "./ThemeToast";
@@ -7,6 +8,7 @@ import { ThemeToastProvider } from "./ThemeToast";
 
 export const Providers = ({ children }) => {
   return (
+    <IsLoadingProvider>
     <ThemeToastProvider>
       <FormProvider>
         <ProductsProvider>
@@ -16,5 +18,6 @@ export const Providers = ({ children }) => {
         </ProductsProvider>
       </FormProvider>
     </ThemeToastProvider>
+    </IsLoadingProvider>
   );
 };

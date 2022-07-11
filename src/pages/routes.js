@@ -33,7 +33,7 @@ export const AppRoutes = () => {
             <Route path="home/dashboard/stats" element={<ProtectedRoute element={<motion.div initial={initial} exit={exit} animate={animation}><FinancialStatement/></motion.div>}/>}/>
             <Route path="home/checkout" element={<ProtectedRoute element={<motion.div initial={initial} exit={exit} animate={animation}><Checkout/></motion.div>}/>}/>
             <Route path="home/about" element={<motion.div initial={initial} exit={exit} animate={animation}><AboutUs/></motion.div>}/>
-            <Route path="signUp" element={<NonProtectedRoute element={<motion.div initial={initial} exit={exit} animate={animation}><SignUp/></motion.div>}/>}/>
+            <Route path="signUp" element={<NonProtectedRoute element={<SignUp/>}/>}/>
             <Route path="*" element={<motion.div initial={initial} exit={exit} animate={animation}><NotFound/></motion.div>} />
         </Routes>
 
