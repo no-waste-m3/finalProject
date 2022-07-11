@@ -37,7 +37,7 @@ export const FiltersContainer = styled.div`
   width: 100%;
   height: fit-content;
   display: flex;
-  margin-top: 72px;
+  margin-top: 10.5vh;
   justify-content: center;
   @media (min-width: 865px) {
     margin-top: 0;
