@@ -13,6 +13,7 @@ export const Container = styled(motion.div)`
   bottom: -10%;
   right: 48%;
   z-index: 2;
+
   //transform: translateY(-50%);
 
   @media (max-width: 620px) {
@@ -45,6 +46,7 @@ export const LoginFormContainer = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0.8rem;
+  color: var(--invert);
 
   position: absolute;
   top: 0;
@@ -65,6 +67,7 @@ export const LoginPage = styled.div`
   height: 100vh;
   padding-left: 10rem;
   justify-content: flex-start;
+  
 
   @media (max-width: 620px) {
     //min-height: 800px;

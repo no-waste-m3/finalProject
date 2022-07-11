@@ -11,15 +11,18 @@ import { Button } from "./components/Button";
 import { useContext } from "react";
 import { ThemeToastContext } from "./providers/ThemeToast";
 import SadWadeAnimated from "./components/SadWadeAnimated";
+import { ThemeContext } from "./providers/Theme";
+import { motion  } from "framer-motion";
 
 function App() {
 
   const { changeThemeToast } = useContext(ThemeToastContext)
+  const { theme } = useContext(ThemeContext)
 
   return (
     <>
+      <GlobalStyle theme={theme} />
       <AppRoutes />
-      <GlobalStyle />
       <ToastNotify/>
     
       {/* <FinancialStatement/> */}

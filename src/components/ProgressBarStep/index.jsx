@@ -7,7 +7,7 @@ const ProgressBarStep = ({ step, stepsCounters }) => {
 
     return (
         <ProgressBar>{stepsCounters.map((counter, index) => <Step key={index} currentStep={step} stepCounter={counter} >{counter<step ? <Check size={16} color="#fff" weight="fill" /> : counter+1}</Step>)}
-        <Progress currentStep={step}></Progress>
+        <Progress stepsCounters={stepsCounters} currentStep={step}></Progress>
         </ProgressBar>
     )
 }

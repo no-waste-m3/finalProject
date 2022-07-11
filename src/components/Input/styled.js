@@ -10,6 +10,7 @@ export const InputField = styled.div`
     flex-wrap: nowrap;
 
     >label {
+        color: var(--invert);
         >span {
             color: red;
             font-size: small;
@@ -34,19 +35,24 @@ export const InputField = styled.div`
 
         outline: none;
 border: none;
-border-bottom: 1px solid ${(props) => !!props.isError ? 'red' : 'var(--grey-0)'};
+border-bottom: 1px solid ${(props) => !!props.isError ? 'red' : 'var(--invert);'};
 width: 100%;
 padding-left: 1.5rem;
 padding-bottom: 0.1rem;
 background-color: transparent;
+color: var(--invert);
 
 
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-      //-webkit-text-fill-color: #fff;
-      box-shadow: 0 0 0 30px #fff inset !important;
+      -webkit-text-fill-color: var(--invert);
+      box-shadow: 0 0 0 30px var(--background) inset !important;
+    }
+
+    option {
+        color: black
     }
 
     }
