@@ -11,6 +11,7 @@ import {
   ProducrCard,
   ProductCard,
 } from "./styles";
+
 import { Title } from "../../styles/title";
 import { MdStore } from "react-icons/md";
 import { FaBalanceScale, FaEdit } from "react-icons/fa";
@@ -23,6 +24,7 @@ import { BsTrash } from "react-icons/bs";
 import { notify } from "../../components/Toasts";
 import { ThemeToastContext } from "../../providers/ThemeToast";
 import { EditAddProduct } from "../../components/Modals/EditModal";
+
 
 export const Dashboard = () => {
   const { changeThemeToast } = useContext(ThemeToastContext);
@@ -50,6 +52,7 @@ export const Dashboard = () => {
           productToEdit={productToEdit}
         />
       )}
+
 
       <StyledStoreDiv>
         <div>
