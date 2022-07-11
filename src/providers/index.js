@@ -5,6 +5,7 @@ import { ProductsProvider } from "./Products";
 import { ProductsFiltersProvider } from "./ProductsFilters";
 import { ThemeProvider } from "./Theme";
 import { ThemeToastProvider } from "./ThemeToast";
+import { UploadProvider } from "./Upload";
 
 export const Providers = ({ children }) => {
   return (
@@ -12,11 +13,13 @@ export const Providers = ({ children }) => {
     <ThemeToastProvider>
       <FormProvider>
         <ProductsProvider>
-          <ProductsFiltersProvider>
-            <ThemeProvider>
-              <CartProvider>{children}</CartProvider>
-            </ThemeProvider>
-          </ProductsFiltersProvider>
+          <ThemeProvider>
+            <UploadProvider>
+              <CartProvider>
+                {children}
+              </CartProvider>
+              </UploadProvider>
+          </ThemeProvider>
         </ProductsProvider>
       </FormProvider>
     </ThemeToastProvider>

@@ -2,6 +2,7 @@ import { createContext, useEffect, useState, useContext } from "react";
 import { notify } from "../../components/Toasts";
 import { api } from "../../services/api";
 import { FormContext } from "../Form";
+import { IsLoadingContext } from "../IsLoading";
 
 export const ProductsContext = createContext();
 
@@ -10,18 +11,30 @@ export const ProductsProvider = ({ children }) => {
   const [productsUser, setProductsUser] = useState([]);
   const { user, userToken, exitUser } = useContext(FormContext);
 
-  useEffect(() => {
-    if (userToken !== false && user.account === "seller") {
-      getProductsUser();
-    } else if (userToken !== false) {
-      getProducts();
-    }
-  }, [userToken, user]);
+  const { setIsLoading, setPercentage } = useContext(IsLoadingContext)
+
+  const getProgress = {
+    onUploadProgress: (progressEvent) => {
+      setIsLoading(true)
+        let number = Math.round(
+          (progressEvent.loaded * 100) / progressEvent.total
+        )
+
+        if(number<100) {
+          setPercentage(number)
+        } else {
+          setIsLoading(false)
+          setPercentage(0)
+        }
+        
+     }
+  }
 
   const config = {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${userToken}`,
+      ...getProgress
     },
   };
 
@@ -76,6 +89,16 @@ export const ProductsProvider = ({ children }) => {
       // .catch((error) => analizeError(error));
       .catch((error) => console.log(error, user));
   };
+
+  //Qual o objetivo desse useEffect abaixo?
+
+  useEffect(() => {
+    if (userToken !== false && user.account === "seller") {
+      getProductsUser();
+    } else if (userToken !== false) {
+      getProducts();
+    }
+  }, [userToken, user]);
 
   return (
     <ProductsContext.Provider

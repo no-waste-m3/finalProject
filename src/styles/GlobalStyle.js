@@ -51,13 +51,15 @@ ${(props) => {
 
     body {
         background-color: var(--background);
-        transition: background-color 1s ;
+        -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
     }
 
     * {
         margin: 0;
         padding: 0;
-        transition: color 0.5s;
+        transition: color 0.4s;
         font-family: 'Montserrat';
         box-sizing: border-box;
     }
