@@ -65,7 +65,7 @@ export const CartMiddleCentered = styled.ul`
   flex-direction: column;
   align-items: center;
   @media (min-width: 865px) {
-    width: 270px;
+    width: 278px;
     height: 258px;
   }
 `;

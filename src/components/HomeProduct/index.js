@@ -12,7 +12,6 @@ import { useContext } from "react";
 import { CartContext } from "../../providers/Cart";
 
 export const HomeProduct = ({ product }) => {
-  const { postCart } = useContext(CartContext);
   const {
     nomeDoProduto,
     descricao,
@@ -57,10 +56,7 @@ export const HomeProduct = ({ product }) => {
         </TitleContainer>
       </TitlesContainer>
       <AddBtnContainer>
-        <AddCartSVG
-          style={{ cursor: "pointer" }}
-          onClick={() => postCart(product)}
-        />
+        <AddCartSVG style={{ cursor: "pointer" }} product={product} />
       </AddBtnContainer>
     </ProductContainer>
   );
