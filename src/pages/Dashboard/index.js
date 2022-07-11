@@ -2,16 +2,13 @@ import React, { useState } from "react";
 import Header from "../../components/Header";
 
 import { Modal } from "../../components/Modals";
-import {
-  StyledBalanceDiv,
-  StyledStoreDiv,
-  StyledProductsDiv,
-} from "./styles";
+import { StyledBalanceDiv, StyledStoreDiv, StyledProductsDiv } from "./styles";
 import { Title } from "../../styles/title";
 import { MdStore } from "react-icons/md";
 import { FaBalanceScale, FaEdit } from "react-icons/fa";
 import { BiTrash } from "react-icons/bi";
 import { Button } from "../../components/Button";
+import { ModalAddProduct } from "../../components/Modals/ModalAddProduct";
 
 export const Dashboard = () => {
   const [windowWidth, setWindowWidth] = useState(window.screen.availWidth);
@@ -23,6 +20,7 @@ export const Dashboard = () => {
     <>
       <Header />
 
+      <ModalAddProduct />
       <StyledStoreDiv>
         <div>
           <figure>

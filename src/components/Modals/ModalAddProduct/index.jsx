@@ -13,9 +13,19 @@ export const ModalAddProduct = () => {
     nomeDoProduto: yup.string().required("Required field"),
     descricao: yup.string().required("Required Field"),
     src: yup.string().required("Required Field"),
+    categoria: yup.string().required(),
     precoDeCusto: yup.string().required("Required Field"),
     precoDeRevenda: yup.string().required("Required Field"),
   });
+
+  const category = [
+    "Pizzaria",
+    "Burger",
+    "Mercado",
+    "Padaria",
+    "Doces",
+    "Cafeteria",
+  ];
 
   const {
     register,
@@ -53,6 +63,17 @@ export const ModalAddProduct = () => {
             Field="input"
             label="Descrição"
           />
+
+          <select name="categoria" id="">
+            {category.map((cat, index) => {
+              return (
+                <option value={cat.toLocaleLowerCase()} key={index}>
+                  {cat}
+                </option>
+              );
+            })}
+          </select>
+
           <Input
             register={register}
             name="src"
