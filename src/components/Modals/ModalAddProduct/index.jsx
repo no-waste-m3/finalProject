@@ -7,8 +7,14 @@ import { StyledForm } from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { ProductsContext } from "../../../providers/Products";
+import { useProvider } from "react";
 
 export const ModalAddProduct = () => {
+
+  const data = useProvider(ProductsContext);
+  console.log(data);
+
   const schema = yup.object().shape({
     nomeDoProduto: yup.string().required("Required field"),
     descricao: yup.string().required("Required Field"),
@@ -23,6 +29,10 @@ export const ModalAddProduct = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
+  const onSubmitFunction = (data) => {
+    console.log(data);
+  }
+
   return (
     <Modal typeModal="container">
       <Modal
@@ -32,7 +42,7 @@ export const ModalAddProduct = () => {
         borderRadius="14px"
         mobile="yes"
       >
-        <StyledForm>
+        <StyledForm onSubmit={handleSubmit(onSubmitFunction)}>
           <div>
             <Title tag="h1" titleSize="title1">
               Adicionar Novo Produto
@@ -76,8 +86,8 @@ export const ModalAddProduct = () => {
           />
 
           <div className="modal__buttons">
-            <Button typebutton="secondary">Enviar</Button>
-            <Button typebutton="primary">Fechar</Button>
+            <Button typebutton="secondary" type='submit'>Enviar</Button>
+            <Button typebutton="primary" type='button'>Fechar</Button>
           </div>
         </StyledForm>
       </Modal>
