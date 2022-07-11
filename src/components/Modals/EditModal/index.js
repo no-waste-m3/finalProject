@@ -10,8 +10,10 @@ import { useForm } from "react-hook-form";
 import { ProductsContext } from "../../../providers/Products";
 import { useContext, useProvider } from "react";
 
-export const ModalAddProduct = ({ setIsVisible }) => {
-  const { postProduct, getProductsUser } = useContext(ProductsContext);
+
+export const EditAddProduct = ({ setIsVisible, productToEdit }) => {
+
+  const { updateProduct, getProductsUser } = useContext(ProductsContext);
 
   const schema = yup.object().shape({
     nomeDoProduto: yup.string().required("Required field"),
@@ -19,8 +21,6 @@ export const ModalAddProduct = ({ setIsVisible }) => {
     src: yup.string().required("Required Field"),
     precoDeCusto: yup.string().required("Required Field"),
     precoDeRevenda: yup.string().required("Required Field"),
-    precoOriginal: yup.string().required("Required Field"),
-    pesoEstimado: yup.string().required("Required Field"),
   });
 
   const {
@@ -30,9 +30,9 @@ export const ModalAddProduct = ({ setIsVisible }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmitFunction = (data) => {
-    postProduct(data);
-    setIsVisible(false);
+    updateProduct(data);
     getProductsUser();
+    setIsVisible(false);
   };
 
   return (
@@ -43,11 +43,13 @@ export const ModalAddProduct = ({ setIsVisible }) => {
         padding="2.5rem"
         borderRadius="14px"
         mobile="yes"
+        top="10%"
+        left="13%"
       >
         <StyledForm onSubmit={handleSubmit(onSubmitFunction)}>
           <div>
             <Title tag="h1" titleSize="title1">
-              Adicionar Novo Produto
+              Editar Produto
             </Title>
           </div>
 
@@ -57,6 +59,7 @@ export const ModalAddProduct = ({ setIsVisible }) => {
             error={errors.nomeDoProduto?.message}
             Field="input"
             label="Nome do Produto"
+            placeholder={productToEdit.nomeDoProduto}
           />
           <Input
             register={register}
@@ -64,6 +67,7 @@ export const ModalAddProduct = ({ setIsVisible }) => {
             error={errors.descricao?.message}
             Field="input"
             label="Descrição"
+            placeholder={productToEdit.descricao}
           />
           <Input
             register={register}
@@ -71,6 +75,7 @@ export const ModalAddProduct = ({ setIsVisible }) => {
             error={errors.src?.message}
             Field="input"
             label="Url da Imagem"
+            placeholder={productToEdit.descricao}
           />
           <Input
             register={register}
@@ -78,6 +83,7 @@ export const ModalAddProduct = ({ setIsVisible }) => {
             error={errors.precoDeCusto?.message}
             Field="input"
             label="Preco de custo"
+            placeholder={productToEdit.precoDeCusto}
           />
           <Input
             register={register}
@@ -85,29 +91,12 @@ export const ModalAddProduct = ({ setIsVisible }) => {
             error={errors.precoDeRevenda?.message}
             Field="input"
             label="Preco de Revenda"
-          />
-          <Input
-            register={register}
-            name="precoOriginal"
-            error={errors.precoOriginal?.message}
-            Field="input"
-            label="Preco Orginal"
-          />
-          <Input
-            register={register}
-            name="pesoEstimado"
-            error={errors.pesoEstimado?.message}
-            Field="input"
-            label="Peso Estimado"
+            placeholder={productToEdit.precoDeRevenda}
           />
 
           <div className="modal__buttons">
-            <Button typebutton="secondary" type="submit">
-              Enviar
-            </Button>
-            <Button typebutton="primary" onClick={() => setIsVisible(false)}>
-              Fechar
-            </Button>
+            <Button typebutton="secondary" type='submit'>Editar</Button>
+            <Button typebutton="primary" onClick={() => setIsVisible(false)}>Fechar</Button>
           </div>
         </StyledForm>
       </Modal>
