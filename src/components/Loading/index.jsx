@@ -3,6 +3,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useContext } from "react";
 import { IsLoadingContext } from "../../providers/IsLoading";
+import cenoura from "../../assets/CenouraPNG.png"
 
 
 const Loading = () => {
@@ -12,22 +13,21 @@ const Loading = () => {
     return (
         <ContainerLoading>
 
+            
+
         <div>
-        <CircularProgressbar value={percentage} text={'test'} styles={buildStyles({
+        <img src={cenoura} alt="cenoura" />
+        <CircularProgressbar value={percentage} styles={buildStyles({
     
     textSize: '16px',
 
-    //pathTransitionDuration: 0.4,
+    pathTransitionDuration: 0.4,
 
-    // Can specify path transition in more detail, or remove it entirely
-    // pathTransition: 'none',
-
-    // Colors
     pathColor: 'var(--primary-color)',
     textColor: 'var(--primary-color)',
-    trailColor: 'var(--invert)',
+    trailColor: 'transparent',
     backgroundColor: 'var(--primary-color)',
-  })}/>;
+  })}/>
         </div>
         </ContainerLoading>
     )

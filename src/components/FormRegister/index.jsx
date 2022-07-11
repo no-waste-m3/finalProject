@@ -35,9 +35,10 @@ import { useForm } from "react-hook-form";
 import { schemas } from "./validation";
 import axios from "axios";
 import { FormContext } from "../../providers/Form";
-import { doUpload } from "../../services/apiUpload";
+//import { doUpload } from "../../services/apiUpload";
 import Dropzone from "react-dropzone";
 import ImagePreview from "../ImagePreview";
+import { UploadContext} from "../../providers/Upload"
 
 export const FormRegister = ({ ...rest }) => {
   const [typeInput, setTypeInput] = useState("password");
@@ -50,6 +51,8 @@ export const FormRegister = ({ ...rest }) => {
   const [account, setAccount] = useState("");
   const [fileOfInput, setFileOfInput] = useState([])
   const [messageFeedbackUpload, setMessageFeedbackUpload] = useState('Arraste a imagem até o campo acima ou clique no campo e selecione o arquivo')
+
+  const { doUpload } = useContext(UploadContext)
 
   const { registerUser } = useContext(FormContext);
 

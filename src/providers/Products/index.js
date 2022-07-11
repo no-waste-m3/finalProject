@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { api } from "../../services/api";
 import { FormContext } from "../Form";
+import { IsLoadingContext } from "../IsLoading";
 
 export const ProductsContext = createContext();
 
@@ -8,6 +9,25 @@ export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [productsUser, setProductsUser] = useState([]);
   const { user, userToken, exitUser } = useContext(FormContext);
+
+  const { setIsLoading, setPercentage } = useContext(IsLoadingContext)
+
+  const getProgress = {
+    onUploadProgress: (progressEvent) => {
+      setIsLoading(true)
+        let number = Math.round(
+          (progressEvent.loaded * 100) / progressEvent.total
+        )
+
+        if(number<100) {
+          setPercentage(number)
+        } else {
+          setIsLoading(false)
+          setPercentage(0)
+        }
+        
+     }
+  }
 
   const config = {
     headers: {

@@ -21,7 +21,6 @@ function App() {
   const { changeThemeToast } = useContext(ThemeToastContext)
   const { theme } = useContext(ThemeContext)
   const { isLoading } = useContext(IsLoadingContext)
-  console.log(isLoading)
 
   return (
     <>

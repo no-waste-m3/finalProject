@@ -4,7 +4,7 @@ export const IsLoadingContext = createContext();
 
 export const IsLoadingProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [percentage, setPercentage] = useState(70)
+  const [percentage, setPercentage] = useState(0)
 
   return (
     <IsLoadingContext.Provider value={{ isLoading, setIsLoading, percentage, setPercentage }}>

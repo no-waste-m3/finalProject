@@ -4,6 +4,7 @@ import { IsLoadingProvider } from "./IsLoading";
 import { ProductsProvider } from "./Products";
 import { ThemeProvider } from "./Theme";
 import { ThemeToastProvider } from "./ThemeToast";
+import { UploadProvider } from "./Upload";
 
 
 export const Providers = ({ children }) => {
@@ -13,7 +14,11 @@ export const Providers = ({ children }) => {
       <FormProvider>
         <ProductsProvider>
           <ThemeProvider>
-          <CartProvider>{children}</CartProvider>
+            <UploadProvider>
+              <CartProvider>
+                {children}
+              </CartProvider>
+              </UploadProvider>
           </ThemeProvider>
         </ProductsProvider>
       </FormProvider>
