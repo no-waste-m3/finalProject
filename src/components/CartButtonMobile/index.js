@@ -3,6 +3,7 @@ import {
   CartPriceContainer,
   QttCartPriceContainer,
   Titles,
+  Centralized,
 } from "./styled";
 import CartQuantity from "../CartQuantity";
 import CartPrice from "../CartPrice";
@@ -11,13 +12,15 @@ const CartButtonMobile = ({ setDisplayCart, displayCart }) => {
   return (
     <>
       <Button onClick={() => setDisplayCart(!displayCart)}>
-        <QttCartPriceContainer>
-          <CartQuantity color="white" fontSize="18px" />
-          <CartPriceContainer>
-            <Titles fontSize="23px">Carrinho</Titles>
-            <CartPrice color="white" fontSize="18px" />
-          </CartPriceContainer>
-        </QttCartPriceContainer>
+        <Centralized>
+          <QttCartPriceContainer>
+            <CartQuantity color="white" fontSize="17px" />
+            <CartPriceContainer>
+              <Titles fontSize="21px">Carrinho</Titles>
+              <CartPrice color="white" fontSize="17px" />
+            </CartPriceContainer>
+          </QttCartPriceContainer>
+        </Centralized>
       </Button>
     </>
   );
