@@ -11,15 +11,17 @@ export const ContainerImagePreview = styled.div`
     top: 0;
     left: 0;
     z-index: 3;
-    height: 105%;
+    height: 110%;
     gap: 0.2rem;
     box-sizing: content-box;
     border: 2px solid var(--primary-color);
+    background-color: var(--background);
 `
 
 export const FileInfo = styled.div`
     display: flex;
     flex-direction: column;
+    color: var(--invert);
 
     >strong {
         display: -webkit-box;
@@ -37,6 +39,6 @@ export const FileInfo = styled.div`
 
 export const Preview = styled.img`
     width: 15%;
-    height: 100%;
+    height: 80%;
     border-radius: 5px;
 `

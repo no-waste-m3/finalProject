@@ -7,6 +7,7 @@ import images from "../../data/carouselData";
 import Carousel from "../../components/Carousel";
 
 import { Container, LinkStyled, RegisterFormContainer, RegisterPage } from "./styles";
+import { ToogleTheme } from "../../components/ToogleTheme";
 
 export const SignUp = () => {
   const [animate, setAnimate] = useState()
@@ -28,6 +29,7 @@ export const SignUp = () => {
           Já tem uma conta? <Link to="/">Login</Link>
         </BaseTypograph>
       </RegisterFormContainer>
+      <ToogleTheme style={{position: 'fixed', bottom: '5px', left: '5px' }}/>
        <Carousel side='right' dataImages={images}/>
     </RegisterPage>
   );
