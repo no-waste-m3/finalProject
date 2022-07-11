@@ -14,11 +14,15 @@ import SadWadeAnimated from "./components/SadWadeAnimated";
 import { ThemeContext } from "./providers/Theme";
 import { motion  } from "framer-motion";
 import { ToogleTheme } from './components/ToogleTheme';
+import { IsLoadingContext } from "./providers/IsLoading";
+import Loading from "./components/Loading";
 
 function App() {
 
   const { changeThemeToast } = useContext(ThemeToastContext)
   const { theme } = useContext(ThemeContext)
+  const { isLoading } = useContext(IsLoadingContext)
+  console.log(isLoading)
 
   return (
     <>
@@ -26,6 +30,7 @@ function App() {
       <AppRoutes />
       <ToastNotify/>
       <ToogleTheme/>
+      {isLoading && <Loading/>}
     
       {/* <FinancialStatement/> */}
 

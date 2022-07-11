@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   height: 60px;
-  width: 95%;
+  width: 86.6%;
   margin-bottom: 5px;
   display: flex;
   justify-content: center;
@@ -20,7 +20,14 @@ export const QttCartPriceContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+`;
+
+export const Centralized = styled.div`
+  height: 100%;
+  width: 90%;
+  display: flex;
+  align-items: center;
 `;
 
 export const CartPriceContainer = styled.div`
@@ -29,11 +36,23 @@ export const CartPriceContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (min-width: 450px) {
+  @media (min-width: 410px) {
+    width: 64%;
+  }
+  @media (min-width: 520px) {
     width: 62%;
   }
-  @media (min-width: 600px) {
+  @media (min-width: 610px) {
     width: 60%;
+  }
+  @media (min-width: 685px) {
+    width: 59%;
+  }
+  @media (min-width: 730px) {
+    width: 58%;
+  }
+  @media (min-width: 820px) {
+    width: 57%;
   }
 `;
 
