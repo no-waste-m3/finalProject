@@ -79,6 +79,8 @@ export const ProductsProvider = ({ children }) => {
       .catch((error) => analizeError(error));
   };
 
+  //Qual o objetivo desse useEffect abaixo?
+
   useEffect(() => {
     if (userToken !== false && user.account === "seller") {
       getProductsUser();

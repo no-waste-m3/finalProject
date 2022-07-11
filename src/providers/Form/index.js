@@ -96,7 +96,8 @@ export const FormProvider = ({ children }) => {
           "@userNoWaste",
           JSON.stringify(response.data.user)
         );
-        notify(isNewUser ? 'Bem vindo!' : "Que bom te ver novamente!", 1000, 'success')
+        const name = response.data.user.info.name || response.data.user.info.responsavel
+        notify(isNewUser ? `Olá, ${name} ` : `Que bom te ver novamente, ${name}!`, 1000, 'success')
         }, 1000);
 
         setTimeout(() => {
