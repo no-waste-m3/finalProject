@@ -16,20 +16,27 @@ export const Filters = () => {
   const { categoryFilters } = useContext(ProductsFiltersContext);
 
   const handleFilter = (name) => {
-    if (name === "Pizzarias") {
-      return categoryFilters("pizzaria");
-    } else if (name === "Burgers") {
-      return categoryFilters("burger");
-    } else if (name === "Mercado") {
-      return categoryFilters("mercado");
-    } else if (name === "Padaria") {
-      return categoryFilters("padaria");
-    } else if (name === "Doces") {
-      return categoryFilters("doces");
-    } else if (name === "Cafeterias") {
-      return categoryFilters("cafeteria");
-    } else {
-      return categoryFilters("todos");
+    switch (name) {
+      case "Pizzarias":
+        return categoryFilters("pizzaria");
+
+      case "Burgers":
+        return categoryFilters("burger");
+
+      case "Mercado":
+        return categoryFilters("mercado");
+
+      case "Padaria":
+        return categoryFilters("padaria");
+
+      case "Doces":
+        return categoryFilters("doces");
+
+      case "Cafeterias":
+        return categoryFilters("cafeteria");
+
+      default:
+        return categoryFilters("todos");
     }
   };
 
