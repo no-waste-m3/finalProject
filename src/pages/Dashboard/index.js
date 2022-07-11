@@ -7,6 +7,9 @@ import {
   StyledStoreDiv,
   StyledProductsDiv,
   Container,
+  ProductCardDiv,
+  ProducrCard,
+  ProductCard,
 } from "./styles";
 import { Title } from "../../styles/title";
 import { MdStore } from "react-icons/md";
@@ -16,23 +19,37 @@ import { Button } from "../../components/Button";
 import { ProductsContext } from "../../providers/Products";
 import { ModalAddProduct } from "../../components/Modals/ModalAddProduct";
 import { useEffect } from "react";
+import { BsTrash } from "react-icons/bs";
+import { notify } from "../../components/Toasts";
+import { ThemeToastContext } from "../../providers/ThemeToast";
+import { EditAddProduct } from "../../components/Modals/EditModal";
 
 export const Dashboard = () => {
-  const data = useContext(ProductsContext);
+  const { changeThemeToast } = useContext(ThemeToastContext);
+
+  const { productsUser, deleteProduct, updateProduct, getProductsUser } =
+    useContext(ProductsContext);
+
   const [windowWidth, setWindowWidth] = useState(window.screen.availWidth);
   window.addEventListener("resize", () =>
     setWindowWidth(window.screen.availWidth)
   );
+
   const [addModal, setAddModal] = useState(false);
-  const [userProducts, setUserProducts] = useState(
-    data.getProductsUser() || []
-  );
+  const [updateModal, setUpdateModal] = useState(false);
+  const [productToEdit, setProductToEdit] = useState();
 
   return (
     <Container>
       <Header />
 
-      {addModal && <ModalAddProduct />}
+      {addModal && <ModalAddProduct setIsVisible={setAddModal} />}
+      {updateModal && (
+        <EditAddProduct
+          setIsVisible={setUpdateModal}
+          productToEdit={productToEdit}
+        />
+      )}
 
       <StyledStoreDiv>
         <div>
@@ -54,7 +71,7 @@ export const Dashboard = () => {
           <Title
             tag={"h4"}
             titleSize={"h4"}
-            color={"var(--grey-4)"}
+            color={"var(--invert)"}
             fontStyle={"inherit"}
             weight={"400"}
             padding={"0"}
@@ -67,7 +84,7 @@ export const Dashboard = () => {
         </div>
       </StyledStoreDiv>
 
-      {windowWidth > 740 ? (
+      {windowWidth > 741 ? (
         <StyledBalanceDiv>
           <div>
             <figure>
@@ -89,7 +106,7 @@ export const Dashboard = () => {
               <Title
                 tag={"h3"}
                 titleSize={"h3"}
-                color={"var(--grey-4)"}
+                color={"var(--invert)"}
                 fontStyle={"inherit"}
                 weight={"400"}
                 padding={"0"}
@@ -112,7 +129,7 @@ export const Dashboard = () => {
               <Title
                 tag={"h3"}
                 titleSize={"h3"}
-                color={"var(--grey-4)"}
+                color={"var(--invert)"}
                 fontStyle={"inherit"}
                 weight={"400"}
                 padding={"0"}
@@ -135,7 +152,7 @@ export const Dashboard = () => {
               <Title
                 tag={"h3"}
                 titleSize={"h3"}
-                color={"var(--grey-4)"}
+                color={"var(--invert)"}
                 fontStyle={"inherit"}
                 weight={"400"}
                 padding={"0"}
@@ -160,11 +177,11 @@ export const Dashboard = () => {
       )}
 
       <StyledProductsDiv>
-        <div>
+        <div className="header-div">
           <Title
             tag={"h3"}
             titleSize={"h3"}
-            color={"var(--grey-4)"}
+            color={"var(--invert)"}
             fontStyle={"inherit"}
             weight={"600"}
             padding={"0"}
@@ -180,7 +197,7 @@ export const Dashboard = () => {
           </Button>
         </div>
         <div className="products-div">
-          {userProducts.length === 0 || userProducts === undefined ? (
+          {productsUser.length === 0 || productsUser === undefined ? (
             <>
               <Title
                 tag={"h4"}
@@ -195,7 +212,7 @@ export const Dashboard = () => {
               <Title
                 tag={"p"}
                 titleSize={"small"}
-                color={"var(--grey-4)"}
+                color={"var(--invert)"}
                 fontStyle={"inherit"}
                 weight={"600"}
                 padding={"0"}
@@ -204,7 +221,232 @@ export const Dashboard = () => {
               </Title>
             </>
           ) : (
-            <></>
+            <ProductCardDiv>
+              {productsUser.map((product) => (
+                <ProductCard key={product.id}>
+                  <div className="action-buttons">
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setUpdateModal(!updateModal);
+                        setProductToEdit(product);
+                      }}
+                    >
+                      <FaEdit />
+                    </button>
+
+                    <button
+                      onClick={() =>
+                        deleteProduct(product.id) && getProductsUser()
+                      }
+                    >
+                      <BsTrash />
+                    </button>
+                  </div>
+
+                  <div className="img-info">
+                    <img src={product.src} />
+                  </div>
+                  <div className="product-info">
+                    {windowWidth > 741 ? (
+                      <div className="name-div">
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--primary-color)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          {product.nomeDoProduto}
+                        </Title>
+                      </div>
+                    ) : (
+                      <div className="name-div">
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--primary-color)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          {product.nomeDoProduto}
+                        </Title>
+                      </div>
+                    )}
+
+                    {windowWidth > 741 ? (
+                      <div className="price-div">
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          Preço de Custo:
+                          <Title
+                            tag={"small"}
+                            titleSize={"small"}
+                            color={"var(--primary-color)"}
+                            fontStyle={"inherit"}
+                            weight={"600"}
+                            padding={"0"}
+                          >
+                            {product.precoDeCusto}
+                          </Title>
+                        </Title>
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          Preço de Revenda:
+                          <Title
+                            tag={"small"}
+                            titleSize={"small"}
+                            color={"var(--primary-color)"}
+                            fontStyle={"inherit"}
+                            weight={"600"}
+                            padding={"0"}
+                          >
+                            {product.precoDeRevenda}
+                          </Title>
+                        </Title>
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          Preço Original:
+                          <Title
+                            tag={"small"}
+                            titleSize={"small"}
+                            color={"var(--primary-color)"}
+                            fontStyle={"inherit"}
+                            weight={"600"}
+                            padding={"0"}
+                          >
+                           {product.precoOriginal}
+                          </Title>
+                        </Title>
+                      </div>
+                    ) : (
+                      <div className="price-div">
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--primary-color)"}
+                          fontStyle={"inherit"}
+                          weight={"600"}
+                          padding={"0"}
+                        >
+                          {product.precoDeCusto}
+                        </Title>
+
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--primary-color)"}
+                          fontStyle={"inherit"}
+                          weight={"600"}
+                          padding={"0"}
+                        >
+                          {product.precoDeRevenda}
+                        </Title>
+
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--primary-color)"}
+                          fontStyle={"inherit"}
+                          weight={"600"}
+                          padding={"0"}
+                        >
+                          {product.precoOriginal}
+                        </Title>
+                      </div>
+                    )}
+
+                    {windowWidth > 741 ? (
+                      <div className="description-div">
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          {product.descricao}
+                        </Title>
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          Categoria: {product.categoria}
+                        </Title>
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          Peso Aproximado: {product.pesoAprox}
+                        </Title>
+                      </div>
+                    ) : (
+                      <div className="description-div">
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          {product.descricao}
+                        </Title>
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          {product.categoria}
+                        </Title>
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          {product.pesoAprox}
+                        </Title>
+                      </div>
+                    )}
+                  </div>
+                </ProductCard>
+              ))}
+            </ProductCardDiv>
           )}
         </div>
       </StyledProductsDiv>

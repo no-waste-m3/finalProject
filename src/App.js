@@ -13,6 +13,7 @@ import { ThemeToastContext } from "./providers/ThemeToast";
 import SadWadeAnimated from "./components/SadWadeAnimated";
 import { ThemeContext } from "./providers/Theme";
 import { motion  } from "framer-motion";
+import { ToogleTheme } from './components/ToogleTheme';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
       <GlobalStyle theme={theme} />
       <AppRoutes />
       <ToastNotify/>
+      <ToogleTheme/>
     
       {/* <FinancialStatement/> */}
 

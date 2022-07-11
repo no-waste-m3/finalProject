@@ -61,7 +61,7 @@ export const StyledStoreDiv = styled.div`
     position: fixed;
     top: 7rem;
 
-    margin: 0 1rem 0 1rem;
+    margin: 0 2rem 0 1rem;
 
     grid-area: StyledStoreDiv;
 
@@ -178,26 +178,35 @@ export const StyledStoreDiv = styled.div`
 export const StyledProductsDiv = styled.div`
   @media (max-width: 740px) {
     position: fixed;
-    top: 15rem;
-
-    grid-area: StyledProductsDiv;
+    top: 10rem;
 
     width: 100%;
+    height: 400px;
 
-    div {
+    .header-div {
       display: flex;
       align-items: center;
-      gap: 6rem;
+      justify-content: space-between;
 
-      margin: 0 1rem 0 1rem;
+      font-size: 1.4rem;
+
+      padding: 3rem 1rem 0 1rem;
+
+      width: 100%;
     }
 
     .products-div {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      flex-direction: column;
+      align-items: start;
 
-      margin: 2rem 1rem 0 1rem;
+      width: 100%;
+      height: 80%;
+
+      margin: 0.5rem 0.5rem 0 0.5rem;
+
+      overflow-x: hidden;
+      overflow-y: scroll;
     }
   }
 
@@ -206,10 +215,11 @@ export const StyledProductsDiv = styled.div`
     top: 10rem;
 
     width: 60%;
+    height: 400px;
 
     left: 5rem;
 
-    div {
+    .header-div {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -227,7 +237,181 @@ export const StyledProductsDiv = styled.div`
       align-items: start;
       gap: 0.5rem;
 
+      width: 100%;
+      height: 80%;
+
       margin: 5rem 1rem 0 1rem;
+
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+  }
+`;
+
+export const ProductCardDiv = styled.ul`
+  @media (max-width: 740px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 741px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const ProductCard = styled.li`
+  @media (max-width: 740px) {
+    .action-buttons {
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        border: none;
+
+        color: var(--primary-color);
+
+        font-size: 1rem;
+
+        background-color: inherit;
+      }
+    }
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .img-info {
+      width: 100px;
+      height: 80px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 90%;
+        height: 90%;
+
+        border-radius: 5px;
+      }
+    }
+
+    .product-info {
+      width: 85%;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .name-div {
+      width: 10%;
+    }
+
+    .price-div {
+      width: 40%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .description-div {
+      width: 50%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @media (min-width: 741px) {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.5rem;
+
+    .action-buttons {
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+
+      button {
+        border: none;
+
+        color: var(--primary-color);
+
+        font-size: 1rem;
+
+        background-color: inherit;
+      }
+    }
+
+    .img-info {
+      width: 150px;
+      height: 100px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 90%;
+        height: 90%;
+
+        border-radius: 5px;
+      }
+    }
+
+    .product-info {
+      width: 80%;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .name-div {
+      width: 10%;
+    }
+
+    .price-div {
+      width: 40%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .description-div {
+      width: 50%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
 `;
