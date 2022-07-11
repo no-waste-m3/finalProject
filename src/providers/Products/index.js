@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState, useContext } from "react";
+import { notify } from "../../components/Toasts";
 import { api } from "../../services/api";
 import { FormContext } from "../Form";
 
@@ -9,6 +10,14 @@ export const ProductsProvider = ({ children }) => {
   const [productsUser, setProductsUser] = useState([]);
   const { user, userToken, exitUser } = useContext(FormContext);
 
+  useEffect(() => {
+    if (userToken !== false && user.account === "seller") {
+      getProductsUser();
+    } else if (userToken !== false) {
+      getProducts();
+    }
+  }, [userToken, user]);
+
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -16,13 +25,13 @@ export const ProductsProvider = ({ children }) => {
     },
   };
 
-  const analizeError = (error) => {
-    if(error.response.data.includes('expired')) {
-      exitUser()
-    } else {
-      console.log(error)
-    }
-  }
+  // const analizeError = (error) => {
+  //   if(error.response.data.includes('expired')) {
+  //     exitUser()
+  //   } else {
+  //     console.log(error)
+  //   }
+  // }
 
   const getProducts = () => {
     api
@@ -35,6 +44,10 @@ export const ProductsProvider = ({ children }) => {
     api
       .post(`/users/${user.id}/foods`, product, config)
       .then((response) => console.log(response))
+      .then((response) => {
+        getProductsUser();
+        notify("Produto Adicionado", 2000, "success");
+      })
       .catch((error) => console.log(error));
   };
 
@@ -42,6 +55,10 @@ export const ProductsProvider = ({ children }) => {
     api
       .delete(`/foods/${id_product}`, config)
       .then((response) => console.log(response))
+      .then((response) => {
+        getProductsUser();
+        notify("Produto Excluido", 2000, "default");
+      })
       .catch((error) => console.log(error));
   };
 
@@ -56,16 +73,9 @@ export const ProductsProvider = ({ children }) => {
     api
       .get(`users/${user.id}/foods`, config)
       .then((response) => setProductsUser(response.data))
-      .catch((error) => analizeError(error));
+      // .catch((error) => analizeError(error));
+      .catch((error) => console.log(error, user));
   };
-
-  useEffect(() => {
-    if (userToken !== false && user.account === "seller") {
-      getProductsUser();
-    } else if (userToken !== false) {
-      getProducts();
-    }
-  }, [userToken, user]);
 
   return (
     <ProductsContext.Provider
