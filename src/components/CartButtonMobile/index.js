@@ -10,7 +10,7 @@ import CartPrice from "../CartPrice";
 const CartButtonMobile = ({ setDisplayCart, displayCart }) => {
   return (
     <>
-      <Button onClick={() => setDisplayCart(true)}>
+      <Button onClick={() => setDisplayCart(!displayCart)}>
         <QttCartPriceContainer>
           <CartQuantity color="white" fontSize="18px" />
           <CartPriceContainer>

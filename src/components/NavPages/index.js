@@ -1,71 +1,104 @@
-import { NavContainer, PageContainer } from "./styled";
+import { PageContainer } from "./styled";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "../Modals";
+
+import { AiFillHome } from "react-icons/ai";
+import { FaBalanceScale } from "react-icons/fa";
+import { BiExit } from "react-icons/bi";
+import { GoDashboard } from "react-icons/go";
+import { FaCarrot } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { ModalConfirm } from "../Modals/ModalConfirm";
+import { FormContext } from "../../providers/Form";
 
 const NavPages = ({ setAsidePages }) => {
-  const home = ["Dashboard", "Balanço", "Sobre nós", "Logout"];
-  const dash = ["Balanço", "Sobre nós", "Logout", "Home"];
-  const stats = ["Dashboard", "Sobre nós", "Logout", "Home"];
-  const about = ["Dashboard", "Balanço", "Logout", "Home"];
-  const more = ["Login"];
+  const home = { name: "Home", icon: <AiFillHome size="20px" /> };
+  const balance = { name: "Balanço", icon: <FaBalanceScale size="20px" /> };
+  const dash = { name: "Dashboard", icon: <GoDashboard size="20px" /> };
+  const stats = { name: "Sobre nós", icon: <FaCarrot size="20px" /> };
+  const logout = { name: "Logout", icon: <BiExit size="20px" /> };
+
+  const pageHome = [dash, balance, stats, logout];
+  const pageDash = [balance, stats, logout, home];
+  const pageStats = [dash, stats, logout, home];
+  const pageAbout = [dash, balance, logout, home];
+
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  const { exitUser } = useContext(FormContext);
 
   const whichLocation = () => {
     const href = window.location.href;
     if (href === "http://localhost:3000/home") {
-      return home;
-    } else if (href === "http://localhost:3000/dashboard") {
-      return dash;
-    } else if (href === "http://localhost:3000/stats") {
-      return stats;
-    } else if (href === "http://localhost:3000/about") {
-      return about;
-    }else if (href === "http://localhost:3000/home/about") {
-    return more;
-  }
+      return pageHome;
+    } else if (href === "http://localhost:3000/home/dashboard") {
+      return pageDash;
+    } else if (href === "http://localhost:3000/home/dashboard/stats") {
+      return pageStats;
+    } else if (href === "http://localhost:3000/home/about") {
+      return pageAbout;
+    }
   };
 
   const pages = whichLocation();
 
+  const onConfirmLogout = () => {
+    exitUser();
+  };
+
   const navigate = useNavigate();
 
   const handleRedirect = (page) => {
-    if (page === "Dashboard") {
-      navigate("/dashboard")
-      setAsidePages(false)
-    } else if (page === "Balanço") {
-      navigate("/balance")
-      setAsidePages(false)
-    } else if (page === "Sobre nós") {
-      navigate("/aboutus")
-      setAsidePages(false)
-    } else if (page === "Logout") {
-      //abre modal de realmente deseja sair
-    } else if (page === "Home") {
-      navigate("/home")
-      setAsidePages(false)
-    }else if (page === "Login") {
-      navigate("/")
-      setAsidePages(false)
+    if (page.name === "Dashboard") {
+      navigate("/home/dashboard");
+      setAsidePages(false);
+    } else if (page.name === "Balanço") {
+      navigate("/home/dashboard/stats");
+      setAsidePages(false);
+    } else if (page.name === "Sobre nós") {
+      navigate("/home/about");
+      setAsidePages(false);
+    } else if (page.name === "Logout") {
+      setShowConfirm(true);
+    } else if (page.name === "Home") {
+      navigate("/home");
+      setAsidePages(false);
+    } else if (page.name === "Login") {
+      navigate("/");
+      setAsidePages(false);
     }
   };
 
   return (
-    <NavContainer>
+    <Modal
+      typeModal="NavPages"
+      top="100%"
+      padding="0.8rem"
+      backgroundColor="var(--secondary-color)"
+      borderRadius="0 0 15px 15px"
+      borderTop="1px solid black"
+    >
       {pages.map((page, index) => {
-        return index === pages.length - 1 ? (
-          <PageContainer borderBottom="0" key={index}>
-            {page}
-          </PageContainer>
-        ) : (
+        return (
           <PageContainer
             onClick={() => handleRedirect(page)}
-            borderBottom="0.5px solid black"
+            borderBottom={
+              index === pages.length - 1 ? "0" : "0.5px solid black"
+            }
             key={index}
           >
-            {page}
+            {page.icon}
+            {page.name}
           </PageContainer>
         );
       })}
-    </NavContainer>
+      <ModalConfirm
+        text="Deseja mesmo fazer logout?"
+        onConfirmFunction={onConfirmLogout}
+        setVisible={setShowConfirm}
+        visible={showConfirm}
+      />
+    </Modal>
   );
 };
 export default NavPages;

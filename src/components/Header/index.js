@@ -10,14 +10,9 @@ import NavPages from "../NavPages";
 import LogoNOWASTE from "../../assets/LogoNOWASTE.png";
 import SearchBar from "../SearchBar";
 
-const Header = ({
-  viewerWidth,
-  setViewerWidth,
-  isSearching,
-  setIsSearching,
-  asidePages,
-  setAsidePages,
-}) => {
+const Header = ({ viewerWidth, needSearchBar = false }) => {
+  const [isSearching, setIsSearching] = useState(false);
+  const [asidePages, setAsidePages] = useState(false);
   return (
     <HeaderContainer>
       <HeaderCentralized>
@@ -25,11 +20,11 @@ const Header = ({
           <Logo alt="logo" src={LogoNOWASTE} />
           <div>
             {" "}
-            <SearchBar
+            {needSearchBar && <SearchBar
               isSearching={isSearching}
               setIsSearching={setIsSearching}
               viewerWidth={viewerWidth}
-            />
+            />}
             <AiOutlineMenu
               onClick={() => setAsidePages(asidePages ? false : true)}
               fontSize="25px"

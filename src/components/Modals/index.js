@@ -1,23 +1,35 @@
 import { StyledModal } from "./styles";
 
 export const Modal = ({
+  typeModal,
+  backgroundColor,
+  top,
+  right,
+  left,
+  bottom,
   width,
-  height,
   padding,
   borderRadius,
-  top,
-  left,
-  backColor,
+  border,
+  borderTop,
+  children,
+  ...rest
 }) => {
   return (
-    <StyledModal
-      width={width}
-      height={height}
-      padding={padding}
-      borderRadius={borderRadius}
+    <StyledModal {...rest}
+      typeModal={typeModal}
       top={top}
+      right={right}
       left={left}
-      backColor={backColor}
-    ></StyledModal>
+      bottom={bottom}
+      width={width}
+      padding={padding}
+      border={border}
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderRadius={borderRadius}
+    >
+      {children}
+    </StyledModal>
   );
 };

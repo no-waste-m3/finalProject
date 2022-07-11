@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+<<<<<<< HEAD
     width: 100%;
   height: 100vh;
+=======
+
+width: 100%;
+height: 100vh;
+  
+>>>>>>> 94a2fdd386d628cb3b643316d0954674169e5c43
 
 `;
 

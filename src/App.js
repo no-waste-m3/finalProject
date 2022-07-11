@@ -1,5 +1,5 @@
 import GlobalStyle from "./styles/GlobalStyle";
-import { ToastNotify } from "./components/Toasts";
+import { notify, ToastNotify } from "./components/Toasts";
 import { AppRoutes } from "./pages/routes";
 import { FinancialStatement } from "./pages/FinancialStatement";
 import { Dashboard } from "./pages/Dashboard";
@@ -7,19 +7,33 @@ import { SignUp } from "./pages/SignUp";
 import Filters from "./components/Filters";
 import { Link } from "react-router-dom";
 import { AboutUs } from "./pages/AboutUs";
+import { Button } from "./components/Button";
+import { useContext } from "react";
+import { ThemeToastContext } from "./providers/ThemeToast";
+import SadWadeAnimated from "./components/SadWadeAnimated";
+import { ThemeContext } from "./providers/Theme";
 
 function App() {
+
+  const { changeThemeToast } = useContext(ThemeToastContext)
+  const { theme } = useContext(ThemeContext)
+
   return (
     <>
       <AppRoutes />
-      <GlobalStyle />
+      <GlobalStyle theme={theme} />
+      <ToastNotify/>
+    
       {/* <FinancialStatement/> */}
 
       {/* <Cart /> */}
-      {/* <ToastNotify/> */}
-      {/* Button para testes da notificação */}
 
-      {/*<Button typebutton='primary' onClick={()=> notify("Olá! Que bom te ver novamente.", 3000)}>Aqui</Button>
+
+
+      {/* Button para testes da notificação */}
+      {/*<Button typebutton='primary' onClick={()=> {
+        changeThemeToast('error') 
+      notify("Olá! Que bom te ver novamente.", 3000, 'error')}}>Aqui</Button>*/}
 
       {/* <NavPages /> - BALANÇO NÃO FICA COM BORDER BOTTOM}
       {/* <Footer /> */}

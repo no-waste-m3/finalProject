@@ -7,7 +7,7 @@ export const ProductsContext = createContext();
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [productsUser, setProductsUser] = useState([]);
-  const { user, userToken } = useContext(FormContext);
+  const { user, userToken, exitUser } = useContext(FormContext);
 
   const config = {
     headers: {
@@ -15,6 +15,14 @@ export const ProductsProvider = ({ children }) => {
       Authorization: `Bearer ${userToken}`,
     },
   };
+
+  const analizeError = (error) => {
+    if(error.response.data.includes('expired')) {
+      exitUser()
+    } else {
+      console.log(error)
+    }
+  }
 
   const getProducts = () => {
     api
@@ -48,7 +56,7 @@ export const ProductsProvider = ({ children }) => {
     api
       .get(`users/${user.id}/foods`, config)
       .then((response) => setProductsUser(response.data))
-      .catch((error) => console.log(error));
+      .catch((error) => analizeError(error));
   };
 
   useEffect(() => {

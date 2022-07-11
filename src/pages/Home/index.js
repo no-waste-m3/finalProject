@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import CartButtonMobile from "../../components/CartButtonMobile";
 import Filters from "../../components/Filters";
@@ -16,23 +16,20 @@ import Cart from "../../components/Cart";
 
 export const Home = () => {
   const [viewerWidth, setViewerWidth] = useState(window.screen.availWidth);
-  const [isSearching, setIsSearching] = useState(false);
-  const [asidePages, setAsidePages] = useState(false);
   const [displayCart, setDisplayCart] = useState(false);
-  window.addEventListener("resize", () =>
-    setViewerWidth(window.screen.availWidth)
-  );
+  window.addEventListener("resize", () => {
+    setViewerWidth(window.innerWidth)
+    window.innerWidth < 864 ? setDisplayCart(false) : setDisplayCart(true)
+  })
+
+  useEffect(() => {
+    setViewerWidth(window.innerWidth)
+    window.innerWidth < 864 ? setDisplayCart(false) : setDisplayCart(true)
+  }, [])
 
   return (
     <Container>
-      <Header
-        viewerWidth={viewerWidth}
-        setViewerWidth={setViewerWidth}
-        isSearching={isSearching}
-        setIsSearching={setIsSearching}
-        asidePages={asidePages}
-        setAsidePages={setAsidePages}
-      />
+      <Header needSearchBar={true} viewerWidth={viewerWidth} setViewerWidth={setViewerWidth} />
       <ContentContainer>
         <ContentUpperDiv>
           <FiltersContainer>
@@ -47,15 +44,9 @@ export const Home = () => {
           <ProductsContainer>
             <HomeProducts />
           </ProductsContainer>
-          {viewerWidth > 864 ? (
-            <Cart setDisplayCart={setDisplayCart} displayCart={displayCart} />
-          ) : (
-            displayCart && (
-              <Cart setDisplayCart={setDisplayCart} displayCart={displayCart} />
-            )
-          )}
+          <Cart setDisplayCart={setDisplayCart} displayCart={displayCart} />
         </ContentUpperDiv>
-        <CartButtonMobile setDisplayCart={setDisplayCart} />
+        <CartButtonMobile setDisplayCart={setDisplayCart} displayCart={displayCart} />
       </ContentContainer>
     </Container>
   );

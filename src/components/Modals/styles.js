@@ -1,17 +1,86 @@
 import styled, { css } from "styled-components";
 
-export const StyledModal = styled.div` 
-    width: ${(props) => props.width}rem;
-    height: ${(props) => props.height}rem;
-    padding: ${(props) => props.padding}rem;
+export const StyledModal = styled.div`
+  ${(props) => {
+    switch (props.typeModal) {
+      case "primary":
+        return css`
+          position: absolute;
+          background-color: ${(props) => props.backgroundColor};
+          padding: ${(props) => props.padding};
 
-    border-radius: ${(props) => props.borderRadius}rem;
+          top: ${(props) => props.top || "25vh"};
+          right: ${(props) => props.right};
+          left: ${(props) => props.left || "20vw"};
+          bottom: ${(props) => props.bottom};
 
-    position: absolute;
-    top: ${(props) => props.top}rem;
-    left: ${(props) => props.left}rem;
+          border: ${(props) => props.border};
+          border-top: ${(props) => props.borderTop};
 
-    background-color: var(${(props) => props.backColor});
+          z-index: 2;
 
-    box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.25);
-`
+          border-radius: ${(props) => props.borderRadius};
+
+          width: ${(props) => props.width};
+          background-color: var(--white-0);
+
+          @media (min-width: 760px) {
+            left: 33vw;
+          }
+
+          @media (min-width: 1400px) {
+            left: 38vw;
+          }
+        `;
+
+      case "NavPages":
+        return css`
+          position: absolute;
+          background-color: ${(props) => props.backgroundColor};
+          padding: ${(props) => props.padding};
+
+          top: ${(props) => props.top};
+          right: ${(props) => props.right};
+          left: ${(props) => props.left};
+          bottom: ${(props) => props.bottom};
+
+          border: ${(props) => props.border};
+          border-top: ${(props) => props.borderTop};
+
+          z-index: 2;
+
+          border-radius: ${(props) => props.borderRadius};
+
+          width: ${(props) => props.width};
+          background-color: ${(props) => props.backgroundColor || 'var(--white-0)'} ;
+        `;
+
+      case "container":
+        return css`
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          background-color: rgba(0, 0, 0, 0.8);
+          z-index: 2;
+        `;
+
+      case "allPage":
+        return css`
+          width: 100vw;
+          height: 100vh;
+          position: fixed;
+          top: 0;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 2;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        `;
+
+      default:
+        return null;
+    }
+  }}
+`;

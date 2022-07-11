@@ -5,7 +5,7 @@ export const Toast = styled(ToastContainer)`
   .Toastify__toast {
     background-color: #F8DDB7;
 
-    color: #ffffff;
+    color: ${(props) => props.wadeTheme === 'error' ? 'red' : props.wadeTheme === 'success' ?  'green' : 'black'};
     font-size: 17px;
     font-weight: 600;
   }
@@ -17,12 +17,32 @@ export const Toast = styled(ToastContainer)`
     background-color: #F8DDB7;
   }
 
+  .Toastify__close-button {
+    //#F47F3D
+    color: var(--primary-color);
+  }
+
   .Toastify__toast-icon {
-    width: 7rem;
-    height: 100%;
+    margin-inline-end: 0;
+    height: 6rem;
+    width: 45%;
+
+    >svg {
+      margin-top: -1rem;
+      margin-right: 10px;
+    }
+
+    >div {
+      margin-top: -2rem;
+    }
+
+    >div >div {
+      text-align: center;
+    }
   }
 
   .Toastify__progress-bar {
-    --toastify-color-progress-light: linear-gradient( to right, #F57C00,  #F8DDB7 );
-  }
+    
+    --toastify-color-progress-light: ${(props) => props.wadeTheme === 'error' ? 'red' : props.wadeTheme === 'success' ?  'green' : 'linear-gradient( to right, #F57C00,  #F8DDB7 )'};
+    }
 `;

@@ -5,8 +5,9 @@ import { ProductsContext } from "../../providers/Products";
 import { useContext } from "react";
 
 const HomeProducts = () => {
-  const { products, productsUser } = useContext(ProductsContext);
-  console.log(products);
+  const { products, productsUser, getProducts } = useContext(ProductsContext);
+  getProducts()
+  //console.log(products);
 
   return (
     <Container>

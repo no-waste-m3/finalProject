@@ -2,30 +2,29 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   height: 60px;
-  width: 100%;
+  width: 95%;
+  margin-bottom: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--primary-color);
   border: 0;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-radius: 15px;
   @media (min-width: 865px) {
     display: none;
   }
 `;
 
 export const QttCartPriceContainer = styled.div`
-  width: 86.6%;
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 export const CartPriceContainer = styled.div`
   width: 66%;
-
   height: 100%;
   display: flex;
   align-items: center;

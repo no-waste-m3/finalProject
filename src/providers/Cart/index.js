@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
       .post(`/users/${user.id}/cart`, product, config)
       .then((response) => {
         console.log(response);
-        getCart();
+        setCart([...cart, response.data])
       })
       .catch((error) => console.log(error));
   };
@@ -38,6 +38,8 @@ export const CartProvider = ({ children }) => {
       .delete(`/foods/${id_product}`, config)
       .then((response) => {
         console.log(response);
+        const newCart = cart.filter((item) => item.id !== id_product)
+        setCart([...newCart]) 
       })
       .catch((error) => console.log(error));
   };

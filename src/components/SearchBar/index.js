@@ -13,7 +13,7 @@ const SearchBar = ({ isSearching, setIsSearching, viewerWidth }) => {
   const [input, setInput] = useState();
   return (
     <>
-      {viewerWidth < 700 ? (
+      {viewerWidth < 865 ? (
         <SearchbarContainer>
           <CenterDiv>
             <Input placeholder="Pesquise um produto" />
