@@ -11,6 +11,7 @@ import {
   import { SignUp } from "./SignUp";
   import { FinancialStatement } from "./FinancialStatement";
   import { ProtectedRoute, NonProtectedRoute } from "./route"
+import NotFound from "./NotFound";
 
 
   
@@ -26,6 +27,7 @@ export const AppRoutes = () => {
             <Route path="home/checkout" element={<ProtectedRoute element={<Checkout/>}/>}/>
             <Route path="home/about" element={<AboutUs/>}/>
             <Route path="signUp" element={<NonProtectedRoute element={<SignUp/>}/>}/>
+            <Route path="*" element={<NotFound/>} />
         </Routes>
 
     )
