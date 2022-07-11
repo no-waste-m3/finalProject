@@ -20,7 +20,7 @@ export const FormLogin = ({ ...rest }) => {
   const { loginUser, user } = useContext(FormContext)
 
   const submitFunction = async (data) => {
-    await loginUser(data)
+    await loginUser(data, false)
   }
   
 

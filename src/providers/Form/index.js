@@ -59,12 +59,12 @@ export const FormProvider = ({ children }) => {
       .post("/register", user, getProgress)
       .then((response) => {
         const { email, password } = user
-        loginUser({email, password})
+        loginUser({email, password}, true)
       })
       .catch((error) => console.log(error));
   };
 
-  const loginUser = (user) => {
+  const loginUser = (user, isNewUser) => {
     api
       .post("/login", user)
       .then((response) => {
@@ -96,7 +96,7 @@ export const FormProvider = ({ children }) => {
           "@userNoWaste",
           JSON.stringify(response.data.user)
         );
-        notify("Que bom te ver novamente!", 1000, 'success')
+        notify(isNewUser ? 'Bem vindo!' : "Que bom te ver novamente!", 1000, 'success')
         }, 1000);
 
         setTimeout(() => {
