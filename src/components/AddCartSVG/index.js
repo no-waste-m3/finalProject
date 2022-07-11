@@ -1,6 +1,17 @@
-const AddCartSVG = () => {
+import { CartContext } from "../../providers/Cart";
+import { useContext } from "react";
+
+const AddCartSVG = ({ product }) => {
+  const { cart, postCart } = useContext(CartContext);
+
   return (
-    <div style={{ cursor: "pointer" }}>
+    <button
+      style={{ cursor: "pointer", backgroundColor: "transparent", border: 0 }}
+      onClick={() => {
+        postCart(product);
+        console.log(cart);
+      }}
+    >
       <svg
         width="30"
         height="31"
@@ -20,7 +31,7 @@ const AddCartSVG = () => {
           fill="white"
         />
       </svg>
-    </div>
+    </button>
   );
 };
 

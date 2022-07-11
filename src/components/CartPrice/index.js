@@ -10,7 +10,10 @@ const CartPrice = ({ color, fontSize }) => {
     <>
       <Title color={color} fontSize={fontSize}>
         {priceFormat(
-          cart.reduce((counter, actual) => (counter += actual.preco), 0)
+          cart.reduce(
+            (counter, actual) => (counter += actual.precoDeRevenda),
+            0
+          )
         )}
       </Title>
     </>
