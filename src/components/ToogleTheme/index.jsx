@@ -34,9 +34,9 @@ export const ToogleTheme = ({...rest}) => {
     return (
         <ToogleStyled {...rest} theme={theme} onClick={() => changeTheme(theme === 'light' ? 'dark' : 'light')}>
             <motion.div animate={animation} transition={{duration: 1}}>
-            {theme === 'light' ? <Sun size={24} color="#c55d30" weight="fill" /> : <Moon size={24} color="#c55d30" weight="fill" />}
+            {theme === 'light' ? <Sun size={24} weight="fill" /> : <Moon size={24}  weight="fill" />}
             </motion.div>
-            <motion.div animate={animationDetails} transition={{duration: 1}}>{theme === 'light' ? <Cloud size={24} color="#c55d30" weight="fill" /> : <WiStars/>}</motion.div>
+            <motion.div animate={animationDetails} transition={{duration: 1}}>{theme === 'light' ? <Cloud size={24} weight="fill" /> : <WiStars/>}</motion.div>
         </ToogleStyled>
     )
 
