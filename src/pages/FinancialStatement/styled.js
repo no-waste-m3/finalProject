@@ -1,12 +1,27 @@
 import styled from "styled-components";
 
-export const StyledFinancialBalanceDiv = styled.div`
-  position: fixed;
-  top: 10rem;
-  left: 5rem;
 
+export const Container = styled.div`
+  height: fit-content;
+  padding-top: 12vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+  @media (max-width: 420px) {
+    
+    gap: 1rem;
+    flex-direction: column-reverse;
+    
+  }
+
+`
+
+export const StyledFinancialBalanceDiv = styled.div`
+  display: flex;
+  flex-direction: column;
   .balance-div {
-    width: 25rem;
 
     display: flex;
     align-items: center;
@@ -15,6 +30,12 @@ export const StyledFinancialBalanceDiv = styled.div`
     gap: 0.5rem;
 
     border-bottom: 1px solid var(--primary-color);
+    padding-right: 5rem;
+
+    @media (max-width: 625px) {
+    padding-right: 1rem;
+      
+    }
 
     figure {
       display: flex;
@@ -35,9 +56,11 @@ export const StyledFinancialBalanceDiv = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    width: 100%;
 
     div {
       width: 100%;
+      
 
       display: flex;
       align-items: center;
@@ -45,8 +68,10 @@ export const StyledFinancialBalanceDiv = styled.div`
 
       margin-left: 0;
       margin-bottom: 1rem;
-      padding-right: 5rem;
+      
+
 
     }
+
   }
 `;

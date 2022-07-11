@@ -13,6 +13,12 @@ export const ProductsProvider = ({ children }) => {
 
   const { setIsLoading, setPercentage } = useContext(IsLoadingContext)
 
+  useEffect(() => {
+
+    getProductsUser()
+
+  }, [])
+
   const getProgress = {
     onUploadProgress: (progressEvent) => {
       setIsLoading(true)
@@ -34,8 +40,8 @@ export const ProductsProvider = ({ children }) => {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${userToken}`,
-      ...getProgress
     },
+    ...getProgress
   };
 
   // const analizeError = (error) => {

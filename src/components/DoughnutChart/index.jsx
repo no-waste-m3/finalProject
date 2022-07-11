@@ -1,5 +1,6 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2'
+import { DoughnutContainer } from './styled';
 
 const DoughnutChart = ({dataGraph}) => {
 
@@ -35,13 +36,13 @@ const DoughnutChart = ({dataGraph}) => {
 
 
     return (
-        <div style={{width:'280px', height:'300px'}}>
+        <DoughnutContainer>
             <Doughnut
             
             data={dataGraph || newDataGraph}
             
         />
-        </div>
+        </DoughnutContainer>
 
         
     )

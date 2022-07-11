@@ -9,12 +9,14 @@ import { useState } from "react";
 import NavPages from "../NavPages";
 import LogoNOWASTE from "../../assets/LogoNOWASTE.png";
 import SearchBar from "../SearchBar";
+import { ToogleTheme } from "../ToogleTheme";
 
 const Header = ({ viewerWidth, needSearchBar = false }) => {
   const [isSearching, setIsSearching] = useState(false);
   const [asidePages, setAsidePages] = useState(false);
   return (
     <HeaderContainer>
+      <ToogleTheme style={{position: 'fixed', top: '5px', left: '5px' }}/>
       <HeaderCentralized>
         <HeaderLeftDiv>
           <Logo alt="logo" src={LogoNOWASTE} />

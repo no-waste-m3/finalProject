@@ -28,7 +28,6 @@ function App() {
       <GlobalStyle theme={theme} />
       <AppRoutes />
       <ToastNotify/>
-      <ToogleTheme/>
       {isLoading && <Loading/>}
     
       {/* <FinancialStatement/> */}
