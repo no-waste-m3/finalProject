@@ -1,24 +1,63 @@
+import { css } from "styled-components";
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle` 
 
     :root{
-        --primary-color: #F57C00;
-        --secondary-color: #FFB886;
+        ${(props) => {
+          return (
+            props.theme === "light" &&
+            css`
+              --primary-color: #f57c00;
+              --secondary-color: #ffb886;
 
-        --filter-color: #FFB162;
-        --hover-color: #FF6B09;
+              --filter-color: #ffb162;
+              --hover-color: #ff6b09;
 
-        --grey-0: #000000;
-        --grey-1: #737373;
-        --grey-yellow: #baae9c;
+              --grey-0: #000000;
+              --grey-1: #737373;
+              --grey-yellow: #baae9c;
 
-        --white-0: #ffffff;
+              --white-0: #ffffff;
+              --background: #fff;
+              --invert: black;
+            `
+          );
+        }}
+
+${(props) => {
+          return (
+            props.theme === "dark" &&
+            css`
+              --primary-color: #f57c00;
+              --secondary-color: #ffb886;
+
+              --filter-color: #ffb162;
+              --hover-color: #ff6b09;
+
+              --grey-0: #000000;
+              --grey-1: #737373;
+              --grey-yellow: #baae9c;
+
+              --white-0: #fff;
+              
+              //140700
+              --background: #070200;
+              --invert: #fff;
+            `
+          );
+        }}
+    }
+
+    body {
+        background-color: var(--background);
+        transition: background-color 1s ;
     }
 
     * {
         margin: 0;
         padding: 0;
+        transition: color 0.5s;
         font-family: 'Montserrat';
         box-sizing: border-box;
     }

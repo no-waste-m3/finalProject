@@ -66,6 +66,7 @@ export const ItemCarousel = styled(motion.div)`
   > p {
     font-weight: 500;
     padding: 0.5rem;
+    color: var(--invert);
   }
 
   @media (max-width: 620px) {

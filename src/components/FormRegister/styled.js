@@ -73,7 +73,7 @@ export const UploadContainer = styled.div.attrs({
 
 const uploadMessageColors = {
 
-    default: 'black',
+    default: 'var(--invert)',
     error: 'red',
     success: 'green'
 }

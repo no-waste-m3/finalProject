@@ -65,6 +65,7 @@ export const RegisterPage = styled.div`
   height: 100vh;
   padding-left: 10rem;
   justify-content: flex-start;
+  color: var(--invert);
 
   @media (max-width: 620px) {
     //min-height: 800px;
