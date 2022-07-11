@@ -25,7 +25,7 @@ export const AboutUs =() =>  {
               <Div2>
               <Wade width='500px' height='800px'/>
               <img src={about} alt=''/>
-              
+              {console.log(window.innerWidth)}
               </Div2>
             </Content>
         <Footer/>
