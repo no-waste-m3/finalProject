@@ -1,17 +1,20 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  height: 10.64%;
+  height: 10.64vh;
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
-  position: relative;
+  //position: relative;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--secondary-color);
 
   @media (min-width: 700px) {
-    height: 8.78%;
+    height: 8.78vh;
   }
 `;
 

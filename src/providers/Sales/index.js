@@ -62,8 +62,8 @@ export const SalesProvider = ({ children }) => {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${userToken}`,
-      ...getProgress
     },
+    ...getProgress
   };
 
   const getSales = () => {

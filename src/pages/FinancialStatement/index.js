@@ -1,12 +1,20 @@
 import Header from '../../components/Header';
-import { StyledFinancialBalanceDiv } from './styled';
+import { StyledFinancialBalanceDiv, Container } from './styled';
 import { Title } from "../../styles/title";
 import { FaBalanceScale } from "react-icons/fa";
 import DoughnutChart from '../../components/DoughnutChart';
+import { useContext } from 'react';
+import { SalesContext } from '../../providers/Sales';
+import { ProductsContext } from '../../providers/Products';
+
 
 export const FinancialStatement = () => {
+
+  const { sales } = useContext(SalesContext)
+  const { productsUser } = useContext(ProductsContext);
+  console.log(productsUser)
     return(
-        <>
+        <Container>
         <Header/>
         <StyledFinancialBalanceDiv>
           <div className='balance-div'>
@@ -16,7 +24,7 @@ export const FinancialStatement = () => {
             <Title
               tag={"h3"}
               titleSize={"h3"}
-              color={"var(--primary-color)"}
+              color={"var(--invert)"}
               fontStyle={"inherit"}
               weight={"400"}
               padding={"0"}
@@ -29,7 +37,7 @@ export const FinancialStatement = () => {
               <Title
                 tag={"h3"}
                 titleSize={"h3"}
-                color={"var(--grey-4)"}
+                color={"var(--invert)"}
                 fontStyle={"inherit"}
                 weight={"400"}
                 padding={"0"}
@@ -39,12 +47,12 @@ export const FinancialStatement = () => {
               <Title
                 tag={"h3"}
                 titleSize={"h3"}
-                color={"var(--primary-color)"}
+                color={"var(--invert)"}
                 fontStyle={"inherit"}
                 weight={"400"}
                 padding={"0"}
               >
-                0
+                {productsUser.length}
               </Title>
             </div>
 
@@ -52,7 +60,7 @@ export const FinancialStatement = () => {
               <Title
                 tag={"h3"}
                 titleSize={"h3"}
-                color={"var(--grey-4)"}
+                color={"var(--invert)"}
                 fontStyle={"inherit"}
                 weight={"400"}
                 padding={"0"}
@@ -62,12 +70,12 @@ export const FinancialStatement = () => {
               <Title
                 tag={"h3"}
                 titleSize={"h3"}
-                color={"var(--primary-color)"}
+                color={"var(--invert)"}
                 fontStyle={"inherit"}
                 weight={"400"}
                 padding={"0"}
               >
-                0
+                {sales.length}
               </Title>
             </div>
 
@@ -75,7 +83,7 @@ export const FinancialStatement = () => {
               <Title
                 tag={"h3"}
                 titleSize={"h3"}
-                color={"var(--grey-4)"}
+                color={"var(--invert)"}
                 fontStyle={"inherit"}
                 weight={"400"}
                 padding={"0"}
@@ -85,17 +93,17 @@ export const FinancialStatement = () => {
               <Title
                 tag={"h3"}
                 titleSize={"h3"}
-                color={"var(--primary-color)"}
+                color={"var(--invert)"}
                 fontStyle={"inherit"}
                 weight={"400"}
                 padding={"0"}
               >
-                0
+                {`${sales.reduce((acc,sale) => acc+sale.pesoAprox, 0).toFixed(1)} kg`}
               </Title>
             </div>
           </div>
-          <DoughnutChart/>
         </StyledFinancialBalanceDiv>
-        </>
+          <DoughnutChart/>
+        </Container>
     )
 }

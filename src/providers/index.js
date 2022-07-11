@@ -14,6 +14,7 @@ export const Providers = ({ children }) => {
     <ThemeToastProvider>
       <FormProvider>
         <ProductsProvider>
+          <ProductsFiltersProvider>
           <ThemeProvider>
             <UploadProvider>
               <CartProvider>
@@ -23,6 +24,7 @@ export const Providers = ({ children }) => {
               </CartProvider>
               </UploadProvider>
           </ThemeProvider>
+          </ProductsFiltersProvider>
         </ProductsProvider>
       </FormProvider>
     </ThemeToastProvider>
