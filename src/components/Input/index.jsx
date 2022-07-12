@@ -1,6 +1,6 @@
 import { InputField } from "./styled"
 
-const Input = ({Field,label, Icon, SecondIcon, children, error, register, name, ...rest}) => {
+const Input = ({Field, label, Icon, SecondIcon, children, error, register, name, ...rest}) => {
     
     return (
         <InputField isError={!!error}>

@@ -8,8 +8,8 @@ export const StyledModal = styled.div`
           /* position: absolute; */
           background-color: ${(props) => props.backgroundColor};
           padding: ${(props) => props.padding};
+          /* top: ${(props) => props.top || "25vh"}; */
 
-          /* top: ${(props) => props.top || "25vh"};
           right: ${(props) => props.right};
           left: ${(props) => props.left || "20vw"}; */
           bottom: ${(props) => props.bottom};
@@ -60,13 +60,14 @@ export const StyledModal = styled.div`
           width: 100vw;
           height: 100vh;
           display: flex;
-          align-items: flex-start;
+          align-items: center;
+
           justify-content: center;
           position: fixed;
           top: 0;
           background-color: rgba(0, 0, 0, 0.8);
-          z-index: 99999;
-          padding: 1rem;
+          z-index: 9999;
+
         `;
 
       case "allPage":

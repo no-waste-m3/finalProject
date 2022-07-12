@@ -279,7 +279,7 @@ export const ProductCard = styled.li`
 
         color: var(--primary-color);
 
-        font-size: 1rem;
+        font-size: .9rem;
 
         background-color: inherit;
       }
@@ -288,12 +288,12 @@ export const ProductCard = styled.li`
     width: 100%;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
+
+    gap: .2rem;
 
     .img-info {
-      width: 100px;
-      height: 80px;
+      width: 75px;
+      height: 50px;
 
       display: flex;
       flex-direction: column;
@@ -309,7 +309,6 @@ export const ProductCard = styled.li`
     }
 
     .product-info {
-      width: 85%;
       height: 100%;
 
       display: flex;
@@ -317,24 +316,24 @@ export const ProductCard = styled.li`
     }
 
     .name-div {
-      width: 10%;
+      width: 20%;
     }
 
     .price-div {
-      width: 40%;
+      width: 10%;
 
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: start;
       justify-content: center;
     }
 
     .description-div {
-      width: 50%;
+      width: 70%;
 
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: start;
       justify-content: center;
     }
   }
@@ -346,7 +345,7 @@ export const ProductCard = styled.li`
     align-items: center;
     justify-content: center;
 
-    gap: 0.5rem;
+    gap: .5rem;
 
     .action-buttons {
       height: 100%;
@@ -401,8 +400,7 @@ export const ProductCard = styled.li`
 
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-items: start;
     }
 
     .description-div {
@@ -410,8 +408,7 @@ export const ProductCard = styled.li`
 
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-items: start;
     }
   }
 `;
