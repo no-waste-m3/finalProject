@@ -26,21 +26,21 @@ const Cart = ({ setDisplayCart, displayCart }) => {
   getCart();
 
   return (
-        <CartContainer
-          animate={{ scale: displayCart ? [0, 1] : [1, 0] }}
-          transition={{ duration: 0.4 }}
-          style={cart.length === 0 && { height: "300px" }}
-        >
-          <CartTitleRtrnContainer>
-            <CartTitleCentered>
-              <CartReturnBtn setDisplayCart={setDisplayCart} />
-              <Title color="var(--invert)" fontSize="23px">
-                Carrinho
-              </Title>
-            </CartTitleCentered>
-          </CartTitleRtrnContainer>
-          {cart.length === 0 ? (
-            <>
+    <CartContainer
+      animate={{ scale: displayCart ? [0, 1] : [1, 0] }}
+      transition={{ duration: 0.4 }}
+      style={cart.length === 0 && { height: "300px" }}
+    >
+      <CartTitleRtrnContainer>
+        <CartTitleCentered>
+          <CartReturnBtn setDisplayCart={setDisplayCart} />
+          <Title color="white" fontSize="23px">
+            Carrinho
+          </Title>
+        </CartTitleCentered>
+      </CartTitleRtrnContainer>
+      {cart.length === 0 ? (
+        <>
           <SadWadeAnimated />
           <Title color="var(--invert)" fontSize="17px">
             Seu carrinho está vazio
@@ -48,12 +48,10 @@ const Cart = ({ setDisplayCart, displayCart }) => {
           <Title style={{ paddingBottom: "15px" }} color="grey" fontSize="14px">
             Adicione itens
           </Title>
-          </>
-
-          ) : (
-            <>
-
-            <CartMiddleDiv>
+        </>
+      ) : (
+        <>
+          <CartMiddleDiv>
             <CartMiddleCentered>
               <CartProducts />
             </CartMiddleCentered>
@@ -74,10 +72,10 @@ const Cart = ({ setDisplayCart, displayCart }) => {
               </CartFooterPriceAndQtt>
               <Button>Finalizar compra</Button>
             </CartFooterCentered>
-      </CartFooterDiv>
-      </> )}
-      </CartContainer>
-
+          </CartFooterDiv>
+        </>
+      )}
+    </CartContainer>
   );
 };
 

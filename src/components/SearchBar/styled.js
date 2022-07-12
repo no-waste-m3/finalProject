@@ -16,7 +16,7 @@ export const SearchbarContainer = styled.div`
   position: absolute;
   left: 25px;
   top: 130%;
-  
+
   @media (min-width: 530px) {
     left: 6vh;
   }
@@ -60,7 +60,7 @@ export const InputDesktop = styled.input`
   height: 15px;
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid ${(props) => props.borderBottomColor};
   animation-name: ${inputOpenAnimation};
   animation-duration: 0.5s;
   :focus {
