@@ -22,6 +22,7 @@ export const FinancialStatement = () => {
   const getdataMonths = ()  => {
 
     let data = [0,0,0,0,0,0,0,0,0,0,0,0]
+    
     sales.forEach((sale, index) => {
       
       const date = new Date(sale.date)
