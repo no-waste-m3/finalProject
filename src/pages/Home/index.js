@@ -19,13 +19,13 @@ export const Home = () => {
   const [displayCart, setDisplayCart] = useState(true);
   //console.log(displayCart)
   window.addEventListener("resize", () => {
-    console.log('resixze')
+    console.log("resixze");
     setViewerWidth(window.innerWidth);
     window.innerWidth < 864 ? setDisplayCart(false) : setDisplayCart(true);
   });
 
   useEffect(() => {
-    console.log('montagem')
+    console.log("montagem");
     setViewerWidth(window.innerWidth);
     window.innerWidth < 864 ? setDisplayCart(false) : setDisplayCart(true);
   }, []);
