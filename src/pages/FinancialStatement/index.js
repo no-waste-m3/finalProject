@@ -1,23 +1,90 @@
 import Header from '../../components/Header';
-import { StyledFinancialBalanceDiv, Container } from './styled';
+import { StyledFinancialBalanceDiv, Container, FirstBalance, SecondBalance } from './styled';
 import { Title } from "../../styles/title";
 import { FaBalanceScale } from "react-icons/fa";
 import DoughnutChart from '../../components/DoughnutChart';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { SalesContext } from '../../providers/Sales';
 import { ProductsContext } from '../../providers/Products';
+import priceFormat from '../../util/priceFormat';
+import BarChartComponent from '../../components/BarChart';
 
 
 export const FinancialStatement = () => {
 
-  const { sales } = useContext(SalesContext)
+  const { sales, getSales } = useContext(SalesContext)
   const { productsUser } = useContext(ProductsContext);
-  console.log(productsUser)
+
+  const [dataMonths, setDataMonths] = useState([])
+
+  const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+
+  const getdataMonths = ()  => {
+
+    let data = [0,0,0,0,0,0,0,0,0,0,0,0]
+    sales.forEach((sale, index) => {
+      
+      const date = new Date(sale.date)
+      //console.log(date)
+  
+      const month = date.getMonth()
+
+      if(month) {
+
+        if(data[month] !== 0) {
+          data[month] += 1
+        } else {
+          data[month] = 1
+        }
+
+      }
+      
+      
+    }) 
+    console.log(data)
+
+    setDataMonths([...data])
+  }
+
+  
+  useEffect(() => {
+    getSales()
+  }, [])
+
+  useEffect(() => {
+
+    getdataMonths()
+  }, [sales])
+
+  //console.log(productsUser)
+  
+  const cost = productsUser.reduce((acc,sale) => {            
+    if(sale.precoDeCusto) {
+      return acc+sale.precoDeCusto
+    } return acc
+  }, 0)
+  const lucro = productsUser.reduce((acc,sale) => {            
+    if(sale.precoDeRevenda) {
+      return acc+(sale.precoDeRevenda - sale.precoDeCusto)
+    } return acc
+  }, 0)
+  //const desconto =
+
+  const salesTotal = sales.length
+  const totalMoney = sales.reduce((acc,sale) => {            
+    if(sale.preco) {
+      return acc+sale.preco
+    } return acc
+  }, 0)
+  const products = productsUser.length
+  const kgTotal = (sales.reduce((acc,sale) => acc+sale.pesoAprox, 0) * 2.8).toFixed(1)
+  
     return(
         <Container>
         <Header/>
+          <FirstBalance>
         <StyledFinancialBalanceDiv>
-          <div className='balance-div'>
+            <div className='balance-div'>
             <figure>
               <FaBalanceScale />
             </figure>
@@ -52,7 +119,7 @@ export const FinancialStatement = () => {
                 weight={"400"}
                 padding={"0"}
               >
-                {productsUser.length}
+                {products}
               </Title>
             </div>
 
@@ -75,7 +142,7 @@ export const FinancialStatement = () => {
                 weight={"400"}
                 padding={"0"}
               >
-                {sales.length}
+                {salesTotal}
               </Title>
             </div>
 
@@ -98,12 +165,41 @@ export const FinancialStatement = () => {
                 weight={"400"}
                 padding={"0"}
               >
-                {`${sales.reduce((acc,sale) => acc+sale.pesoAprox, 0).toFixed(1)} kg`}
+  
+                {priceFormat(totalMoney)}
+              </Title>
+            </div>
+            <div className='last'>
+              <Title
+                tag={"h3"}
+                titleSize={"h3"}
+                color={"green"}
+                fontStyle={"inherit"}
+                weight={"400"}
+                padding={"0"}
+              >
+                Redução de CO²
+              </Title>
+              <Title
+                tag={"h3"}
+                titleSize={"h3"}
+                color={"green"}
+                fontStyle={"inherit"}
+                weight={"400"}
+                padding={"0"}
+              >
+                {`${kgTotal} kg` }
+
               </Title>
             </div>
           </div>
         </StyledFinancialBalanceDiv>
-          <DoughnutChart/>
+          <DoughnutChart title={'Controle de custos'} dataGraph={[cost, lucro]} labels={['Custos', 'Lucros']}/>
+          </FirstBalance>
+
+          <SecondBalance>
+          <BarChartComponent title={'Vendas por mês do ano de 2022'} labels={months} dataGraph={dataMonths}/>
+          </SecondBalance>
         </Container>
     )
 }
