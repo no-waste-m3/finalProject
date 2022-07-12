@@ -8,21 +8,20 @@ export const Container = styled.div`
 
 export const ContentContainer = styled.div`
   width: 100%;
-  height: 89.35%;
+  height: 100%;
   /* margin-top: 72px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   @media (min-width: 700px) {
-    height: 91.22%;
     margin: 0;
   }
 `;
 
 export const ContentUpperDiv = styled.div`
   width: 100%;
-  height: 77%;
+  height: 82%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,8 +37,11 @@ export const FiltersContainer = styled.div`
   width: 100%;
   height: fit-content;
   display: flex;
-  margin-top: 10.5vh;
+  margin-top: 8.5vh;
   justify-content: center;
+  @media (min-width: 700px) {
+    margin-top: 5vh;
+  }
   @media (min-width: 865px) {
     margin-top: 0;
   }
@@ -70,6 +72,9 @@ export const TitleContainer = styled.div`
   height: fit-content;
   justify-content: flex-start;
   @media (min-width: 700px) {
+    margin-left: 6.5%;
+  }
+  @media (min-width: 865px) {
     margin-left: 11.7%;
   }
 `;
