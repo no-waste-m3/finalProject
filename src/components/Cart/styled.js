@@ -8,7 +8,7 @@ export const CartContainer = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
+  background-color: var(--background);
   position: fixed;
   z-index: 14;
   border-radius: 15px;

@@ -1,6 +1,7 @@
 import { CartProvider } from "./Cart";
 import { FormProvider } from "./Form";
 import { IsLoadingProvider } from "./IsLoading";
+import { MapsProvider } from "./Maps";
 import { ProductsProvider } from "./Products";
 import { ProductsFiltersProvider } from "./ProductsFilters";
 import { SalesProvider } from "./Sales";
@@ -13,6 +14,7 @@ export const Providers = ({ children }) => {
     <IsLoadingProvider>
     <ThemeToastProvider>
       <FormProvider>
+        <MapsProvider>
         <ProductsProvider>
           <ProductsFiltersProvider>
           <ThemeProvider>
@@ -26,6 +28,7 @@ export const Providers = ({ children }) => {
           </ThemeProvider>
           </ProductsFiltersProvider>
         </ProductsProvider>
+        </MapsProvider>
       </FormProvider>
     </ThemeToastProvider>
     </IsLoadingProvider>

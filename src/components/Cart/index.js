@@ -26,18 +26,34 @@ const Cart = ({ setDisplayCart, displayCart }) => {
   getCart();
 
   return (
-    <>
-      {cart.length > 0 ? (
-        <CartContainer>
+        <CartContainer
+          animate={{ scale: displayCart ? [0, 1] : [1, 0] }}
+          transition={{ duration: 0.4 }}
+          style={cart.length === 0 && { height: "300px" }}
+        >
           <CartTitleRtrnContainer>
             <CartTitleCentered>
               <CartReturnBtn setDisplayCart={setDisplayCart} />
-              <Title color="white" fontSize="23px">
+              <Title color="var(--invert)" fontSize="23px">
                 Carrinho
               </Title>
             </CartTitleCentered>
           </CartTitleRtrnContainer>
-          <CartMiddleDiv>
+          {cart.length === 0 ? (
+            <>
+          <SadWadeAnimated />
+          <Title color="var(--invert)" fontSize="17px">
+            Seu carrinho está vazio
+          </Title>
+          <Title style={{ paddingBottom: "15px" }} color="grey" fontSize="14px">
+            Adicione itens
+          </Title>
+          </>
+
+          ) : (
+            <>
+
+            <CartMiddleDiv>
             <CartMiddleCentered>
               <CartProducts />
             </CartMiddleCentered>
@@ -45,45 +61,23 @@ const Cart = ({ setDisplayCart, displayCart }) => {
           <CartFooterDiv>
             <CartFooterCentered>
               <CartFooterPriceAndQtt>
-                <Title color="black" fontSize="17px">
+                <Title color="var(--invert)" fontSize="17px">
                   Quantidade
                 </Title>
                 <CartQuantity color="var(--primary-color)" fontSize="17px" />
               </CartFooterPriceAndQtt>
               <CartFooterPriceAndQtt>
-                <Title color="black" fontSize="17px">
+                <Title color="var(--invert)" fontSize="17px">
                   Preço
                 </Title>
                 <CartPrice color="var(--primary-color)" fontSize="17px" />
               </CartFooterPriceAndQtt>
               <Button>Finalizar compra</Button>
             </CartFooterCentered>
-          </CartFooterDiv>
-        </CartContainer>
-      ) : (
-        <CartContainer
-          animate={{ scale: displayCart ? [0, 1] : [1, 0] }}
-          transition={{ duration: 0.4 }}
-          style={{ height: "300px" }}
-        >
-          <CartTitleRtrnContainer>
-            <CartTitleCentered>
-              <CartReturnBtn setDisplayCart={setDisplayCart} />
-              <Title color="white" fontSize="23px">
-                Carrinho
-              </Title>
-            </CartTitleCentered>
-          </CartTitleRtrnContainer>
-          <SadWadeAnimated />
-          <Title color="black" fontSize="17px">
-            Seu carrinho está vazio
-          </Title>
-          <Title style={{ paddingBottom: "15px" }} color="grey" fontSize="14px">
-            Adicione itens
-          </Title>
-        </CartContainer>
-      )}
-    </>
+      </CartFooterDiv>
+      </> )}
+      </CartContainer>
+
   );
 };
 
