@@ -5,13 +5,13 @@ export const StyledModal = styled.div`
     switch (props.typeModal) {
       case "primary":
         return css`
-          position: absolute;
+          /* position: absolute; */
           background-color: ${(props) => props.backgroundColor};
           padding: ${(props) => props.padding};
 
-          top: ${(props) => props.top || "25vh"};
+          /* top: ${(props) => props.top || "25vh"};
           right: ${(props) => props.right};
-          left: ${(props) => props.left || "20vw"};
+          left: ${(props) => props.left || "20vw"}; */
           bottom: ${(props) => props.bottom};
 
           border: ${(props) => props.border};
@@ -24,13 +24,13 @@ export const StyledModal = styled.div`
           width: ${(props) => props.width};
           background-color: var(--white-0);
 
-          @media (min-width: 760px) {
+          /* @media (min-width: 760px) {
             left: 33vw;
           }
 
           @media (min-width: 1400px) {
             left: 38vw;
-          }
+          } */
         `;
 
       case "NavPages":
@@ -57,12 +57,16 @@ export const StyledModal = styled.div`
 
       case "container":
         return css`
-          width: 100%;
-          height: 100%;
-          position: absolute;
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          position: fixed;
           top: 0;
           background-color: rgba(0, 0, 0, 0.8);
-          z-index: 2;
+          z-index: 99999;
+          padding: 1rem;
         `;
 
       case "allPage":

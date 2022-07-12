@@ -14,6 +14,7 @@ export const CartContainer = styled(motion.div)`
   border-radius: 15px;
   border: 1px solid var(--primary-color);
   box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.25);
+  
   @media (min-width: 865px) {
     width: 290px;
     height: 450px;

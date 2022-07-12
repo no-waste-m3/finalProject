@@ -40,6 +40,7 @@ export const ModalAddProduct = ({ setIsVisible }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmitFunction = (data) => {
+    console.log("passou");
     postProduct(data);
     setIsVisible(false);
     getProductsUser();
@@ -76,7 +77,14 @@ export const ModalAddProduct = ({ setIsVisible }) => {
             label="Descrição"
           />
 
-          <select name="categoria" id="">
+          <Input
+            name="categoria"
+            id=""
+            Field="select"
+            label="Categoria"
+            register={register}
+            error={errors.categoria?.message}
+          >
             {category.map((cat, index) => {
               return (
                 <option value={cat.toLocaleLowerCase()} key={index}>
@@ -84,7 +92,7 @@ export const ModalAddProduct = ({ setIsVisible }) => {
                 </option>
               );
             })}
-          </select>
+          </Input>
 
           <Input
             register={register}

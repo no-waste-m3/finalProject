@@ -32,7 +32,7 @@ const CartProduct = ({ product }) => {
         <Img alt="productImage" src={product.src} />
       </ImgContainer>
       <NameContainer>
-        <Title color="black" fontSize="11px">
+        <Title color="var(--invert)" fontSize="11px">
           {nomeDoProduto}
         </Title>
         <Title color="var(--primary-color)" fontSize="20px">

@@ -35,6 +35,7 @@ export const NameContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: var(--invert);
 `;
 
 export const RemoveBtnContainer = styled.div`
