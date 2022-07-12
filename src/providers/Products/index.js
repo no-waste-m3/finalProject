@@ -13,12 +13,6 @@ export const ProductsProvider = ({ children }) => {
 
   const { setIsLoading, setPercentage } = useContext(IsLoadingContext)
 
-  useEffect(() => {
-
-    getProductsUser()
-
-  }, [])
-
   const getProgress = {
     onUploadProgress: (progressEvent) => {
       setIsLoading(true)
