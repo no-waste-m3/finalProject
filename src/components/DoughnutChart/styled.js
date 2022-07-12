@@ -8,6 +8,14 @@ export const DoughnutContainer = styled.div`
     width: 25vw;
     height: auto;
 
+    >p {
+            font-weight: 600;
+            color: var(--invert);
+            width: 100%;
+            text-align: center;
+
+    }
+
     @media (max-width: 650px) {
         width: 40vw;
 

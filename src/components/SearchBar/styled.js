@@ -16,6 +16,7 @@ export const SearchbarContainer = styled.div`
   position: absolute;
   left: 25px;
   top: 130%;
+  
   @media (min-width: 530px) {
     left: 6vh;
   }

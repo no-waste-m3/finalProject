@@ -6,13 +6,39 @@ export const Container = styled.div`
   padding-top: 12vh;
   width: 100vw;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5vw;
   align-items: center;
   
   @media (max-width: 420px) {
     
     gap: 1rem;
-    flex-direction: column-reverse;
+    font-size: 0.8rem;
+    
+  }
+
+`
+
+export const FirstBalance = styled.div`
+display: flex;
+gap: 5vw;
+@media (max-width: 420px) {
+    
+    gap: 1rem;
+    font-size: 0.8rem;
+    flex-direction: column;
+    
+  }
+
+`
+
+export const SecondBalance = styled.div`
+  width: 60vw;
+
+  @media (max-width: 420px) {
+    
+    width: 80vw;
     
   }
 
@@ -34,6 +60,7 @@ export const StyledFinancialBalanceDiv = styled.div`
 
     @media (max-width: 625px) {
     padding-right: 1rem;
+    font-size: 0.9rem;
       
     }
 
@@ -68,9 +95,18 @@ export const StyledFinancialBalanceDiv = styled.div`
 
       margin-left: 0;
       margin-bottom: 1rem;
+
+    }
+
+    @media (max-width: 625px) {
+    
+    font-size: 0.8rem;
       
+    }
 
-
+    .last {
+      border-top: 1px solid var(--primary-color);
+      padding-top: 0.5rem;
     }
 
   }

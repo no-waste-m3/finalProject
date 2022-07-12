@@ -1,21 +1,24 @@
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+//import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2'
 import { DoughnutContainer } from './styled';
+import { Chart } from 'react-chartjs-2'
+import { Chart as ChartJS } from 'chart.js/auto'
 
-const DoughnutChart = ({dataGraph}) => {
+const DoughnutChart = ({dataGraph, labels, title}) => {
 
-    ChartJS.register(ArcElement, Tooltip, Legend);
+    //ChartJS.register(ArcElement, Tooltip, Legend);
 
     const newDataGraph = {
         datasets: [{
-        data: [20,10,5],
+        data: dataGraph,
         backgroundColor: [
-      'rgb(197, 145, 67)',
       '#fd7d06',
       'rgb(107, 158, 11)',
+      'rgb(197, 145, 67)',
       ]}],
-      labels : ['Produtos', 'Vendas', 'Perdas evitadas']
+      labels : labels
     }
+
 
     /*listTransactions.forEach((item) => {
 
@@ -37,9 +40,10 @@ const DoughnutChart = ({dataGraph}) => {
 
     return (
         <DoughnutContainer>
+          <p>{title}</p>
             <Doughnut
             
-            data={dataGraph || newDataGraph}
+            data={newDataGraph}
             
         />
         </DoughnutContainer>

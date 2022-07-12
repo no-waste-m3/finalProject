@@ -28,9 +28,6 @@ export const SalesProvider = ({ children }) => {
         let number = Math.round(
           (progressEvent.loaded * 100) / progressEvent.total
         )
-
-        console.log(number)
-
         if(number<100) {
           setPercentage(number)
         } else {
@@ -44,8 +41,6 @@ export const SalesProvider = ({ children }) => {
         let number = Math.round(
           (progressEvent.loaded * 100) / progressEvent.total
         )
-
-        console.log(number)
 
 
         if(number<100) {
