@@ -43,7 +43,7 @@ export const Home = () => {
             <Filters />
           </FiltersContainer>
           <TitleContainer>
-            <Title color="black" fontSize="15px">
+            <Title color="var(--invert)" fontSize="15px">
               eai, o que a barriguinha manda hoje?
             </Title>
           </TitleContainer>

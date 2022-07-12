@@ -42,7 +42,7 @@ ${(props) => {
               --white-0: #fff;
               
               //140700
-              --background: #070200;
+              --background: #1e1a17;
               --invert: #fff;
             `
           );
