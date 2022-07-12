@@ -51,6 +51,8 @@ export const FormRegister = ({ ...rest }) => {
   const [account, setAccount] = useState("");
   const [fileOfInput, setFileOfInput] = useState([])
   const [messageFeedbackUpload, setMessageFeedbackUpload] = useState('Arraste a imagem até o campo acima ou clique no campo e selecione o arquivo')
+  const [city, setCity] = useState('')
+  const [stateUser, setStateUser] = useState('') 
 
   const { doUpload } = useContext(UploadContext)
 
@@ -102,6 +104,8 @@ export const FormRegister = ({ ...rest }) => {
             district,
             number,
             street,
+            cidade: city,
+            estado: stateUser
           },
         },
       };
@@ -124,8 +128,6 @@ export const FormRegister = ({ ...rest }) => {
 
         }
       } 
-
-      console.log(dataUser) 
 
       registerUser(dataUser);
     }
@@ -181,6 +183,8 @@ export const FormRegister = ({ ...rest }) => {
       axios.get(`https://viacep.com.br/ws/${cep}/json/`).then((address) => {
         //setDistrict(address.data.bairro)
         //setStreet(address.data.logradouro)
+        setCity(address.data.localidade)
+        setStateUser(address.data.uf)
         setValue("district", address.data.bairro, { shouldValidate: true });
         setValue("street", address.data.logradouro, { shouldValidate: true });
       });

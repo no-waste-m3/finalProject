@@ -30,12 +30,12 @@ export const HomeProduct = ({ product }) => {
       <Img alt="productImage" src={src} />
       <TitlesContainer>
         <TitleContainer>
-          <Title color="black" fontSize="16px" decoLine="none">
+          <Title color="var(--invert)" fontSize="16px" decoLine="none">
             {nomeDoProduto}
           </Title>
         </TitleContainer>
         <TitleContainer>
-          <Title color="black" fontSize="16px" decoLine="none">
+          <Title color="var(--invert)" fontSize="16px" decoLine="none">
             De:
           </Title>
           <Title
@@ -47,7 +47,7 @@ export const HomeProduct = ({ product }) => {
           </Title>
         </TitleContainer>
         <TitleContainer>
-          <Title color="black" fontSize="29px" decoLine="none">
+          <Title color="var(--invert)" fontSize="29px" decoLine="none">
             Por:
           </Title>
           <Title color="var(--primary-color)" fontSize="29px" decoLine="none">

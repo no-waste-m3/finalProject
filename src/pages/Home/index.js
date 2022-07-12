@@ -15,14 +15,17 @@ import HomeProducts from "../../components/HomeProducts";
 import Cart from "../../components/Cart";
 
 export const Home = () => {
-  const [viewerWidth, setViewerWidth] = useState(window.screen.availWidth);
-  const [displayCart, setDisplayCart] = useState(false);
+  const [viewerWidth, setViewerWidth] = useState(window.innerWidth);
+  const [displayCart, setDisplayCart] = useState(true);
+  //console.log(displayCart)
   window.addEventListener("resize", () => {
+    console.log('resixze')
     setViewerWidth(window.innerWidth);
     window.innerWidth < 864 ? setDisplayCart(false) : setDisplayCart(true);
   });
 
   useEffect(() => {
+    console.log('montagem')
     setViewerWidth(window.innerWidth);
     window.innerWidth < 864 ? setDisplayCart(false) : setDisplayCart(true);
   }, []);
@@ -48,6 +51,7 @@ export const Home = () => {
           <ProductsContainer>
             <HomeProducts />
           </ProductsContainer>
+
           {displayCart && (
             <Cart setDisplayCart={setDisplayCart} displayCart={displayCart} />
           )}
