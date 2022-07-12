@@ -17,6 +17,7 @@ export const ProductsProvider = ({ children }) => {
     getProductsUser();
   }, []);
 
+
   const getProgress = {
     onUploadProgress: (progressEvent) => {
       setIsLoading(true);

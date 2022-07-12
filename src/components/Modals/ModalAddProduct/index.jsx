@@ -40,6 +40,7 @@ export const ModalAddProduct = ({ setIsVisible }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmitFunction = (data) => {
+    console.log("passou");
     postProduct(data);
     setIsVisible(false);
     getProductsUser();
@@ -77,11 +78,12 @@ export const ModalAddProduct = ({ setIsVisible }) => {
           />
 
           <Input
-            register={register}
             name="categoria"
-            error={errors.categoria?.message}
             Field="select"
             label="Categoria"
+            register={register}
+            error={errors.categoria?.message}
+
           >
             {category.map((cat, index) => {
               return (
