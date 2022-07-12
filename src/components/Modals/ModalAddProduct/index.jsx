@@ -76,7 +76,13 @@ export const ModalAddProduct = ({ setIsVisible }) => {
             label="Descrição"
           />
 
-          <select name="categoria" id="">
+          <Input
+            register={register}
+            name="categoria"
+            error={errors.categoria?.message}
+            Field="select"
+            label="Categoria"
+          >
             {category.map((cat, index) => {
               return (
                 <option value={cat.toLocaleLowerCase()} key={index}>
@@ -84,7 +90,7 @@ export const ModalAddProduct = ({ setIsVisible }) => {
                 </option>
               );
             })}
-          </select>
+          </Input>
 
           <Input
             register={register}
@@ -126,7 +132,11 @@ export const ModalAddProduct = ({ setIsVisible }) => {
             <Button typebutton="secondary" type="submit">
               Enviar
             </Button>
-            <Button typebutton="primary" onClick={() => setIsVisible(false)}>
+            <Button
+              type="button"
+              typebutton="primary"
+              onClick={() => setIsVisible(false)}
+            >
               Fechar
             </Button>
           </div>

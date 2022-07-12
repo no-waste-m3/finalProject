@@ -11,37 +11,34 @@ export const ProductsProvider = ({ children }) => {
   const [productsUser, setProductsUser] = useState([]);
   const { user, userToken, exitUser } = useContext(FormContext);
 
-  const { setIsLoading, setPercentage } = useContext(IsLoadingContext)
+  const { setIsLoading, setPercentage } = useContext(IsLoadingContext);
 
   useEffect(() => {
-
-    getProductsUser()
-
-  }, [])
+    getProductsUser();
+  }, []);
 
   const getProgress = {
     onUploadProgress: (progressEvent) => {
-      setIsLoading(true)
-        let number = Math.round(
-          (progressEvent.loaded * 100) / progressEvent.total
-        )
+      setIsLoading(true);
+      let number = Math.round(
+        (progressEvent.loaded * 100) / progressEvent.total
+      );
 
-        if(number<100) {
-          setPercentage(number)
-        } else {
-          setIsLoading(false)
-          setPercentage(0)
-        }
-        
-     }
-  }
+      if (number < 100) {
+        setPercentage(number);
+      } else {
+        setIsLoading(false);
+        setPercentage(0);
+      }
+    },
+  };
 
   const config = {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${userToken}`,
     },
-    ...getProgress
+    ...getProgress,
   };
 
   // const analizeError = (error) => {
@@ -84,7 +81,10 @@ export const ProductsProvider = ({ children }) => {
   const updateProduct = (id_product, product_update) => {
     api
       .patch(`/foods/${id_product}`, product_update, config)
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response);
+        getProductsUser();
+      })
       .catch((error) => console.log(error));
   };
 
