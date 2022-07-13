@@ -286,10 +286,10 @@ export const Dashboard = () => {
                   </div>
 
                   <div className="img-info">
-                    <img src={product.src} />
+                    <img src={product.src} alt={product.nomeDoProduto}/>
+                    
                   </div>
                   <div className="product-info">
-                    {windowWidth > 741 ? (
                       <div className="name-div">
                         <Title
                           tag={"small"}
@@ -300,20 +300,13 @@ export const Dashboard = () => {
                         >
                           {product.nomeDoProduto}
                         </Title>
-                      </div>
-                    ) : (
-                      <div className="name-div">
-                        <Title
-                          tag={"small"}
-                          titleSize={"small"}
-                          color={"var(--primary-color)"}
-                          fontStyle={"inherit"}
-                          weight={"600"}
+                        <small
+                          className="category"
                         >
-                          {product.nomeDoProduto}
-                        </Title>
+                          {product.categoria}
+                        </small>
                       </div>
-                    )}
+                    
 
                     {windowWidth > 741 ? (
                       <div className="description-div">
@@ -326,15 +319,7 @@ export const Dashboard = () => {
                         >
                           {product.descricao}
                         </Title>
-                        <Title
-                          tag={"small"}
-                          titleSize={"small"}
-                          color={"var(--grey-4)"}
-                          fontStyle={"inherit"}
-                          weight={"400"}
-                        >
-                          Categoria: {product.categoria}
-                        </Title>
+                       
                         <Title
                           tag={"small"}
                           titleSize={"small"}
@@ -356,15 +341,7 @@ export const Dashboard = () => {
                         >
                           {product.descricao}
                         </Title>
-                        <Title
-                          tag={"small"}
-                          titleSize={"small"}
-                          color={"var(--grey-4)"}
-                          fontStyle={"inherit"}
-                          weight={"400"}
-                        >
-                          {product.categoria}
-                        </Title>
+                      
                         <Title
                           tag={"small"}
                           titleSize={"small"}
@@ -379,6 +356,7 @@ export const Dashboard = () => {
 
                     {windowWidth > 741 ? (
                       <div className="price-div">
+                        <div>
                         <Title
                           tag={"small"}
                           titleSize={"small"}
@@ -387,6 +365,7 @@ export const Dashboard = () => {
                           weight={"400"}
                         >
                           Preço de Custo:
+                          </Title>
                           <Title
                             tag={"small"}
                             titleSize={"small"}
@@ -396,7 +375,10 @@ export const Dashboard = () => {
                           >
                             {product.precoDeCusto}
                           </Title>
-                        </Title>
+
+                        
+                        </div>
+                        <div>
                         <Title
                           tag={"small"}
                           titleSize={"small"}
@@ -405,6 +387,7 @@ export const Dashboard = () => {
                           weight={"400"}
                         >
                           Preço de Revenda:
+                          </Title>
                           <Title
                             tag={"small"}
                             titleSize={"small"}
@@ -413,9 +396,11 @@ export const Dashboard = () => {
                             weight={"600"}
                           >
                             {product.precoDeRevenda}
-                          </Title>
                         </Title>
-                        <Title
+                        </div>
+                        
+                        <div>
+                          <Title
                           tag={"small"}
                           titleSize={"small"}
                           color={"var(--grey-4)"}
@@ -423,6 +408,7 @@ export const Dashboard = () => {
                           weight={"400"}
                         >
                           Preço Original:
+                          </Title>
                           <Title
                             tag={"small"}
                             titleSize={"small"}
@@ -431,8 +417,9 @@ export const Dashboard = () => {
                             weight={"600"}
                           >
                             {product.precoOriginal}
-                          </Title>
                         </Title>
+                      </div>
+                      
                       </div>
                     ) : (
                       <div className="price-div">

@@ -3,8 +3,7 @@ import { MapsContext } from "../../providers/Maps"
 import { StoresContext } from "../../providers/Stores"
 import { CardStore, StoresContainerStyled } from "./styled"
 import { FaMotorcycle } from "react-icons/fa";
-import { GiFullMotorcycleHelmet } from "react-icons/gi";
-import { MdSportsMotorsports } from "react-icons/md";
+
 
 
 
