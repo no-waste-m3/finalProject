@@ -10,6 +10,7 @@ import { FaCarrot } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { ModalConfirm } from "../Modals/ModalConfirm";
 import { FormContext } from "../../providers/Form";
+import { ThemeContext } from "../../providers/Theme";
 
 const NavPages = ({ setAsidePages }) => {
   const home = { name: "Home", icon: <AiFillHome size="20px" /> };
@@ -26,6 +27,7 @@ const NavPages = ({ setAsidePages }) => {
 
   const [showConfirm, setShowConfirm] = useState(false);
 
+  const { theme } = useContext(ThemeContext);
   const { exitUser } = useContext(FormContext);
 
   const whichLocation = () => {
@@ -77,16 +79,21 @@ const NavPages = ({ setAsidePages }) => {
       typeModal="NavPages"
       top="100%"
       padding="0.8rem"
-      backgroundColor="var(--secondary-color)"
+      backgroundColor={
+        theme === "dark" ? "var(--primary-color)" : "var(--secondary-color)"
+      }
       borderRadius="0 0 15px 15px"
-      borderTop="1px solid black"
+      borderTop={theme === "dark" ? "1px solid white" : "1px solid black"}
     >
       {pages.map((page, index) => {
         return (
           <PageContainer
+            geralColor={theme === "dark" && "white"}
             onClick={() => handleRedirect(page)}
             borderBottom={
-              index === pages.length - 1 ? "0" : "0.5px solid black"
+              index === pages.length - 1
+                ? "0"
+                : `0.5px solid ${theme === "dark" ? "white" : "black"}`
             }
             key={index}
           >

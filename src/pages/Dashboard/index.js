@@ -24,10 +24,13 @@ import { BsTrash } from "react-icons/bs";
 import { notify } from "../../components/Toasts";
 import { ThemeToastContext } from "../../providers/ThemeToast";
 import { EditAddProduct } from "../../components/Modals/EditModal";
-
+import { useNavigate } from "react-router-dom";
+import { EditStore } from "../../components/Modals/EditStoreModal";
 
 export const Dashboard = () => {
   const { changeThemeToast } = useContext(ThemeToastContext);
+
+  const user = JSON.parse(localStorage.getItem('@userNoWaste'));
 
   const { productsUser, deleteProduct, updateProduct, getProductsUser } =
     useContext(ProductsContext);
@@ -39,13 +42,18 @@ export const Dashboard = () => {
 
   const [addModal, setAddModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
+  const [editStore, setEditStore] = useState(false);
   const [productToEdit, setProductToEdit] = useState();
+  console.log(editStore)
+
+  const navigate = useNavigate();
 
   return (
     <Container>
       <Header />
 
       {addModal && <ModalAddProduct setIsVisible={setAddModal} />}
+
       {updateModal && (
         <EditAddProduct
           setIsVisible={setUpdateModal}
@@ -53,6 +61,7 @@ export const Dashboard = () => {
         />
       )}
 
+      {editStore && <EditStore setIsVisible={setEditStore} user={user} />}
 
       <StyledStoreDiv>
         <div>
@@ -79,9 +88,12 @@ export const Dashboard = () => {
             weight={"400"}
             padding={"0"}
           >
-            Padaria Santa Rosa
+            {user.name || user.razaoSocial || 'Empresa'}
           </Title>
-          <figure>
+          <figure
+            onClick={() => setEditStore(!editStore)}
+            style={{ cursor: "pointer" }}
+          >
             <FaEdit />
           </figure>
         </div>
@@ -90,7 +102,10 @@ export const Dashboard = () => {
       {windowWidth > 741 ? (
         <StyledBalanceDiv>
           <div>
-            <figure>
+            <figure
+              onClick={() => navigate("/home/dashboard/stats")}
+              style={{ cursor: "pointer" }}
+            >
               <FaBalanceScale />
             </figure>
             <Title
@@ -258,7 +273,7 @@ export const Dashboard = () => {
                           titleSize={"small"}
                           color={"var(--primary-color)"}
                           fontStyle={"inherit"}
-                          weight={"400"}
+                          weight={"600"}
                           padding={"0"}
                         >
                           {product.nomeDoProduto}
@@ -271,110 +286,10 @@ export const Dashboard = () => {
                           titleSize={"small"}
                           color={"var(--primary-color)"}
                           fontStyle={"inherit"}
-                          weight={"400"}
+                          weight={"600"}
                           padding={"0"}
                         >
                           {product.nomeDoProduto}
-                        </Title>
-                      </div>
-                    )}
-
-                    {windowWidth > 741 ? (
-                      <div className="price-div">
-                        <Title
-                          tag={"small"}
-                          titleSize={"small"}
-                          color={"var(--grey-4)"}
-                          fontStyle={"inherit"}
-                          weight={"400"}
-                          padding={"0"}
-                        >
-                          Preço de Custo:
-                          <Title
-                            tag={"small"}
-                            titleSize={"small"}
-                            color={"var(--primary-color)"}
-                            fontStyle={"inherit"}
-                            weight={"600"}
-                            padding={"0"}
-                          >
-                            {product.precoDeCusto}
-                          </Title>
-                        </Title>
-                        <Title
-                          tag={"small"}
-                          titleSize={"small"}
-                          color={"var(--grey-4)"}
-                          fontStyle={"inherit"}
-                          weight={"400"}
-                          padding={"0"}
-                        >
-                          Preço de Revenda:
-                          <Title
-                            tag={"small"}
-                            titleSize={"small"}
-                            color={"var(--primary-color)"}
-                            fontStyle={"inherit"}
-                            weight={"600"}
-                            padding={"0"}
-                          >
-                            {product.precoDeRevenda}
-                          </Title>
-                        </Title>
-                        <Title
-                          tag={"small"}
-                          titleSize={"small"}
-                          color={"var(--grey-4)"}
-                          fontStyle={"inherit"}
-                          weight={"400"}
-                          padding={"0"}
-                        >
-                          Preço Original:
-                          <Title
-                            tag={"small"}
-                            titleSize={"small"}
-                            color={"var(--primary-color)"}
-                            fontStyle={"inherit"}
-                            weight={"600"}
-                            padding={"0"}
-                          >
-                           {product.precoOriginal}
-                          </Title>
-                        </Title>
-                      </div>
-                    ) : (
-                      <div className="price-div">
-                        <Title
-                          tag={"small"}
-                          titleSize={"small"}
-                          color={"var(--primary-color)"}
-                          fontStyle={"inherit"}
-                          weight={"600"}
-                          padding={"0"}
-                        >
-                          {product.precoDeCusto}
-                        </Title>
-
-                        <Title
-                          tag={"small"}
-                          titleSize={"small"}
-                          color={"var(--primary-color)"}
-                          fontStyle={"inherit"}
-                          weight={"600"}
-                          padding={"0"}
-                        >
-                          {product.precoDeRevenda}
-                        </Title>
-
-                        <Title
-                          tag={"small"}
-                          titleSize={"small"}
-                          color={"var(--primary-color)"}
-                          fontStyle={"inherit"}
-                          weight={"600"}
-                          padding={"0"}
-                        >
-                          {product.precoOriginal}
                         </Title>
                       </div>
                     )}
@@ -443,6 +358,106 @@ export const Dashboard = () => {
                           padding={"0"}
                         >
                           {product.pesoAprox}
+                        </Title>
+                      </div>
+                    )}
+
+                    {windowWidth > 741 ? (
+                      <div className="price-div">
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          Preço de Custo:
+                          <Title
+                            tag={"small"}
+                            titleSize={"small"}
+                            color={"var(--primary-color)"}
+                            fontStyle={"inherit"}
+                            weight={"600"}
+                            padding={"0"}
+                          >
+                            {product.precoDeCusto}
+                          </Title>
+                        </Title>
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          Preço de Revenda:
+                          <Title
+                            tag={"small"}
+                            titleSize={"small"}
+                            color={"var(--primary-color)"}
+                            fontStyle={"inherit"}
+                            weight={"600"}
+                            padding={"0"}
+                          >
+                            {product.precoDeRevenda}
+                          </Title>
+                        </Title>
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--grey-4)"}
+                          fontStyle={"inherit"}
+                          weight={"400"}
+                          padding={"0"}
+                        >
+                          Preço Original:
+                          <Title
+                            tag={"small"}
+                            titleSize={"small"}
+                            color={"var(--primary-color)"}
+                            fontStyle={"inherit"}
+                            weight={"600"}
+                            padding={"0"}
+                          >
+                            {product.precoOriginal}
+                          </Title>
+                        </Title>
+                      </div>
+                    ) : (
+                      <div className="price-div">
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--primary-color)"}
+                          fontStyle={"inherit"}
+                          weight={"600"}
+                          padding={"0"}
+                        >
+                          {product.precoDeCusto}
+                        </Title>
+
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--primary-color)"}
+                          fontStyle={"inherit"}
+                          weight={"600"}
+                          padding={"0"}
+                        >
+                          {product.precoDeRevenda}
+                        </Title>
+
+                        <Title
+                          tag={"small"}
+                          titleSize={"small"}
+                          color={"var(--primary-color)"}
+                          fontStyle={"inherit"}
+                          weight={"600"}
+                          padding={"0"}
+                        >
+                          {product.precoOriginal}
                         </Title>
                       </div>
                     )}

@@ -10,11 +10,14 @@ import { Title } from "./styles";
 import { useState } from "react";
 import { ProductsFiltersContext } from "../../providers/ProductsFilters";
 import { Storefront } from "phosphor-react";
+import { ThemeContext } from "../../providers/Theme";
+
 
 export const Filters = () => {
   const [selected, setSelected] = useState("Todos");
 
   const { categoryFilters } = useContext(ProductsFiltersContext);
+  const { theme } = useContext(ThemeContext);
 
   const handleFilter = (name) => {
     switch (name) {
@@ -73,7 +76,15 @@ export const Filters = () => {
                 ? "invert(99%) sepia(10%) saturate(501%) hue-rotate(320deg) brightness(111%) contrast(100%);"
                 : "invert(77%) sepia(67%) saturate(6387%) hue-rotate(5deg) brightness(100%) contrast(102%);"
             }
-            color={selected === object.name ? "#F57C00" : "#ffffff"}
+            color={
+              theme == "light"
+                ? selected === object.name
+                  ? "#F57C00"
+                  : "#ffffff"
+                : selected === object.name
+                ? "#F57C00"
+                : "#1e1a17"
+            }
             padding={
               object.name === "Pizzarias"
                 ? "6px 6px 6px 10px"

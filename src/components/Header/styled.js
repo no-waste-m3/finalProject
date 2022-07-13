@@ -11,7 +11,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--secondary-color);
+  background-color: ${(props) => props.backColor};
 
   @media (min-width: 700px) {
     height: 8.78vh;

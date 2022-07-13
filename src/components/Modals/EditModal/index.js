@@ -10,18 +10,28 @@ import { useForm } from "react-hook-form";
 import { ProductsContext } from "../../../providers/Products";
 import { useContext, useProvider } from "react";
 
-
 export const EditAddProduct = ({ setIsVisible, productToEdit }) => {
-
   const { updateProduct, getProductsUser } = useContext(ProductsContext);
 
   const schema = yup.object().shape({
     nomeDoProduto: yup.string().required("Required field"),
     descricao: yup.string().required("Required Field"),
     src: yup.string().required("Required Field"),
+    categoria: yup.string().required(),
     precoDeCusto: yup.string().required("Required Field"),
     precoDeRevenda: yup.string().required("Required Field"),
+    precoOriginal: yup.string().required("Required Field"),
+    pesoEstimado: yup.string().required("Required Field"),
   });
+
+  const category = [
+    "Pizzaria",
+    "Burger",
+    "Mercado",
+    "Padaria",
+    "Doces",
+    "Cafeteria",
+  ];
 
   const {
     register,
@@ -30,7 +40,7 @@ export const EditAddProduct = ({ setIsVisible, productToEdit }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmitFunction = (data) => {
-    updateProduct(data);
+    updateProduct(productToEdit.id , data);
     getProductsUser();
     setIsVisible(false);
   };
@@ -59,7 +69,7 @@ export const EditAddProduct = ({ setIsVisible, productToEdit }) => {
             error={errors.nomeDoProduto?.message}
             Field="input"
             label="Nome do Produto"
-            placeholder={productToEdit.nomeDoProduto}
+            defaultValue={productToEdit.nomeDoProduto}
           />
           <Input
             register={register}
@@ -67,15 +77,33 @@ export const EditAddProduct = ({ setIsVisible, productToEdit }) => {
             error={errors.descricao?.message}
             Field="input"
             label="Descrição"
-            placeholder={productToEdit.descricao}
+            defaultValue={productToEdit.descricao}
           />
+
+          <Input
+            register={register}
+            name="categoria"
+            error={errors.categoria?.message}
+            Field="select"
+            label="Categoria"
+            defaultValue={productToEdit.categoria}
+          >
+            {category.map((cat, index) => {
+              return (
+                <option value={cat.toLocaleLowerCase()} key={index}>
+                  {cat}
+                </option>
+              );
+            })}
+          </Input>
+
           <Input
             register={register}
             name="src"
             error={errors.src?.message}
             Field="input"
             label="Url da Imagem"
-            placeholder={productToEdit.descricao}
+            defaultValue={productToEdit.src}
           />
           <Input
             register={register}
@@ -83,7 +111,7 @@ export const EditAddProduct = ({ setIsVisible, productToEdit }) => {
             error={errors.precoDeCusto?.message}
             Field="input"
             label="Preco de custo"
-            placeholder={productToEdit.precoDeCusto}
+            defaultValue={productToEdit.precoDeCusto}
           />
           <Input
             register={register}
@@ -91,12 +119,34 @@ export const EditAddProduct = ({ setIsVisible, productToEdit }) => {
             error={errors.precoDeRevenda?.message}
             Field="input"
             label="Preco de Revenda"
-            placeholder={productToEdit.precoDeRevenda}
+            defaultValue={productToEdit.precoDeRevenda}
+          />
+
+          <Input
+            register={register}
+            name="precoOriginal"
+            error={errors.precoOriginal?.message}
+            Field="input"
+            label="Preco Orginal"
+            defaultValue={productToEdit.precoOriginal}
+          />
+
+          <Input
+            register={register}
+            name="pesoEstimado"
+            error={errors.pesoEstimado?.message}
+            Field="input"
+            label="Peso Estimado"
+            defaultValue={productToEdit.pesoEstimado}
           />
 
           <div className="modal__buttons">
-            <Button typebutton="secondary" type='submit'>Editar</Button>
-            <Button typebutton="primary" onClick={() => setIsVisible(false)}>Fechar</Button>
+            <Button typebutton="secondary" type="submit">
+              Editar
+            </Button>
+            <Button typebutton="primary" onClick={() => setIsVisible(false)}>
+              Fechar
+            </Button>
           </div>
         </StyledForm>
       </Modal>

@@ -79,11 +79,11 @@ export const ModalAddProduct = ({ setIsVisible }) => {
 
           <Input
             name="categoria"
-            id=""
             Field="select"
             label="Categoria"
             register={register}
             error={errors.categoria?.message}
+
           >
             {category.map((cat, index) => {
               return (
@@ -134,7 +134,11 @@ export const ModalAddProduct = ({ setIsVisible }) => {
             <Button typebutton="secondary" type="submit">
               Enviar
             </Button>
-            <Button typebutton="primary" onClick={() => setIsVisible(false)}>
+            <Button
+              type="button"
+              typebutton="primary"
+              onClick={() => setIsVisible(false)}
+            >
               Fechar
             </Button>
           </div>

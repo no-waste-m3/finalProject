@@ -9,13 +9,14 @@ import {
 import { BiSearch } from "react-icons/bi";
 import { useState, useEffect, useContext } from "react";
 import { ProductsFiltersContext } from "../../providers/ProductsFilters";
+import { ThemeContext } from "../../providers/Theme";
 
 const SearchBar = ({ isSearching, setIsSearching, viewerWidth }) => {
+  const { theme } = useContext(ThemeContext);
   const { filterProducts } = useContext(ProductsFiltersContext);
   const [input, setInput] = useState("");
 
   useEffect(() => {
-    console.log(input);
     filterProducts(input);
   }, [input]);
 
@@ -44,6 +45,7 @@ const SearchBar = ({ isSearching, setIsSearching, viewerWidth }) => {
         <>
           {isSearching && (
             <InputDesktop
+              borderBottomColor={theme === "dark" && "white"}
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -51,6 +53,7 @@ const SearchBar = ({ isSearching, setIsSearching, viewerWidth }) => {
             />
           )}
           <BiSearch
+            color={theme === "dark" && "white"}
             style={{ marginRight: "10px", cursor: "pointer" }}
             onClick={() => setIsSearching(isSearching ? false : true)}
             fontSize="25px"

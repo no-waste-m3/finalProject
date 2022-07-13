@@ -22,7 +22,6 @@ export const Home = () => {
   const { stores } = useContext(StoresContext)
   
   window.addEventListener("resize", () => {
-  
     setViewerWidth(window.innerWidth);
     window.innerWidth < 864 ? setDisplayCart(false) : setDisplayCart(true);
   });
