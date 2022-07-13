@@ -18,7 +18,7 @@ import CartQuantity from '../../components/CartQuantity';
 
 export const Checkout =() =>  {
 
-  const { cart, setCart, deleteCart } = useContext(CartContext)
+  const { cart, setCart, deleteCartFromCheckout } = useContext(CartContext)
   const { addSales } = useContext(SalesContext)
   const { changeThemeToast } = useContext(ThemeToastContext)
   const navigate = useNavigate()
@@ -35,7 +35,7 @@ export const Checkout =() =>  {
 
     cart.forEach((product) => {
       console.log(product.id)
-      deleteCart(product.id)
+      deleteCartFromCheckout(product.id)
     })
 
     setTimeout(() => {

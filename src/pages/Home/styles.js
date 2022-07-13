@@ -59,7 +59,7 @@ export const ProductsContainer = styled.div`
     background-color: var(--primary-color);
   }
   ::-webkit-scrollbar-thumb {
-    background-color: white;
+    background-color: var(--invert);
     height: 3px;
   }
   /* overflow-y: auto; */

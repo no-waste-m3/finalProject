@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+    width: 100%;
   height: 100vh;
+  padding-top: 12vh;
 `;
 
 export const Content = styled.div`
@@ -10,29 +11,61 @@ export const Content = styled.div`
 `;
 
 export const Div1 = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
 
-  img {
-    margin: 10% 0 0 0;
-    width: 100%;
-  }
+display: flex;
+flex-direction:column;
+max-width: 100vw;
+width:100vw;
+align-items: center;
 
-  @media (min-width: 700px) {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    margin: 5% 0 0 5%;
+>div {
+    width: 90%;
+    color: var(--invert);
 
-    img {
-      margin: 0 0 0 0;
-      width: auto;
-      height: 600px;
+    >div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+
+        >div {
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+
+            >div {
+                width: 50%;
+            }
+        }
     }
-  }
+    
+    @media (min-width: 700px) {
+        width: 50%;
+}
+}
+
+img{
+    width: 35%;
+    min-width: 400px;
+    height: 80vh;
+}
+
+
+@media (min-width: 700px) {
+display: flex;
+flex-direction: row;
+width: 100%;
+align-items: flex-start;
+
+img{
+    margin: 0 0 0 0;
+    width: 35%;
+    min-width: 400px;
+    height: 80vh;
+}
+}
+
 `;
 
 export const Div2 = styled.div`
@@ -69,18 +102,13 @@ export const Div2 = styled.div`
 `;
 
 export const Text = styled.h2`
-  margin: 0 0 -55% 0;
-  width: 90%;
-  text-align: justify;
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
-  line-height: 35px;
-  font-size: 18px;
-  color: #f57c00;
-  @media (min-width: 700px) {
-    margin: 5px 5px 5px 5px;
-    width: 40%;
-    line-height: 40px;
-    font-size: 22px;
-  }
+
+width: 100%;
+text-align: center;
+font-family: 'Inter', sans-serif;
+font-weight: 500;
+font-size: 1.2rem;
+color: #F57C00;
+
 `;
+

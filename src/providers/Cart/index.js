@@ -48,7 +48,7 @@ export const CartProvider = ({ children }) => {
       })
       .then((response) => {
         changeThemeToast("success");
-        notify("Produto adicionado ao carrinho", 3000);
+        notify("Produto adicionado ao carrinho", 2000);
       })
       .catch((error) => console.log(error));
   };
@@ -63,13 +63,26 @@ export const CartProvider = ({ children }) => {
       })
       .then((response) => {
         changeThemeToast("error");
-        notify("Produto retirado do carrinho", 3000, "error");
+        notify("Produto retirado do carrinho", 2000, "error");
       })
       .catch((error) => console.log(error));
   };
 
+  const deleteCartFromCheckout = (id_product) => {
+
+    api
+      .delete(`/cart/${id_product}`, config)
+      .then((response) => {
+        console.log(response);
+        const newCart = cart.filter((item) => item.id !== id_product);
+        setCart([...newCart]);
+      })
+      .catch((error) => console.log(error));
+
+  }
+
   return (
-    <CartContext.Provider value={{ cart, getCart, postCart, deleteCart }}>
+    <CartContext.Provider value={{ cart, getCart, postCart, deleteCart, deleteCartFromCheckout }}>
       {children}
     </CartContext.Provider>
   );
