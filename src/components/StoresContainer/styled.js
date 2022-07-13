@@ -43,6 +43,7 @@ gap: 1rem;
 
 >img {
     width: 5rem;
+    height: 3rem;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid var(--invert);
@@ -53,9 +54,10 @@ gap: 1rem;
     >p:nth-child(2) {
         display: flex;
         align-items: center;
-        gap: 0.3rem;
+        gap: 0.5rem;
+        width: 7rem;
         font-size: small;
-        margin-top: 0.5rem;
+        
     }
 }
 

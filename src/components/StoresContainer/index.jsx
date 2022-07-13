@@ -16,25 +16,33 @@ const StoresContainer = () => {
 
     useEffect(() => {
 
-        /*const storesChanged = stores.map(async store => {
-            const actualStore = store
-            const distance = await getDistance(store.info.endereco)
-
-            actualStore.distance = distance
-            return actualStore
-            
-        });*/
+        getDistancesOfStores()
 
     }, [])
+
+    const getDistancesOfStores = async () => {
+        await stores.forEach(async store => {
+            
+            await getDistance(store.info.endereco)
+            .then((res) => {
+                store.distance = res
+                setStores([...stores])
+                
+            }) 
+            
+        })
+
+
+    }
 
     return (
         <StoresContainerStyled>
             
            {stores.map((store) => {
-               console.log(store)
+               
                return <CardStore key={store.id}> <img src={store.info.src} alt="" /> 
                <div><p>{store.info.razaoSocial}</p>
-                <p><FaMotorcycle/>{store.distance || ' 15 mins'}</p>
+                <p><FaMotorcycle/>{store.distance || '0 mins'}</p>
                </div>
                {store.info.endereco && <div>
                <p>{store.info.endereco.rua}</p>
