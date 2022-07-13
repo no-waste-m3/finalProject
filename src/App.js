@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import GlobalStyle from "./styles/GlobalStyle";
 import { AppRoutes } from "./pages/routes";
 import { useContext } from "react";
@@ -21,3 +22,5 @@ function App() {
 }
 
 export default App;
+=======
+>>>>>>> 81f9980 (Revert "Merge pull request #117 from no-waste-m3/hot-fix")
