@@ -23,7 +23,7 @@ const Header = ({ viewerWidth, needSearchBar = false }) => {
         theme === "light" ? "var(--secondary-color)" : "var(--primary-color)"
       }
     >
-      <ToogleTheme style={{ position: "fixed", top: "5px", left: "5px" }} />
+      <ToogleTheme style={{ position: "absolute", top: "7px", left: "5px" }} />
       <HeaderCentralized>
         <HeaderLeftDiv>
           <Logo

@@ -64,8 +64,6 @@ export const Dashboard = () => {
     getProductsUser();
   }
 
-  console.log(productsUser)
-
   return (
     <Container>
       <Header />
