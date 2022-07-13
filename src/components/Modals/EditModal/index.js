@@ -21,7 +21,7 @@ export const EditAddProduct = ({ setIsVisible, productToEdit }) => {
     precoDeCusto: yup.string().required("Required Field"),
     precoDeRevenda: yup.string().required("Required Field"),
     precoOriginal: yup.string().required("Required Field"),
-    pesoEstimado: yup.string().required("Required Field"),
+    pesoAprox: yup.string().required("Required Field"),
   });
 
   const category = [
@@ -49,8 +49,8 @@ export const EditAddProduct = ({ setIsVisible, productToEdit }) => {
     <Modal typeModal="container">
       <Modal
         typeModal="primary"
-        backgroundColor="var(--white-0)"
-        padding="2.5rem"
+        backgroundColor="var(--background)"
+        padding="1rem 2.5rem"
         borderRadius="14px"
         mobile="yes"
         top="10%"
@@ -58,7 +58,7 @@ export const EditAddProduct = ({ setIsVisible, productToEdit }) => {
       >
         <StyledForm onSubmit={handleSubmit(onSubmitFunction)}>
           <div>
-            <Title tag="h1" titleSize="title1">
+            <Title color='var(--invert)' tag="h1" titleSize="title1">
               Editar Produto
             </Title>
           </div>
@@ -133,11 +133,11 @@ export const EditAddProduct = ({ setIsVisible, productToEdit }) => {
 
           <Input
             register={register}
-            name="pesoEstimado"
-            error={errors.pesoEstimado?.message}
+            name="pesoAprox"
+            error={errors.pesoAprox?.message}
             Field="input"
             label="Peso Estimado"
-            defaultValue={productToEdit.pesoEstimado}
+            defaultValue={productToEdit.pesoAprox}
           />
 
           <div className="modal__buttons">

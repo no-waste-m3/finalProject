@@ -3,6 +3,7 @@ import { notify } from "../../components/Toasts";
 import { api } from "../../services/api";
 import { FormContext } from "../Form";
 import { IsLoadingContext } from "../IsLoading";
+import { ProductsContext } from "../Products";
 import { ThemeToastContext } from "../ThemeToast";
 
 export const SalesContext = createContext();
@@ -11,6 +12,7 @@ export const SalesProvider = ({ children }) => {
 
   const { changeThemeToast } = useContext(ThemeToastContext)
   const { user, userToken, exitUser } = useContext(FormContext);
+  const { productsUser } = useContext(ProductsContext)
 
   const [ sales, setSales ] = useState([])
 
@@ -19,6 +21,15 @@ export const SalesProvider = ({ children }) => {
     getSales()
 
   }, [])
+
+
+  const salesTotal = sales.length
+  const totalMoney = sales.reduce((acc,sale) => {            
+    if(sale.precoDeRevenda) {
+      return acc+sale.precoDeRevenda
+    } return acc
+  }, 0)
+  const productsCount = productsUser.length
 
   const { setIsLoading, setPercentage } = useContext(IsLoadingContext)
 
@@ -117,7 +128,10 @@ export const SalesProvider = ({ children }) => {
       value={{
           sales, 
           addSales,
-          getSales
+          getSales,
+          totalMoney,
+          salesTotal,
+          productsCount
       }}
     >
       {children}

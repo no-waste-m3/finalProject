@@ -26,9 +26,14 @@ import { ThemeToastContext } from "../../providers/ThemeToast";
 import { EditAddProduct } from "../../components/Modals/EditModal";
 import { useNavigate } from "react-router-dom";
 import { EditStore } from "../../components/Modals/EditStoreModal";
+import { SalesContext } from "../../providers/Sales";
+import priceFormat from "../../util/priceFormat";
 
 export const Dashboard = () => {
   const { changeThemeToast } = useContext(ThemeToastContext);
+  const { sales, getSales, totalMoney,
+    salesTotal,
+    productsCount } = useContext(SalesContext)
 
   const user = JSON.parse(localStorage.getItem('@userNoWaste'));
 
@@ -44,9 +49,13 @@ export const Dashboard = () => {
   const [updateModal, setUpdateModal] = useState(false);
   const [editStore, setEditStore] = useState(false);
   const [productToEdit, setProductToEdit] = useState();
-  console.log(editStore)
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getSales()
+    getProductsUser();
+  }, [])
 
   return (
     <Container>
@@ -139,7 +148,7 @@ export const Dashboard = () => {
                 weight={"400"}
                 padding={"0"}
               >
-                0
+               {productsCount}
               </Title>
             </div>
 
@@ -162,7 +171,7 @@ export const Dashboard = () => {
                 weight={"400"}
                 padding={"0"}
               >
-                0
+                {salesTotal}
               </Title>
             </div>
 
@@ -185,7 +194,7 @@ export const Dashboard = () => {
                 weight={"400"}
                 padding={"0"}
               >
-                0
+                {priceFormat(totalMoney)}
               </Title>
             </div>
           </div>

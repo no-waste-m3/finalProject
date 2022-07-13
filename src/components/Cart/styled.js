@@ -9,7 +9,7 @@ export const CartContainer = styled(motion.div)`
   align-items: center;
   justify-content: space-between;
   background-color: var(--background);
-  position: fixed;
+  position: absolute;
   z-index: 14;
   border-radius: 15px;
   border: 1px solid var(--primary-color);
@@ -25,12 +25,13 @@ export const CartContainer = styled(motion.div)`
     height: 450px;
     box-shadow: none;
     right: 1vw;
-    top: 23%;
+    top: 25%;
     z-index: 8;
   }
   @media (min-width: 1000px) {
     right: 6.5vw;
-    top: 25%;
+    height: 78vh;
+    top: 28%;
   }
 `;
 

@@ -19,13 +19,15 @@ export const EditStore = ({ setIsVisible, user }) => {
 
   const schema = yup.object().shape({
     name: yup.string().required("Required field"),
-    contact: yup.string().required("Required Field"),
-    cnpj: yup.string().required("Required Field"),
-    address: yup.string().required("Required Field"),
+    razaoSocial:  yup.string().required("Required field"),
+    contato: yup.string().required("Required Field"),
+    CNPJ: yup.string().required("Required Field"),
+    CPF: yup.string().required("Required Field"),
+    endereco: yup.string().required("Required Field"),
     cep: yup.string().required("Required Field"),
-    street: yup.string().required("Required Field"),
-    neighborhood: yup.string().required("Required Field"),
-    number: yup.string().required("Required Field"),
+    rua: yup.string().required("Required Field"),
+    bairro: yup.string().required("Required Field"),
+    numero: yup.string().required("Required Field"),
   });
 
   const {
@@ -42,7 +44,7 @@ export const EditStore = ({ setIsVisible, user }) => {
     <Modal typeModal="container">
       <Modal
         typeModal="primary"
-        backgroundColor="var(--white-0)"
+        backgroundColor="var(--background)"
         padding="2.5rem"
         borderRadius="14px"
         left="13%"
@@ -54,24 +56,24 @@ export const EditStore = ({ setIsVisible, user }) => {
             handleSubmit(onSubmitFunction);
             }}>
           <div>
-            <Title tag="h1" titleSize="title1">
+            <Title color='var(--invert)' tag="h1" titleSize="title1">
               Solicitar Edição de Loja
             </Title>
           </div>
 
           <Input
             register={register}
-            name="name"
-            error={errors.name?.message}
+            name={user.info?.razaoSocial ? 'razaoSocial' : 'name'}
+            error={errors[user.info?.razaoSocial ? 'razaoSocial' : 'name']?.message}
             Field="input"
             label="Nome da Loja"
-            defaultValue={user.info?.name}
+            defaultValue={user.info?.razaoSocial || user.info?.name}
           />
 
           <Input
             register={register}
-            name="contact"
-            error={errors.contact?.message}
+            name="contato"
+            error={errors.contato?.message}
             Field="input"
             label="Contato"
             defaultValue={user.info?.contato}
@@ -79,24 +81,24 @@ export const EditStore = ({ setIsVisible, user }) => {
 
           <Input
             register={register}
-            name="cnpj"
-            error={errors.cnpj?.message}
+            name={user.info?.CNPJ ? 'CNPJ' : 'CPF'}
+            error={errors[user.info?.CNPJ ? 'CNPJ' : 'CPF']?.message}
             Field="input"
-            label="CNPJ"
-            defaultValue={user.info?.CNPJ}
+            label={user.info?.CNPJ ? 'CNPJ' : 'CPF'}
+            defaultValue={user.info?.CNPJ || user.info.CPF}
           />
 
-          <Title tag="h2" titleSize="title1">
+          <Title color='var(--invert)' tag="h2" titleSize="title1">
             Endereço
           </Title>
 
           <Input
             register={register}
-            name="street"
-            error={errors.street?.message}
+            name="rua"
+            error={errors.rua?.message}
             Field="input"
             label="Rua"
-            defaultValue={user.info?.address.street}
+            defaultValue={user.info?.endereco.rua}
           />
 
           <Input
@@ -105,25 +107,25 @@ export const EditStore = ({ setIsVisible, user }) => {
             error={errors.cep?.message}
             Field="input"
             label="CEP"
-            defaultValue={user.info?.address.cep}
+            defaultValue={user.info?.endereco.cep}
           />
 
           <Input
             register={register}
-            name="neighborhood"
-            error={errors.neighborhood?.message}
+            name="bairro"
+            error={errors.bairro?.message}
             Field="input"
             label="Bairro"
-            defaultValue={user.info?.address.district}
+            defaultValue={user.info?.endereco.bairro}
           />
 
           <Input
             register={register}
-            name="number"
-            error={errors.number?.message}
+            name="numero"
+            error={errors.numero?.message}
             Field="input"
             label="Numero"
-            defaultValue={user.info?.address.number}
+            defaultValue={user.info?.endereco.numero}
           />
 
           <div className="modal__buttons">
