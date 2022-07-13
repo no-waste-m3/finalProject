@@ -6,6 +6,7 @@ import { IsLoadingContext } from "./providers/IsLoading";
 import Loading from "./components/Loading";
 import { ToastNotify } from "./components/Toasts";
 
+
 function App() {
   const { theme } = useContext(ThemeContext);
   const { isLoading } = useContext(IsLoadingContext);

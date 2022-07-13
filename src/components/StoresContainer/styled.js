@@ -1,5 +1,10 @@
-import styled from "styled-components"
+import styled, { keyframes }from "styled-components"
 
+
+const spin = keyframes`
+    0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+`
 
 
 export const StoresContainerStyled = styled.ul`
@@ -32,14 +37,26 @@ display: flex;
 align-items: center;
 gap: 1rem;
 
+.loading {
+  border: 3px solid #b29e85; /* Light grey */
+  border-top: 3px solid var(--primary-color); /* Blue */
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: ${spin} 2s linear infinite;
+}
+
 
 >img {
-    width: 5rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
-    overflow: hidden;
+    //overflow: hidden;
     border: 2px solid var(--invert);
+
 }
+
+
 
 >div:nth-child(2) {
 
@@ -81,3 +98,7 @@ display: none;
 }
 
 `
+
+
+
+

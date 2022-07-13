@@ -3,8 +3,7 @@ import { MapsContext } from "../../providers/Maps"
 import { StoresContext } from "../../providers/Stores"
 import { CardStore, StoresContainerStyled } from "./styled"
 import { FaMotorcycle } from "react-icons/fa";
-import { GiFullMotorcycleHelmet } from "react-icons/gi";
-import { MdSportsMotorsports } from "react-icons/md";
+
 
 
 
@@ -42,7 +41,7 @@ const StoresContainer = () => {
                
                return <CardStore key={store.id}> <img src={store.info.src} alt="" /> 
                <div><p>{store.info.razaoSocial}</p>
-                <p><FaMotorcycle/>{store.distance || '0 mins'}</p>
+                <p><FaMotorcycle/>{store.distance || <div className="loading"></div>}</p>
                </div>
                {store.info.endereco && <div>
                <p>{store.info.endereco.rua}</p>
