@@ -58,37 +58,54 @@ export const SalesProvider = ({ children }) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${userToken}`,
     },
-    ...getProgress
   };
 
   const getSales = () => {
     api
     .get(`users/${user.id}/sales`, config)
-      .then((response) => setSales(response.data))
+      .then((response) => {
+        console.log(sales)
+        setSales(response.data)
+      })
       .catch((error) => console.log(error));
   };
 
-  const addSale = async (products) => {
+  const addSales = async (product) => {
 
-    await products.forEach(async (product) => {
+    const { categoria,
+      descricao,
+      nomeDoProduto,
+      pesoAprox,
+      precoDeRevenda,
+      precoDeCusto,
+      precoOriginal,
+      src,
+      storeId,
+      userId } = product
+    const newProduct = { categoria,
+      descricao,
+      nomeDoProduto,
+      pesoAprox,
+      precoDeRevenda,
+      precoDeCusto,
+      precoOriginal,
+      src,
+      storeId,
+      userId }
+
+    newProduct.date = new Date()
         
-    await api
-      .post(`users/${product.storeId}/sales`, product, config)
-      .then((response) => response)
+    return await api
+      .post(`users/${product.storeId}/sales`, newProduct, config)
+      .then((response) => {
+        setSales([...sales, response.data])
+      })
       .catch((error) => {
-
         changeThemeToast('error') 
         notify("Ops, ocorreu algum erro. Tente novamente mais tarde.", 3000, 'error')
-        console.log(error)
         throw(error)
 
-      });
-
-    })
-
-    changeThemeToast('success') 
-    
-    notify('Compra feita com sucesso! Você acabou de reduzir Em alguns minutos chegará o seu pedido', 1000, 'success')
+      }); 
           
     
   };
@@ -99,8 +116,8 @@ export const SalesProvider = ({ children }) => {
     <SalesContext.Provider
       value={{
           sales, 
-          getSales,
-          addSale
+          addSales,
+          getSales
       }}
     >
       {children}

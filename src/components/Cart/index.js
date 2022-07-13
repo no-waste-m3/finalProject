@@ -19,11 +19,12 @@ import SadWade from "../SadWadeSVG";
 import SadWadeAnimated from "../SadWadeAnimated";
 import { getByPlaceholderText } from "@testing-library/react";
 import CartProducts from "../CartProducts";
+import { Link } from "react-router-dom";
 
 const Cart = ({ setDisplayCart, displayCart }) => {
   const { cart, getCart } = useContext(CartContext);
 
-  getCart();
+  //getCart();
 
   return (
     <CartContainer
@@ -70,7 +71,7 @@ const Cart = ({ setDisplayCart, displayCart }) => {
                 </Title>
                 <CartPrice color="var(--primary-color)" fontSize="17px" />
               </CartFooterPriceAndQtt>
-              <Button>Finalizar compra</Button>
+              <Button><Link to='/home/checkout'>Finalizar compra</Link></Button>
             </CartFooterCentered>
           </CartFooterDiv>
         </>

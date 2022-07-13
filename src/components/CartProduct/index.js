@@ -11,7 +11,7 @@ import priceFormat from "../../util/priceFormat";
 import { useContext } from "react";
 import { CartContext } from "../../providers/Cart";
 
-const CartProduct = ({ product }) => {
+const CartProduct = ({ product, onCheckout }) => {
   const { deleteCart } = useContext(CartContext);
   const {
     nomeDoProduto,
@@ -39,7 +39,7 @@ const CartProduct = ({ product }) => {
           {priceFormat(precoDeRevenda)}
         </Title>
       </NameContainer>
-      <RemoveBtnContainer>
+       <RemoveBtnContainer>
         <BsTrashFill
           onClick={() => deleteCart(id)}
           style={{ cursor: "pointer" }}

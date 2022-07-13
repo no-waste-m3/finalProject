@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../../components/Header";
 import CartButtonMobile from "../../components/CartButtonMobile";
 import Filters from "../../components/Filters";
@@ -13,19 +13,20 @@ import {
 } from "./styles";
 import HomeProducts from "../../components/HomeProducts";
 import Cart from "../../components/Cart";
+import { StoresContext } from "../../providers/Stores";
+import StoresContainer from "../../components/StoresContainer";
 
 export const Home = () => {
   const [viewerWidth, setViewerWidth] = useState(window.innerWidth);
   const [displayCart, setDisplayCart] = useState(true);
-  //console.log(displayCart)
+  const { stores } = useContext(StoresContext)
+  
   window.addEventListener("resize", () => {
-    console.log("resixze");
     setViewerWidth(window.innerWidth);
     window.innerWidth < 864 ? setDisplayCart(false) : setDisplayCart(true);
   });
 
   useEffect(() => {
-    console.log("montagem");
     setViewerWidth(window.innerWidth);
     window.innerWidth < 864 ? setDisplayCart(false) : setDisplayCart(true);
   }, []);
@@ -44,13 +45,17 @@ export const Home = () => {
           </FiltersContainer>
           <TitleContainer>
             <Title color="var(--invert)" fontSize="15px">
-              eai, o que a barriguinha manda hoje?
+              Eai, o que a barriguinha manda hoje?
             </Title>
           </TitleContainer>
 
-          <ProductsContainer>
+          {stores.length === 0 ? (
+            <ProductsContainer>
             <HomeProducts />
           </ProductsContainer>
+          ): (
+            <StoresContainer/>
+          )}
 
           {displayCart && (
             <Cart setDisplayCart={setDisplayCart} displayCart={displayCart} />

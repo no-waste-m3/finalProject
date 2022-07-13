@@ -3,6 +3,7 @@ import { notify } from "../../components/Toasts";
 import { api } from "../../services/api";
 import { FormContext } from "../Form";
 import { IsLoadingContext } from "../IsLoading";
+import { MapsContext } from "../Maps";
 
 export const ProductsContext = createContext();
 
@@ -10,12 +11,14 @@ export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [productsUser, setProductsUser] = useState([]);
   const { user, userToken, exitUser } = useContext(FormContext);
+  const { getDistance } = useContext(MapsContext)
 
   const { setIsLoading, setPercentage } = useContext(IsLoadingContext);
 
   useEffect(() => {
     getProductsUser();
   }, []);
+
 
 
   const getProgress = {
@@ -42,13 +45,32 @@ export const ProductsProvider = ({ children }) => {
     ...getProgress,
   };
 
-  // const analizeError = (error) => {
-  //   if(error.response.data.includes('expired')) {
-  //     exitUser()
-  //   } else {
-  //     console.log(error)
-  //   }
-  // }
+  const getDistancesByProducts = async () => {
+
+    await products.forEach(async (product, index) => {
+      if(index === 1) {
+
+      console.log(product.userId)
+
+      const destination = await api
+      .get(`/users/${product.userId}`, config)
+      .then((response) => response.data.endereco)
+      .catch((error) => console.log(error));
+
+
+      if(destination) {
+        //const distance = await getDistance(destination)
+        console.log(destination)
+      }
+
+      }
+      
+  })
+
+    
+  }
+
+
 
   const getProducts = () => {
     api
@@ -117,6 +139,7 @@ export const ProductsProvider = ({ children }) => {
         deleteProduct,
         updateProduct,
         getProductsUser,
+        getDistancesByProducts
       }}
     >
       {children}

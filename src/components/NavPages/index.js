@@ -23,6 +23,7 @@ const NavPages = ({ setAsidePages }) => {
   const pageDash = [balance, stats, logout, home];
   const pageStats = [dash, stats, logout, home];
   const pageAbout = [dash, balance, logout, home];
+  const pageCheckout = [ home, stats, logout]
 
   const [showConfirm, setShowConfirm] = useState(false);
 
@@ -39,8 +40,10 @@ const NavPages = ({ setAsidePages }) => {
       return pageStats;
     } else if (href === "http://localhost:3000/home/about") {
       return pageAbout;
-    }
+    } else if (href === "http://localhost:3000/home/checkout") {
+      return pageCheckout;
   };
+}
 
   const pages = whichLocation();
 
@@ -108,4 +111,6 @@ const NavPages = ({ setAsidePages }) => {
     </Modal>
   );
 };
+
+
 export default NavPages;

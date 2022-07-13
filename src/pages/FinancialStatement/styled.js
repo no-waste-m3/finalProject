@@ -34,8 +34,11 @@ gap: 5vw;
 `
 
 export const SecondBalance = styled.div`
-  width: 60vw;
-
+  width: 50vw;
+  background-color: #e2dcd3;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
   @media (max-width: 420px) {
     
     width: 80vw;
