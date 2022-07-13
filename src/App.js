@@ -7,17 +7,15 @@ import Loading from "./components/Loading";
 import { ToastNotify } from "./components/Toasts";
 
 function App() {
-
-  const { theme } = useContext(ThemeContext)
-  const { isLoading } = useContext(IsLoadingContext)
+  const { theme } = useContext(ThemeContext);
+  const { isLoading } = useContext(IsLoadingContext);
 
   return (
     <>
       <GlobalStyle theme={theme} />
       <AppRoutes />
-      <ToastNotify/>
-      {isLoading && <Loading/>}
-
+      <ToastNotify />
+      {isLoading && <Loading />}
     </>
   );
 }
