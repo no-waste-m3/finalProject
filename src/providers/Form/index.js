@@ -95,14 +95,14 @@ export const FormProvider = ({ children }) => {
         );
         const name = response.data.user.info.responsavel || response.data.user.info.name  
         notify(isNewUser ? `Olá, ${name}. Bem vindo(a)! ` : `Que bom te ver novamente, ${name}!`, 2000, 'success')
-        }, 1000);
+        }, 1300);
 
         setTimeout(() => {
           setIsLoading(false)
           clearInterval(interval)
           setPercentage(0)
           
-        }, 1000);
+        }, 1200);
       })
       .catch((error) => {
 

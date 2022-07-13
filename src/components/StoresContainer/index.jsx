@@ -42,7 +42,7 @@ const StoresContainer = () => {
                
                return <CardStore key={store.id}> <img src={store.info.src} alt="" /> 
                <div><p>{store.info.razaoSocial}</p>
-                <p><FaMotorcycle/>{store.distance || '0 mins'}</p>
+                <p><FaMotorcycle/>{store.distance || <div className="loading"></div>}</p>
                </div>
                {store.info.endereco && <div>
                <p>{store.info.endereco.rua}</p>
