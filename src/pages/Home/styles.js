@@ -51,17 +51,6 @@ export const ProductsContainer = styled.div`
   width: 86.6%;
   height: 355px;
   overflow-x: auto;
-  ::-webkit-scrollbar {
-    width: 0;
-    height: 3px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: var(--primary-color);
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--invert);
-    height: 3px;
-  }
   /* overflow-y: auto; */
   @media (min-width: 700px) {
     width: 80%;

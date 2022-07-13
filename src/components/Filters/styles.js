@@ -8,7 +8,6 @@ export const Container = styled.div`
   overflow-x: auto;
   width: 86.6%;
   cursor: pointer;
-
   
   @media (min-width: 420px) {
     justify-content: center;

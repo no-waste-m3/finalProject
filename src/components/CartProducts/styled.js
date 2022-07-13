@@ -7,13 +7,4 @@ export const ProductsContainer = styled.div`
   gap: 10px;
   overflow-x: hidden;
 
-  ::-webkit-scrollbar {
-    width: 3px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: var(--primary-color);
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--invert);
-  }
 `;

@@ -8,15 +8,7 @@ export const StoresContainerStyled = styled.ul`
     flex-direction: column;
     height: 60vh;
     overflow-y: scroll;
-    ::-webkit-scrollbar {
-    width: 3px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: var(--primary-color);
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--invert);
-  }
+
     width: 50vw;
 
     @media (max-width: 865px) {
