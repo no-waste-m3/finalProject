@@ -51,8 +51,6 @@ export const ProductsProvider = ({ children }) => {
     await products.forEach(async (product, index) => {
       if(index === 1) {
 
-      console.log(product.userId)
-
       const destination = await api
       .get(`/users/${product.userId}`, config)
       .then((response) => response.data.endereco)
@@ -60,8 +58,7 @@ export const ProductsProvider = ({ children }) => {
 
 
       if(destination) {
-        //const distance = await getDistance(destination)
-        console.log(destination)
+
       }
 
       }
@@ -83,7 +80,6 @@ export const ProductsProvider = ({ children }) => {
   const postProduct = (product) => {
     api
       .post(`/users/${user.id}/foods`, product, config)
-      .then((response) => console.log(response))
       .then((response) => {
         getProductsUser();
         changeThemeToast("success");
@@ -95,7 +91,6 @@ export const ProductsProvider = ({ children }) => {
   const deleteProduct = (id_product) => {
     api
       .delete(`/foods/${id_product}`, config)
-      .then((response) => console.log(response))
       .then((response) => {
         getProductsUser();
         changeThemeToast("error");

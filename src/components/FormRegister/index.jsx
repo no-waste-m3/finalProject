@@ -212,7 +212,6 @@ export const FormRegister = ({ ...rest }) => {
 
   const onDropImage = (files) => {
 
-    console.log(files)
     setFileOfInput(files)
   };
 
@@ -442,7 +441,6 @@ export const FormRegister = ({ ...rest }) => {
               onDropAccepted={onDropImage}
 
               onDropRejected={() => {
-                console.log('rejected')
               }}
             >
               {({

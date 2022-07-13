@@ -26,10 +26,8 @@ export const FinancialStatement = () => {
     let data = [0,0,0,0,0,0,0,0,0,0,0,0].slice(0, actualDate.getMonth()+1)
     
     sales.forEach((sale, index) => {
-      console.log(sale)
       
       const date = new Date(sale.date)
-      //console.log(date)
   
       const month = date.getMonth()
 
@@ -45,7 +43,6 @@ export const FinancialStatement = () => {
       
       
     }) 
-    console.log(data)
 
     setDataMonths([...data])
   }
@@ -61,7 +58,7 @@ export const FinancialStatement = () => {
     getdataMonths()
   }, [sales])
 
-  //console.log(productsUser)
+
   
   const cost = sales.reduce((acc,sale) => { 
               

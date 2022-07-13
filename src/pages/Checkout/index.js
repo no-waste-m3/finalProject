@@ -34,7 +34,6 @@ export const Checkout =() =>  {
     notify(`Compra feita com sucesso! Você reduziu ${(cart.reduce((ac,el) => ac+el.pesoAprox, 0 )*2.8).toFixed(1)}kg de CO². Em alguns minutos chegará o seu pedido`, 5000, 'success')
 
     cart.forEach((product) => {
-      console.log(product.id)
       deleteCartFromCheckout(product.id)
     })
 
