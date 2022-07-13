@@ -13,17 +13,20 @@ import BarChartComponent from '../../components/BarChart';
 export const FinancialStatement = () => {
 
   const { sales, getSales } = useContext(SalesContext)
-  const { productsUser } = useContext(ProductsContext);
+  const { productsUser, getProductsUser } = useContext(ProductsContext);
 
   const [dataMonths, setDataMonths] = useState([])
 
-  const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+  const actualDate = new Date()
+
+  const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'].slice(0, actualDate.getMonth()+1)
 
   const getdataMonths = ()  => {
 
-    let data = [0,0,0,0,0,0,0,0,0,0,0,0]
+    let data = [0,0,0,0,0,0,0,0,0,0,0,0].slice(0, actualDate.getMonth()+1)
     
     sales.forEach((sale, index) => {
+      console.log(sale)
       
       const date = new Date(sale.date)
       //console.log(date)
@@ -50,6 +53,7 @@ export const FinancialStatement = () => {
   
   useEffect(() => {
     getSales()
+    getProductsUser();
   }, [])
 
   useEffect(() => {
@@ -59,13 +63,14 @@ export const FinancialStatement = () => {
 
   //console.log(productsUser)
   
-  const cost = productsUser.reduce((acc,sale) => {            
+  const cost = sales.reduce((acc,sale) => { 
+              
     if(sale.precoDeCusto) {
       return acc+sale.precoDeCusto
     } return acc
   }, 0)
-  const lucro = productsUser.reduce((acc,sale) => {            
-    if(sale.precoDeRevenda) {
+  const lucro = sales.reduce((acc,sale) => {            
+    if(sale.precoDeCusto) {
       return acc+(sale.precoDeRevenda - sale.precoDeCusto)
     } return acc
   }, 0)
@@ -73,8 +78,8 @@ export const FinancialStatement = () => {
 
   const salesTotal = sales.length
   const totalMoney = sales.reduce((acc,sale) => {            
-    if(sale.preco) {
-      return acc+sale.preco
+    if(sale.precoDeRevenda) {
+      return acc+sale.precoDeRevenda
     } return acc
   }, 0)
   const products = productsUser.length

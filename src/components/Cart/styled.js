@@ -14,18 +14,23 @@ export const CartContainer = styled(motion.div)`
   border-radius: 15px;
   border: 1px solid var(--primary-color);
   box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.25);
+
+  a {
+    color: #fff;
+    font-weight: 500;
+  }
   
   @media (min-width: 865px) {
     width: 290px;
     height: 450px;
     box-shadow: none;
     right: 1vw;
-    top: 21%;
+    top: 23%;
     z-index: 8;
   }
   @media (min-width: 1000px) {
     right: 6.5vw;
-    top: 20%;
+    top: 25%;
   }
 `;
 

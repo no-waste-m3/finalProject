@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { FormContext } from "../Form";
 
@@ -6,6 +6,10 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    getCart()
+  }, [])
 
   const { user, userToken } = useContext(FormContext);
 
@@ -21,13 +25,21 @@ export const CartProvider = ({ children }) => {
       .get(`/users/${user.id}/cart`, config)
       .then((response) => setCart(response.data))
       .catch((error) => console.log(error));
+    
+
+    
   };
 
   const postCart = (product) => {
+
+    const { categoria, nomeDoProduto, pesoAprox, preco, userId, descricao, src, precoDeCusto, precoDeRevenda, precoOriginal} = product
+    const newData = { nomeDoProduto, categoria, descricao, src, precoDeCusto, precoDeRevenda, precoOriginal, pesoAprox, preco, storeId: userId }
+    
+
     api
-      .post(`/users/${user.id}/cart`, product, config)
+      .post(`/users/${user.id}/cart`, newData, config)
       .then((response) => {
-        console.log(response);
+        
         setCart([...cart, response.data]);
       })
       .catch((error) => console.log(error));

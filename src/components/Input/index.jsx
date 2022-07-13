@@ -6,9 +6,15 @@ const Input = ({Field,label, Icon, SecondIcon, children, error, register, name, 
         <InputField isError={!!error}>
             <label>{label}{!!error && <span> - {error}</span>}</label>
             {Icon && Icon}
-            <Field {...register(name)} {...rest}>
+            {register ? (
+                <Field {...register(name)} {...rest}>
                 {children}
-            </Field>
+                </Field>
+            ) : (
+                <Field {...rest}>
+                {children}
+                </Field>
+            )}
             {SecondIcon && SecondIcon}
         </InputField>
     )

@@ -10,8 +10,6 @@ export const MapsProvider = ({ children }) => {
 
   const { user } = useContext(FormContext);
 
-  console.log(user)
-
   //const [ distance, setDistance ] = useState('')
 
   /*const config = {
@@ -24,19 +22,29 @@ export const MapsProvider = ({ children }) => {
 
   const key_maps = 'AIzaSyAfzxE5b6gr_97SqczcumpOKKXkaN3YpF0'
 
-  const getDistance = async () => {
+  const getDistance = async (adressDestination) => {
 
-    const cepOrigin = ''
-    const cepDestination = ''
+    console.log(adressDestination)
+    console.log(user.info.endereco)
 
-    /*https://maps.googleapis.com/maps/api/distancematrix/json?destinations=62022465origins=62030175&units=imperial&key=${key_maps}*/
+    const cityOrigin = user.info.endereco.cidade
+    const stateOrigin = user.info.endereco.estado
+    const roadOrigin = user.info.endereco.rua
+    const districtOrigin = user.info.endereco.bairro
+    const districtDestination = adressDestination.bairro
+    const cityDestination = adressDestination.cidade
+    const stateDestination = adressDestination.estado
+    const roadDestination = adressDestination.rua
+
+
+    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${roadDestination},${districtDestination},${cityDestination},${stateDestination}&origins=${roadOrigin},${districtOrigin},${cityOrigin},${stateOrigin}&units=imperial&key=${key_maps}`
     const distance = await api
-    .get(`users/${user.id}/Maps`)
-      .then((response) => response)
+    .get(url)
+      .then((response) => response.data.rows[0].elements[0].duration.text)
       .catch((error) => console.log(error));
 
-      console.log(distance)
-      return distance
+    console.log(distance)
+    return distance
   };
 
   

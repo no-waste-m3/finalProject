@@ -2,14 +2,14 @@ import { Container } from "./styled";
 import paes from "../../assets/paes.jpg";
 import { HomeProduct } from "../HomeProduct";
 import { ProductsContext } from "../../providers/Products";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProductsFiltersContext } from "../../providers/ProductsFilters";
 
 const HomeProducts = () => {
-  const { products, productsUser, getProducts } = useContext(ProductsContext);
+  const { products, getProducts } = useContext(ProductsContext);
   const { filteredProducts } = useContext(ProductsFiltersContext);
+
   getProducts();
-  // console.log(products);
 
   return (
     <Container>

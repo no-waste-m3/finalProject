@@ -82,6 +82,8 @@ export const FormRegister = ({ ...rest }) => {
         email,
         password,
         name,
+        razaoSocial,
+        responsavel,
         cep,
         contato,
         district,
@@ -98,12 +100,14 @@ export const FormRegister = ({ ...rest }) => {
         password,
         info: {
           name,
+          razaoSocial,
+          responsavel,
           contato,
-          address: {
-            cep,
-            district,
-            number,
-            street,
+          endereco: {
+            CEP: cep,
+            bairro: district,
+            numero: number,
+            rua: street,
             cidade: city,
             estado: stateUser
           },
@@ -124,7 +128,7 @@ export const FormRegister = ({ ...rest }) => {
           dataImage.append("file", fileOfInput[0]);
           const logo = await doUpload(dataImage)
 
-          dataUser.info.logo = logo.url
+          dataUser.info.src = logo.url
 
         }
       } 

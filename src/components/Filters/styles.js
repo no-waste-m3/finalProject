@@ -6,12 +6,19 @@ export const Container = styled.div`
   overflow-x: auto;
   width: 86.6%;
   cursor: pointer;
+
+  
   @media (min-width: 420px) {
     justify-content: center;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 600px) {
+    justify-content: flex-start;
   }
 
   @media (min-width: 700px) {
-    width: 500px;
+    width: 80vw;
     height: auto;
   }
 `;

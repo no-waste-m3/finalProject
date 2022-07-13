@@ -9,6 +9,7 @@ import { GiCupcake } from "react-icons/gi";
 import { Title } from "./styles";
 import { useState } from "react";
 import { ProductsFiltersContext } from "../../providers/ProductsFilters";
+import { Storefront } from "phosphor-react";
 
 export const Filters = () => {
   const [selected, setSelected] = useState("Todos");
@@ -35,6 +36,9 @@ export const Filters = () => {
       case "Cafeterias":
         return categoryFilters("cafeteria");
 
+      case "Vendedores":
+        return categoryFilters("stores")
+
       default:
         return categoryFilters("todos");
     }
@@ -48,6 +52,7 @@ export const Filters = () => {
     { name: "Padaria", icon: <GiSlicedBread size="25px" /> },
     { name: "Doces", icon: <GiCupcake size="25px" /> },
     { name: "Cafeterias", icon: <FaCoffee size="25px" /> },
+    { name: "Vendedores", icon: <Storefront size="25px" />} 
   ];
 
   // console.log(selected);
