@@ -8,7 +8,7 @@ export const Container = styled.div`
 export const StyledBalanceDiv = styled.div`
   position: fixed;
   top: 20rem;
-  right: 2rem;
+  right: .2rem;
 
   margin: 0 1rem 0 1rem;
 
@@ -117,7 +117,7 @@ export const StyledStoreDiv = styled.div`
   @media (min-width: 741px) {
     position: fixed;
     top: 10rem;
-    right: 2rem;
+    right: 0rem;
 
     margin: 0 1rem 0 1rem;
 
@@ -168,8 +168,8 @@ export const StyledStoreDiv = styled.div`
 
       figure {
         position: fixed;
-        right: 7.5rem;
-        top: 10rem;
+        right: 5.5rem;
+        top: 12rem;
       }
     }
   }
@@ -217,7 +217,7 @@ export const StyledProductsDiv = styled.div`
     width: 60%;
     height: 400px;
 
-    left: 5rem;
+    left: 3rem;
 
     .header-div {
       display: flex;
@@ -251,6 +251,7 @@ export const StyledProductsDiv = styled.div`
 export const ProductCardDiv = styled.ul`
   @media (max-width: 740px) {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
 
@@ -266,6 +267,13 @@ export const ProductCardDiv = styled.ul`
 
 export const ProductCard = styled.li`
   @media (max-width: 740px) {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    gap: 0.1rem;
+
     .action-buttons {
       height: 100%;
 
@@ -279,21 +287,15 @@ export const ProductCard = styled.li`
 
         color: var(--primary-color);
 
-        font-size: .9rem;
+        font-size: 0.9rem;
 
         background-color: inherit;
       }
     }
 
-    width: 100%;
-
-    display: flex;
-
-    gap: .2rem;
-
     .img-info {
-      width: 75px;
-      height: 50px;
+      width: 20%;
+      height: 100%;
 
       display: flex;
       flex-direction: column;
@@ -310,31 +312,37 @@ export const ProductCard = styled.li`
 
     .product-info {
       height: 100%;
+      width: 80%;
 
       display: flex;
       align-items: center;
+      color: var(--invert);
+
+      gap: 0.5rem;
     }
 
     .name-div {
       width: 20%;
+      height: 100%;
     }
 
     .price-div {
-      width: 10%;
+      width: 20%;
+      height: 100%;
 
       display: flex;
       flex-direction: column;
-      align-items: start;
-      justify-content: center;
+      justify-content: space-evenly;
     }
 
     .description-div {
-      width: 70%;
+      width: 60%;
+      height: 100%;
 
       display: flex;
       flex-direction: column;
       align-items: start;
-      justify-content: center;
+      justify-content: space-evenly;
     }
   }
 
@@ -345,7 +353,7 @@ export const ProductCard = styled.li`
     align-items: center;
     justify-content: center;
 
-    gap: .5rem;
+    gap: 0.5rem;
 
     .action-buttons {
       height: 100%;
@@ -389,14 +397,21 @@ export const ProductCard = styled.li`
 
       display: flex;
       align-items: center;
+      justify-content: space-evenly;
+      gap: 0.2rem;
+
+      color: var(--invert);
     }
 
     .name-div {
-      width: 10%;
+      width: 30%;
+      height: 100%;
+      align-items: center;
     }
 
     .price-div {
-      width: 40%;
+      width: 30%;
+      height: 100%;
 
       display: flex;
       flex-direction: column;
@@ -404,7 +419,8 @@ export const ProductCard = styled.li`
     }
 
     .description-div {
-      width: 50%;
+      width: 40%;
+      height: 100%;
 
       display: flex;
       flex-direction: column;
