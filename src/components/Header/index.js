@@ -40,7 +40,7 @@ const Header = ({ viewerWidth, needSearchBar = false }) => {
               />
             )}
             <AiOutlineMenu
-              color={theme === "dark" && "white"}
+              color={theme === "dark" ? "white" : "black"}
               onClick={() => setAsidePages(asidePages ? false : true)}
               fontSize="25px"
               style={{ cursor: "pointer" }}

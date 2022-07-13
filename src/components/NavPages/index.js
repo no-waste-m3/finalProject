@@ -1,5 +1,5 @@
 import { PageContainer } from "./styled";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Modal } from "../Modals";
 
 import { AiFillHome } from "react-icons/ai";
@@ -9,6 +9,7 @@ import { GoDashboard } from "react-icons/go";
 import { FaCarrot } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
 import { useContext, useState } from "react";
+
 import { ModalConfirm } from "../Modals/ModalConfirm";
 import { FormContext } from "../../providers/Form";
 import { ThemeContext } from "../../providers/Theme";
@@ -16,6 +17,8 @@ import { ThemeContext } from "../../providers/Theme";
 const NavPages = ({ setAsidePages }) => {
 
   const { userToken } = useContext(FormContext)
+  const location = useLocation();
+
   const home = { name: "Home", icon: <AiFillHome size="20px" /> };
   const balance = { name: "Balanço", icon: <FaBalanceScale size="20px" /> };
   const dash = { name: "Dashboard", icon: <GoDashboard size="20px" /> };
@@ -28,8 +31,9 @@ const NavPages = ({ setAsidePages }) => {
   const pageHome = [dash, balance, stats, logout];
   const pageDash = [balance, stats, logout, home];
   const pageStats = [dash, stats, logout, home];
-  const pageAbout = !userToken ? [login, register] : [home, dash, stats, logout];
+  const pageAbout = !userToken ? [login, register] : [home, dash, balance, logout];
   const pageCheckout = [ home, stats, logout]
+
 
   const [showConfirm, setShowConfirm] = useState(false);
 
@@ -37,19 +41,19 @@ const NavPages = ({ setAsidePages }) => {
   const { exitUser } = useContext(FormContext);
 
   const whichLocation = () => {
-    const href = window.location.href;
-    if (href === "http://localhost:3000/home") {
+    const href = location.pathname;
+    if (href === "/home") {
       return pageHome;
-    } else if (href === "http://localhost:3000/home/dashboard") {
+    } else if (href === "/home/dashboard") {
       return pageDash;
-    } else if (href === "http://localhost:3000/home/dashboard/stats") {
+    } else if (href === "/home/dashboard/stats") {
       return pageStats;
-    } else if (href === "http://localhost:3000/home/about") {
+    } else if (href === "/home/about") {
       return pageAbout;
-    } else if (href === "http://localhost:3000/home/checkout") {
+    } else if (href === "/home/checkout") {
       return pageCheckout;
+    }
   };
-}
 
   const pages = whichLocation();
 
@@ -121,6 +125,5 @@ const NavPages = ({ setAsidePages }) => {
     </Modal>
   );
 };
-
 
 export default NavPages;
