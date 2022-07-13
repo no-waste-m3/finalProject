@@ -64,6 +64,8 @@ export const Dashboard = () => {
     getProductsUser();
   }
 
+  console.log(productsUser)
+
   return (
     <Container>
       <Header />
@@ -342,7 +344,7 @@ export const Dashboard = () => {
                           fontStyle={"inherit"}
                           weight={"400"}
                         >
-                          Peso Aproximado: {product.pesoEstimado}Kg
+                          Peso Aproximado: {product.pesoAprox} Kg
                         </Title>
                       </div>
                     ) : (
@@ -372,7 +374,7 @@ export const Dashboard = () => {
                           fontStyle={"inherit"}
                           weight={"400"}
                         >
-                          {product.pesoEstimado}Kg
+                          {product.pesoAprox}Kg
                         </Title>
                       </div>
                     )}

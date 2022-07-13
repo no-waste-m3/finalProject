@@ -9,7 +9,6 @@ const AddCartSVG = ({ product }) => {
       style={{ cursor: "pointer", backgroundColor: "transparent", border: 0 }}
       onClick={() => {
         postCart(product);
-        console.log(cart);
       }}
     >
       <svg

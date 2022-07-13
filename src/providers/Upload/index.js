@@ -18,8 +18,6 @@ export const UploadProvider = ({ children }) => {
           (progressEvent.loaded * 100) / progressEvent.total
         )
 
-        console.log(number)
-
         if(number<100) {
           setPercentage(number)
         } else {
@@ -34,7 +32,6 @@ export const UploadProvider = ({ children }) => {
           (progressEvent.loaded * 100) / progressEvent.total
         )
 
-        console.log(number)
 
 
         if(number<100) {

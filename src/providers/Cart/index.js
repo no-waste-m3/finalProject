@@ -57,7 +57,6 @@ export const CartProvider = ({ children }) => {
     api
       .delete(`/cart/${id_product}`, config)
       .then((response) => {
-        console.log(response);
         const newCart = cart.filter((item) => item.id !== id_product);
         setCart([...newCart]);
       })
@@ -73,7 +72,6 @@ export const CartProvider = ({ children }) => {
     api
       .delete(`/cart/${id_product}`, config)
       .then((response) => {
-        console.log(response);
         const newCart = cart.filter((item) => item.id !== id_product);
         setCart([...newCart]);
       })

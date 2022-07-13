@@ -75,7 +75,6 @@ export const SalesProvider = ({ children }) => {
     api
     .get(`users/${user.id}/sales`, config)
       .then((response) => {
-        console.log(sales)
         setSales(response.data)
       })
       .catch((error) => console.log(error));

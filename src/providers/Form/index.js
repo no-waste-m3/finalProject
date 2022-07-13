@@ -25,7 +25,6 @@ export const FormProvider = ({ children }) => {
           (progressEvent.loaded * 100) / progressEvent.total
         )
 
-        console.log(number)
 
         if(number<100) {
           setPercentage(number)
@@ -41,7 +40,7 @@ export const FormProvider = ({ children }) => {
           (progressEvent.loaded * 100) / progressEvent.total
         )
 
-        console.log(number)
+
 
 
         if(number<100) {
@@ -79,8 +78,6 @@ export const FormProvider = ({ children }) => {
           perc += 10
           
           setPercentage(perc)
-          console.log(percentage)
-          console.log(perc)
           
         }, 100);
 

@@ -58,7 +58,7 @@ export const Filters = () => {
     { name: "Vendedores", icon: <Storefront size="25px" />} 
   ];
 
-  // console.log(selected);
+
 
   return (
     <Container>
