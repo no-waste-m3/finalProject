@@ -7,7 +7,7 @@ export const Container = styled.div`
 
 export const StyledBalanceDiv = styled.div`
   position: fixed;
-  top: 20rem;
+  top: 19rem;
   right: 0.2rem;
 
   margin: 0 1rem 0 1rem;
@@ -165,11 +165,12 @@ export const StyledStoreDiv = styled.div`
       border: none;
 
       width: 100%;
+      position: relative;
 
       figure {
-        position: fixed;
-        right: 5.5rem;
-        top: 12rem;
+        position: absolute;
+        right: 5rem;
+        top: -2.3rem;
       }
     }
   }
@@ -201,7 +202,7 @@ export const StyledProductsDiv = styled.div`
       align-items: start;
 
       width: 100%;
-      height: 80%;
+      height: 50vh;
 
       margin: 0.5rem 0.5rem 0 0.5rem;
 
@@ -251,6 +252,8 @@ export const StyledProductsDiv = styled.div`
 `;
 
 export const ProductCardDiv = styled.ul`
+  margin-bottom: 2rem;
+  padding-right: 0.5rem;
   @media (max-width: 740px) {
     width: 100%;
     height: 100%;
@@ -268,6 +271,25 @@ export const ProductCardDiv = styled.ul`
 `;
 
 export const ProductCard = styled.li`
+
+.category {
+ 
+    background-color: var(--invert);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.2rem;
+    border-radius: 5px;
+}
+
+.name-div {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  justify-items: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+}
   @media (max-width: 740px) {
     width: 100%;
     height: 100%;
@@ -306,7 +328,7 @@ export const ProductCard = styled.li`
 
       img {
         width: 90%;
-        height: 90%;
+        height: 5rem;
 
         border-radius: 5px;
       }
@@ -336,11 +358,13 @@ export const ProductCard = styled.li`
       flex-direction: column;
       align-items: flex-end;
       justify-content: space-evenly;
+      padding-top: 1rem;
     }
 
     .description-div {
       width: 50%;
       height: 100%;
+      padding-top: 1rem;
 
       display: flex;
       flex-direction: column;
@@ -388,7 +412,7 @@ export const ProductCard = styled.li`
 
       img {
         width: 90%;
-        height: 90%;
+        height: 5rem;
 
         border-radius: 5px;
       }
@@ -409,21 +433,29 @@ export const ProductCard = styled.li`
     .name-div {
       width: 30%;
       height: 100%;
-      align-items: center;
     }
 
     .price-div {
       width: 30%;
       height: 100%;
+      padding-top: 1rem;
 
       display: flex;
       flex-direction: column;
       align-items: start;
+
+      >div {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
     }
 
     .description-div {
       width: 40%;
       height: 100%;
+      padding-top: 1rem;
 
       display: flex;
       flex-direction: column;
