@@ -72,8 +72,7 @@ export const CartProvider = ({ children }) => {
     api
       .delete(`/cart/${id_product}`, config)
       .then((response) => {
-        const newCart = cart.filter((item) => item.id !== id_product);
-        setCart([...newCart]);
+        setCart([]);
       })
       .catch((error) => console.log(error));
 
