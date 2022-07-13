@@ -8,7 +8,7 @@ export const Container = styled.div`
 export const StyledBalanceDiv = styled.div`
   position: fixed;
   top: 20rem;
-  right: .2rem;
+  right: 0.2rem;
 
   margin: 0 1rem 0 1rem;
 
@@ -207,6 +207,7 @@ export const StyledProductsDiv = styled.div`
 
       overflow-x: hidden;
       overflow-y: scroll;
+
     }
   }
 
@@ -244,6 +245,7 @@ export const StyledProductsDiv = styled.div`
 
       overflow-x: hidden;
       overflow-y: scroll;
+
     }
   }
 `;
@@ -280,7 +282,7 @@ export const ProductCard = styled.li`
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-evenly;
 
       button {
         border: none;
@@ -294,7 +296,7 @@ export const ProductCard = styled.li`
     }
 
     .img-info {
-      width: 20%;
+      width: 100px;
       height: 100%;
 
       display: flex;
@@ -322,21 +324,22 @@ export const ProductCard = styled.li`
     }
 
     .name-div {
-      width: 20%;
+      width: 30%;
       height: 100%;
     }
 
     .price-div {
-      width: 20%;
+      width: 5%;
       height: 100%;
 
       display: flex;
       flex-direction: column;
+      align-items: flex-end;
       justify-content: space-evenly;
     }
 
     .description-div {
-      width: 60%;
+      width: 50%;
       height: 100%;
 
       display: flex;

@@ -30,7 +30,6 @@ export const CartContainer = styled(motion.div)`
   }
   @media (min-width: 1000px) {
     right: 6.5vw;
-    height: 78vh;
     top: 28%;
   }
 `;

@@ -28,38 +28,41 @@ import { useNavigate } from "react-router-dom";
 import { EditStore } from "../../components/Modals/EditStoreModal";
 import { SalesContext } from "../../providers/Sales";
 import priceFormat from "../../util/priceFormat";
+import { ModalConfirm } from "../../components/Modals/ModalConfirm";
 
 export const Dashboard = () => {
   const { changeThemeToast } = useContext(ThemeToastContext);
-  const { sales, getSales, totalMoney,
-    salesTotal,
-    productsCount } = useContext(SalesContext)
+  const { sales, getSales, totalMoney, salesTotal, productsCount } =
+    useContext(SalesContext);
 
-  const user = JSON.parse(localStorage.getItem('@userNoWaste'));
+  const user = JSON.parse(localStorage.getItem("@userNoWaste"));
 
   const { productsUser, deleteProduct, updateProduct, getProductsUser } =
     useContext(ProductsContext);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  window.addEventListener("resize", () =>
-    setWindowWidth(window.innerWidth)
-  );
+  window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
 
-  useEffect(()=> {
-  }, [windowWidth])
-
+  useEffect(() => {}, [windowWidth]);
 
   const [addModal, setAddModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [editStore, setEditStore] = useState(false);
   const [productToEdit, setProductToEdit] = useState();
+  const [excludeModal, setExcludeModal] = useState(false);
+  const [productToDelete, setProductToDelete] = useState();
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    getSales()
+    getSales();
     getProductsUser();
-  }, [])
+  }, []);
+
+  const handleExcude = () => {
+    deleteProduct(productToDelete); 
+    getProductsUser();
+  }
 
   return (
     <Container>
@@ -75,6 +78,15 @@ export const Dashboard = () => {
       )}
 
       {editStore && <EditStore setIsVisible={setEditStore} user={user} />}
+
+      {excludeModal && (
+        <ModalConfirm
+          text="Deseja mesmo deletar este produto?"
+          onConfirmFunction={handleExcude}
+          setVisible={setExcludeModal}
+          visible={excludeModal}
+        />
+      )}
 
       <StyledStoreDiv>
         <div>
@@ -101,7 +113,7 @@ export const Dashboard = () => {
             weight={"400"}
             padding={"0"}
           >
-            {user.name || user.razaoSocial || 'Empresa'}
+            {user.info.razaoSocial || user.info.name}
           </Title>
           <figure
             onClick={() => setEditStore(!editStore)}
@@ -152,7 +164,7 @@ export const Dashboard = () => {
                 weight={"400"}
                 padding={"0"}
               >
-               {productsCount}
+                {productsCount}
               </Title>
             </div>
 
@@ -264,9 +276,10 @@ export const Dashboard = () => {
                     </button>
 
                     <button
-                      onClick={() =>
-                        deleteProduct(product.id) && getProductsUser()
-                      }
+                      onClick={() => {
+                        setExcludeModal(!excludeModal);
+                        setProductToDelete(product.id)
+                      }}
                     >
                       <BsTrash />
                     </button>

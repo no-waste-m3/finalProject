@@ -4,6 +4,7 @@ import { api } from "../../services/api";
 import { FormContext } from "../Form";
 import { IsLoadingContext } from "../IsLoading";
 import { MapsContext } from "../Maps";
+import { ThemeToastContext } from "../ThemeToast";
 
 export const ProductsContext = createContext();
 
@@ -15,11 +16,11 @@ export const ProductsProvider = ({ children }) => {
 
   const { setIsLoading, setPercentage } = useContext(IsLoadingContext);
 
+  const { changeThemeToast } = useContext(ThemeToastContext);
+
   useEffect(() => {
     getProductsUser();
   }, []);
-
-
 
   const getProgress = {
     onUploadProgress: (progressEvent) => {
@@ -85,6 +86,7 @@ export const ProductsProvider = ({ children }) => {
       .then((response) => console.log(response))
       .then((response) => {
         getProductsUser();
+        changeThemeToast("success");
         notify("Produto Adicionado", 2000, "success");
       })
       .catch((error) => console.log(error));
@@ -96,7 +98,8 @@ export const ProductsProvider = ({ children }) => {
       .then((response) => console.log(response))
       .then((response) => {
         getProductsUser();
-        notify("Produto Excluido", 2000, "default");
+        changeThemeToast("error");
+        notify("Produto Excluido", 2000, "error");
       })
       .catch((error) => console.log(error));
   };
@@ -105,7 +108,6 @@ export const ProductsProvider = ({ children }) => {
     api
       .patch(`/foods/${id_product}`, product_update, config)
       .then((response) => {
-        console.log(response);
         getProductsUser();
       })
       .catch((error) => console.log(error));

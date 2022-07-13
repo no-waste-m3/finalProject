@@ -76,4 +76,16 @@ ${(props) => {
         font-weight: 900;
         text-decoration: none;
     }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--primary-color);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--background);
+  }
+
 `;
