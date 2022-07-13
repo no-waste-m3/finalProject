@@ -6,7 +6,7 @@ export const StoresContainerStyled = styled.ul`
     display: flex;
     margin-left: 4vw;
     flex-direction: column;
-    height: 40vh;
+    height: 60vh;
     overflow-y: scroll;
     ::-webkit-scrollbar {
     width: 3px;
@@ -22,6 +22,7 @@ export const StoresContainerStyled = styled.ul`
     @media (max-width: 865px) {
 
         width: 80vw;
+        height: 40vh;
         
     }
 

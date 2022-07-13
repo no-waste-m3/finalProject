@@ -1,15 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-<<<<<<< HEAD
     width: 100%;
   height: 100vh;
-=======
-
-width: 100%;
-height: 100vh;
-  
->>>>>>> 94a2fdd386d628cb3b643316d0954674169e5c43
+  padding-top: 12vh;
 
 `;
 
@@ -21,26 +15,55 @@ export const Content = styled.div`
 export const Div1 = styled.div`
 display: flex;
 flex-direction:column;
-width:100%;
+max-width: 100vw;
+width:100vw;
 align-items: center;
 
+>div {
+    width: 90%;
+    color: var(--invert);
+
+    >div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+
+        >div {
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+
+            >div {
+                width: 50%;
+            }
+        }
+    }
+    
+    @media (min-width: 700px) {
+        width: 50%;
+}
+}
 
 img{
-    margin: 10% 0 0 0;
-    width:100%;
+    width: 35%;
+    min-width: 400px;
+    height: 80vh;
 }
+
 
 @media (min-width: 700px) {
 display: flex;
 flex-direction: row;
 width: 100%;
-align-items: center;
-margin: 5% 0 0 5%;
+align-items: flex-start;
 
 img{
     margin: 0 0 0 0;
-    width: auto;
-    height:600px;
+    width: 35%;
+    min-width: 400px;
+    height: 80vh;
 }
 }
 `;
@@ -85,18 +108,11 @@ svg{
 
 
 export const Text = styled.h2`
-margin: 0 0 -55% 0;
-width: 90%;
-text-align: justify;
+width: 100%;
+text-align: center;
 font-family: 'Inter', sans-serif;
 font-weight: 500;
-line-height: 35px;
-font-size: 18px;
+font-size: 1.2rem;
 color: #F57C00;
-@media (min-width: 700px) {
-    margin: 5px 5px 5px 5px;
-    width: 40%;
-    line-height: 40px;
-    font-size: 22px;
-}
+
 `;

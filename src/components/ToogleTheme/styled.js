@@ -7,7 +7,7 @@ export const ToogleStyled = styled.button.attrs({ type: 'button'})`
     padding: 0.1rem;
     width: 3.2rem;
     background-color: var(--background);
-    border-color: var(--invert);
+    border: 1px solid var(--invert);
     display: flex;
     color: var(--primary-color);
     font-size: 1.5rem;

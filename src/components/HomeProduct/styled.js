@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const ProductContainer = styled.div`
-  width: 235px;
-  height: 355px;
+ 
+  width: 190px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  @media (min-width: 700px) {
+  //justify-content: space-between;
+  //position: relative;
+  @media (min-width: 600px) {
     width: 200px;
     height: 300px;
   }
@@ -15,23 +17,24 @@ export const ProductContainer = styled.div`
 
 export const Img = styled.img`
   width: 100%;
-  height: 35.77%;
+  border-radius: 10px;
+  height: 45%;
 `;
 
 export const TitlesContainer = styled.div`
-  height: 50.13%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+
+  @media (max-width: 400px) {
+    height: 45%;
+  }
 `;
 export const AddBtnContainer = styled.div`
   width: 100%;
-  height: 14%;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 10px;
-  align-items: center;
+  text-align: end;
 `;
 export const TitleContainer = styled.div`
   width: 100%;

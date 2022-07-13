@@ -4,25 +4,31 @@ import { Modal } from "../Modals";
 
 import { AiFillHome } from "react-icons/ai";
 import { FaBalanceScale } from "react-icons/fa";
-import { BiExit } from "react-icons/bi";
+import {  BiLogOut, BiLogIn } from "react-icons/bi";
 import { GoDashboard } from "react-icons/go";
 import { FaCarrot } from "react-icons/fa";
+import { MdAccountCircle } from "react-icons/md";
 import { useContext, useState } from "react";
 import { ModalConfirm } from "../Modals/ModalConfirm";
 import { FormContext } from "../../providers/Form";
 import { ThemeContext } from "../../providers/Theme";
 
 const NavPages = ({ setAsidePages }) => {
+
+  const { userToken } = useContext(FormContext)
   const home = { name: "Home", icon: <AiFillHome size="20px" /> };
   const balance = { name: "Balanço", icon: <FaBalanceScale size="20px" /> };
   const dash = { name: "Dashboard", icon: <GoDashboard size="20px" /> };
   const stats = { name: "Sobre nós", icon: <FaCarrot size="20px" /> };
-  const logout = { name: "Logout", icon: <BiExit size="20px" /> };
+  const logout = { name: "Logout", icon: <BiLogOut size="20px" /> };
+  const login = { name: "Login", icon: <BiLogIn size="20px" /> };
+  const register = { name: "Registrar-se", icon: <MdAccountCircle size="20px" /> };
+
 
   const pageHome = [dash, balance, stats, logout];
   const pageDash = [balance, stats, logout, home];
   const pageStats = [dash, stats, logout, home];
-  const pageAbout = [dash, balance, logout, home];
+  const pageAbout = !userToken ? [login, register] : [home, dash, stats, logout];
   const pageCheckout = [ home, stats, logout]
 
   const [showConfirm, setShowConfirm] = useState(false);
@@ -71,6 +77,10 @@ const NavPages = ({ setAsidePages }) => {
     } else if (page.name === "Login") {
       navigate("/");
       setAsidePages(false);
+    } else if(page.name === "Registrar-se" ) {
+      navigate("/signUp");
+      setAsidePages(false);
+
     }
   };
 
