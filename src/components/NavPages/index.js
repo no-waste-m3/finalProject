@@ -1,5 +1,5 @@
 import { PageContainer } from "./styled";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Modal } from "../Modals";
 
 import { AiFillHome } from "react-icons/ai";
@@ -8,11 +8,14 @@ import { BiExit } from "react-icons/bi";
 import { GoDashboard } from "react-icons/go";
 import { FaCarrot } from "react-icons/fa";
 import { useContext, useState } from "react";
+
 import { ModalConfirm } from "../Modals/ModalConfirm";
 import { FormContext } from "../../providers/Form";
 import { ThemeContext } from "../../providers/Theme";
 
 const NavPages = ({ setAsidePages }) => {
+  const location = useLocation();
+
   const home = { name: "Home", icon: <AiFillHome size="20px" /> };
   const balance = { name: "Balanço", icon: <FaBalanceScale size="20px" /> };
   const dash = { name: "Dashboard", icon: <GoDashboard size="20px" /> };
@@ -31,14 +34,14 @@ const NavPages = ({ setAsidePages }) => {
   const { exitUser } = useContext(FormContext);
 
   const whichLocation = () => {
-    const href = window.location.href;
-    if (href === "http://localhost:3000/home") {
+    const href = location.pathname;
+    if (href === "/home") {
       return pageHome;
-    } else if (href === "http://localhost:3000/home/dashboard") {
+    } else if (href === "/home/dashboard") {
       return pageDash;
-    } else if (href === "http://localhost:3000/home/dashboard/stats") {
+    } else if (href === "/home/dashboard/stats") {
       return pageStats;
-    } else if (href === "http://localhost:3000/home/about") {
+    } else if (href === "/home/about") {
       return pageAbout;
     } else if (href === "http://localhost:3000/home/checkout") {
       return pageCheckout;
