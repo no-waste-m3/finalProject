@@ -35,16 +35,19 @@ export const Dashboard = () => {
   const { productsUser, deleteProduct, updateProduct, getProductsUser } =
     useContext(ProductsContext);
 
-  const [windowWidth, setWindowWidth] = useState(window.screen.availWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   window.addEventListener("resize", () =>
-    setWindowWidth(window.screen.availWidth)
+    setWindowWidth(window.innerWidth)
   );
+
+  useEffect(()=> {
+  }, [windowWidth])
+
 
   const [addModal, setAddModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [editStore, setEditStore] = useState(false);
   const [productToEdit, setProductToEdit] = useState();
-  console.log(editStore)
 
   const navigate = useNavigate();
 
@@ -202,7 +205,6 @@ export const Dashboard = () => {
             color={"var(--invert)"}
             fontStyle={"inherit"}
             weight={"600"}
-            padding={"0"}
           >
             Meus Produtos
           </Title>
@@ -223,7 +225,6 @@ export const Dashboard = () => {
                 color={"var(--primary-color)"}
                 fontStyle={"inherit"}
                 weight={"600"}
-                padding={"0"}
               >
                 Sem produtos Cadastrados
               </Title>
@@ -233,7 +234,6 @@ export const Dashboard = () => {
                 color={"var(--invert)"}
                 fontStyle={"inherit"}
                 weight={"600"}
-                padding={"0"}
               >
                 Bora cadastrar alguns e reduzir a perda do dia?
               </Title>
@@ -274,7 +274,6 @@ export const Dashboard = () => {
                           color={"var(--primary-color)"}
                           fontStyle={"inherit"}
                           weight={"600"}
-                          padding={"0"}
                         >
                           {product.nomeDoProduto}
                         </Title>
@@ -287,7 +286,6 @@ export const Dashboard = () => {
                           color={"var(--primary-color)"}
                           fontStyle={"inherit"}
                           weight={"600"}
-                          padding={"0"}
                         >
                           {product.nomeDoProduto}
                         </Title>
@@ -302,7 +300,6 @@ export const Dashboard = () => {
                           color={"var(--grey-4)"}
                           fontStyle={"inherit"}
                           weight={"400"}
-                          padding={"0"}
                         >
                           {product.descricao}
                         </Title>
@@ -312,7 +309,6 @@ export const Dashboard = () => {
                           color={"var(--grey-4)"}
                           fontStyle={"inherit"}
                           weight={"400"}
-                          padding={"0"}
                         >
                           Categoria: {product.categoria}
                         </Title>
@@ -322,9 +318,8 @@ export const Dashboard = () => {
                           color={"var(--grey-4)"}
                           fontStyle={"inherit"}
                           weight={"400"}
-                          padding={"0"}
                         >
-                          Peso Aproximado: {product.pesoAprox}
+                          Peso Aproximado: {product.pesoEstimado}Kg
                         </Title>
                       </div>
                     ) : (
@@ -335,7 +330,6 @@ export const Dashboard = () => {
                           color={"var(--grey-4)"}
                           fontStyle={"inherit"}
                           weight={"400"}
-                          padding={"0"}
                         >
                           {product.descricao}
                         </Title>
@@ -345,7 +339,6 @@ export const Dashboard = () => {
                           color={"var(--grey-4)"}
                           fontStyle={"inherit"}
                           weight={"400"}
-                          padding={"0"}
                         >
                           {product.categoria}
                         </Title>
@@ -355,9 +348,8 @@ export const Dashboard = () => {
                           color={"var(--grey-4)"}
                           fontStyle={"inherit"}
                           weight={"400"}
-                          padding={"0"}
                         >
-                          {product.pesoAprox}
+                          {product.pesoEstimado}Kg
                         </Title>
                       </div>
                     )}
@@ -370,7 +362,6 @@ export const Dashboard = () => {
                           color={"var(--grey-4)"}
                           fontStyle={"inherit"}
                           weight={"400"}
-                          padding={"0"}
                         >
                           Preço de Custo:
                           <Title
@@ -379,7 +370,6 @@ export const Dashboard = () => {
                             color={"var(--primary-color)"}
                             fontStyle={"inherit"}
                             weight={"600"}
-                            padding={"0"}
                           >
                             {product.precoDeCusto}
                           </Title>
@@ -390,7 +380,6 @@ export const Dashboard = () => {
                           color={"var(--grey-4)"}
                           fontStyle={"inherit"}
                           weight={"400"}
-                          padding={"0"}
                         >
                           Preço de Revenda:
                           <Title
@@ -399,7 +388,6 @@ export const Dashboard = () => {
                             color={"var(--primary-color)"}
                             fontStyle={"inherit"}
                             weight={"600"}
-                            padding={"0"}
                           >
                             {product.precoDeRevenda}
                           </Title>
@@ -410,7 +398,6 @@ export const Dashboard = () => {
                           color={"var(--grey-4)"}
                           fontStyle={"inherit"}
                           weight={"400"}
-                          padding={"0"}
                         >
                           Preço Original:
                           <Title
@@ -419,7 +406,6 @@ export const Dashboard = () => {
                             color={"var(--primary-color)"}
                             fontStyle={"inherit"}
                             weight={"600"}
-                            padding={"0"}
                           >
                             {product.precoOriginal}
                           </Title>
@@ -433,7 +419,6 @@ export const Dashboard = () => {
                           color={"var(--primary-color)"}
                           fontStyle={"inherit"}
                           weight={"600"}
-                          padding={"0"}
                         >
                           {product.precoDeCusto}
                         </Title>
@@ -444,7 +429,6 @@ export const Dashboard = () => {
                           color={"var(--primary-color)"}
                           fontStyle={"inherit"}
                           weight={"600"}
-                          padding={"0"}
                         >
                           {product.precoDeRevenda}
                         </Title>
@@ -455,7 +439,6 @@ export const Dashboard = () => {
                           color={"var(--primary-color)"}
                           fontStyle={"inherit"}
                           weight={"600"}
-                          padding={"0"}
                         >
                           {product.precoOriginal}
                         </Title>
