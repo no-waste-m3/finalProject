@@ -85,6 +85,7 @@ export const UploadMessage = styled.div`
     align-items: center;
     width: 100%;
     gap: 0.5rem;
+    transition: none;
     color: ${props => uploadMessageColors[props.type || 'default']};
 
     >p {

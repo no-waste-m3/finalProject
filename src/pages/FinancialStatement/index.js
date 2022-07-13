@@ -12,8 +12,8 @@ import BarChartComponent from '../../components/BarChart';
 
 export const FinancialStatement = () => {
 
-  const { sales, getSales } = useContext(SalesContext)
-  const { productsUser, getProductsUser } = useContext(ProductsContext);
+  const { sales, getSales, totalMoney, salesTotal, productsCount } = useContext(SalesContext)
+  const {  getProductsUser } = useContext(ProductsContext);
 
   const [dataMonths, setDataMonths] = useState([])
 
@@ -74,15 +74,8 @@ export const FinancialStatement = () => {
       return acc+(sale.precoDeRevenda - sale.precoDeCusto)
     } return acc
   }, 0)
-  //const desconto =
 
-  const salesTotal = sales.length
-  const totalMoney = sales.reduce((acc,sale) => {            
-    if(sale.precoDeRevenda) {
-      return acc+sale.precoDeRevenda
-    } return acc
-  }, 0)
-  const products = productsUser.length
+
   const kgTotal = (sales.reduce((acc,sale) => acc+sale.pesoAprox, 0) * 2.8).toFixed(1)
   
     return(
@@ -125,7 +118,7 @@ export const FinancialStatement = () => {
                 weight={"400"}
                 padding={"0"}
               >
-                {products}
+                {productsCount}
               </Title>
             </div>
 

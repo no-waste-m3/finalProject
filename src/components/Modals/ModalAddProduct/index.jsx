@@ -21,7 +21,7 @@ export const ModalAddProduct = ({ setIsVisible }) => {
     precoDeCusto: yup.string().required("Required Field"),
     precoDeRevenda: yup.string().required("Required Field"),
     precoOriginal: yup.string().required("Required Field"),
-    pesoEstimado: yup.string().required("Required Field"),
+    pesoAprox: yup.string().required("Required Field"),
   });
 
   const category = [
@@ -40,7 +40,6 @@ export const ModalAddProduct = ({ setIsVisible }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmitFunction = (data) => {
-    console.log("passou");
     postProduct(data);
     setIsVisible(false);
     getProductsUser();
@@ -50,14 +49,14 @@ export const ModalAddProduct = ({ setIsVisible }) => {
     <Modal typeModal="container">
       <Modal
         typeModal="primary"
-        backgroundColor="var(--white-0)"
-        padding="2.5rem"
+        backgroundColor="var(--background)"
+        padding="1.5rem"
         borderRadius="14px"
         mobile="yes"
       >
         <StyledForm onSubmit={handleSubmit(onSubmitFunction)}>
           <div>
-            <Title tag="h1" titleSize="title1">
+            <Title color={'var(--invert)'} tag="h1" titleSize="title1">
               Adicionar Novo Produto
             </Title>
           </div>
@@ -120,12 +119,12 @@ export const ModalAddProduct = ({ setIsVisible }) => {
             name="precoOriginal"
             error={errors.precoOriginal?.message}
             Field="input"
-            label="Preco Orginal"
+            label="Preco Original"
           />
           <Input
             register={register}
-            name="pesoEstimado"
-            error={errors.pesoEstimado?.message}
+            name="pesoAprox"
+            error={errors.pesoAprox?.message}
             Field="input"
             label="Peso Estimado"
           />

@@ -45,8 +45,8 @@ export const FormRegister = ({ ...rest }) => {
   const [iconInput, setIconInput] = useState();
   const [step, setStep] = useState(0);
   const [stepCounters, setStepCounters] = useState([0, 1, 2]);
-  const [street, setStreet] = useState("");
-  const [district, setDistrict] = useState("");
+  //const [street, setStreet] = useState("");
+  //const [district, setDistrict] = useState("");
   const [typeIdentify, setTypeIdentify] = useState("CPF");
   const [account, setAccount] = useState("");
   const [fileOfInput, setFileOfInput] = useState([])

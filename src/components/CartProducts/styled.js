@@ -6,6 +6,7 @@ export const ProductsContainer = styled.div`
   overflow-y: auto;
   gap: 10px;
   overflow-x: hidden;
+
   ::-webkit-scrollbar {
     width: 3px;
   }
