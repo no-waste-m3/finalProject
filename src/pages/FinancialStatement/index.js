@@ -56,7 +56,7 @@ export const FinancialStatement = () => {
   useEffect(() => {
 
     getdataMonths()
-    console.log(sales)
+    
   }, [sales])
 
 
