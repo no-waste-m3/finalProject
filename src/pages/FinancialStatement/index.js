@@ -56,6 +56,7 @@ export const FinancialStatement = () => {
   useEffect(() => {
 
     getdataMonths()
+    console.log(sales)
   }, [sales])
 
 
@@ -63,17 +64,17 @@ export const FinancialStatement = () => {
   const cost = sales.reduce((acc,sale) => { 
               
     if(sale.precoDeCusto) {
-      return acc+sale.precoDeCusto
+      return acc+Number(sale.precoDeCusto)
     } return acc
   }, 0)
   const lucro = sales.reduce((acc,sale) => {            
     if(sale.precoDeCusto) {
-      return acc+(sale.precoDeRevenda - sale.precoDeCusto)
+      return acc+Number(sale.precoDeRevenda)
     } return acc
   }, 0)
 
 
-  const kgTotal = (sales.reduce((acc,sale) => acc+sale.pesoAprox, 0) * 2.8).toFixed(1)
+  const kgTotal = (sales.reduce((acc,sale) => acc+Number(sale.pesoAprox), 0) * 2.8).toFixed(1)
   
     return(
         <Container>

@@ -26,7 +26,7 @@ export const SalesProvider = ({ children }) => {
   const salesTotal = sales.length
   const totalMoney = sales.reduce((acc,sale) => {            
     if(sale.precoDeRevenda) {
-      return acc+sale.precoDeRevenda
+      return acc+Number(sale.precoDeRevenda)
     } return acc
   }, 0)
   const productsCount = productsUser.length
