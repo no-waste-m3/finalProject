@@ -28,7 +28,7 @@ const NavPages = ({ setAsidePages }) => {
   const register = { name: "Registrar-se", icon: <MdAccountCircle size="20px" /> };
 
 
-  const pageHome = user.account === "seller" ? [dash, balance, stats, logout] : [stats, logout];
+  const pageHome = user.account === "seller" ? [dash, balance, stats, logout] : [stats, logout]
   const pageDash = [balance, stats, logout, home];
   const pageStats = [dash, stats, logout, home];
   const pageAbout = !userToken ? [login, register] : [home, dash, balance, logout];
