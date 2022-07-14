@@ -16,7 +16,7 @@ import { ThemeContext } from "../../providers/Theme";
 
 const NavPages = ({ setAsidePages }) => {
 
-  const { userToken } = useContext(FormContext)
+  const { userToken, user } = useContext(FormContext)
   const location = useLocation();
 
   const home = { name: "Home", icon: <AiFillHome size="20px" /> };
@@ -28,7 +28,7 @@ const NavPages = ({ setAsidePages }) => {
   const register = { name: "Registrar-se", icon: <MdAccountCircle size="20px" /> };
 
 
-  const pageHome = [dash, balance, stats, logout];
+  const pageHome = user.account === "seller" ? [dash, balance, stats, logout] : [stats, logout]
   const pageDash = [balance, stats, logout, home];
   const pageStats = [dash, stats, logout, home];
   const pageAbout = !userToken ? [login, register] : [home, dash, balance, logout];

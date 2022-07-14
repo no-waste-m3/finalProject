@@ -90,6 +90,7 @@ export const Dashboard = () => {
 
       <StyledStoreDiv>
         <div>
+          <div>
           <figure>
             <MdStore />
           </figure>
@@ -103,6 +104,13 @@ export const Dashboard = () => {
           >
             Minha Loja
           </Title>
+          </div>
+          <figure
+            onClick={() => setEditStore(!editStore)}
+            style={{ cursor: "pointer" }}
+          >
+            <FaEdit />
+          </figure>
         </div>
         <div className="name-edit-div">
           <Title
@@ -115,12 +123,6 @@ export const Dashboard = () => {
           >
             {user.info.razaoSocial || user.info.name}
           </Title>
-          <figure
-            onClick={() => setEditStore(!editStore)}
-            style={{ cursor: "pointer" }}
-          >
-            <FaEdit />
-          </figure>
         </div>
       </StyledStoreDiv>
 
