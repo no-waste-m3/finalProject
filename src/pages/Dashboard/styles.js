@@ -65,14 +65,15 @@ export const StyledStoreDiv = styled.div`
 
     grid-area: StyledStoreDiv;
 
-    width: 100%;
+    width: 90%;
 
     div {
-      width: 20rem;
+      width: 100%;
 
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      position: relative;
 
       border-bottom: 0.1rem solid var(--primary-color);
 
@@ -85,6 +86,12 @@ export const StyledStoreDiv = styled.div`
       figure:nth-child(1) {
         color: var(--primary-color);
         font-size: 1.7rem;
+      }
+
+      figure:nth-child(2) {
+        position: absolute;
+        right: 0;
+        font-size: 1.6rem;
       }
     }
 
@@ -105,13 +112,21 @@ export const StyledStoreDiv = styled.div`
       margin-top: 0.5rem;
 
       border: none;
+    }
+  }
 
-      figure {
-        position: fixed;
-        right: 2.2rem;
-        top: 7rem;
+  @media (min-width:450px) {
+    width: 50%;
+  }
+
+  @media (max-width:783px) {
+
+    div {
+      h3 {
+        font-size: 1rem;
       }
     }
+    
   }
 
   @media (min-width: 741px) {
@@ -123,12 +138,15 @@ export const StyledStoreDiv = styled.div`
 
     width: 25%;
 
+
+
     div {
-      width: 100%;
+      width: fit-content;
 
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      position: relative;
 
       gap: 0.5rem;
 
@@ -144,6 +162,13 @@ export const StyledStoreDiv = styled.div`
       }
 
       font-size: 1.2rem;
+
+      
+    }
+
+
+    >div {
+      gap: 1rem;
     }
 
     figure {
@@ -165,13 +190,8 @@ export const StyledStoreDiv = styled.div`
       border: none;
 
       width: 100%;
-      position: relative;
-
-      figure {
-        position: absolute;
-        right: 5rem;
-        top: -2.3rem;
-      }
+      
+    
     }
   }
 `;
