@@ -1,8 +1,16 @@
-# NoWaste
+# <img alt="logo-NoWaste" src="https://res.cloudinary.com/drcattrj1/image/upload/c_scale,w_1135/v1658970390/LogoWhite_riq3nj.png"/>
 
 #### <a href="https://final-project-blush.vercel.app/">Clique para ver o projeto</a>
 
 #### <a href="https://www.linkedin.com/posts/ana-vit%C3%B3ria-vital-cisne_todos-sabemos-que-o-desperd%C3%ADcio-de-alimentos-activity-6953841655347044352-4WU5?utm_source=linkedin_share&utm_medium=member_desktop_web">Publicação no linkedin</a>
+
+<img alin="left" src="https://res.cloudinary.com/drcattrj1/image/upload/c_scale,w_444/v1658970793/Captura_de_tela_de_2022-07-27_22-00-35_cdphwk.png"/>
+<img align="right" src="https://res.cloudinary.com/drcattrj1/image/upload/c_scale,w_243/v1658970955/Captura_de_tela_de_2022-07-27_22-01-47_z3ygka.png"/>
+<img align="right"src="https://res.cloudinary.com/drcattrj1/image/upload/c_scale,w_608/v1658971096/Captura_de_tela_de_2022-07-27_22-00-51_f0a7vg.png"/>
+
+
+
+A No Waste nasceu da ideia de evitar perdas e desperdícios por parte dos restaurantes, de oferecer comida de qualidade por preços baixos e de agregar nosso trabalho ao de ONGs e projetos que levam, através da comida, um pouco de dignidade e a acolhimento a populações em situação de vulnerabilidade social.
 
 Todos sabemos que o desperdício de alimentos no mundo é algo preocupante, que o que é desperdiçado em centros de produção, distribuição e restaurantes poderia, se devidamente selecionado e aproveitado, chegar muito perto de acabar com a fome no mundo, além de ter um grande impacto na emissão de CO2. A partir desse pensamento surgiu a ideia do projeto NoWaste.
 Qual a solução que a aplicação traz ?
